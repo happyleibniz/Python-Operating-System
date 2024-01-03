@@ -1,0 +1,7 @@
+[LOGS]
+[2023-09-12 19:28:59,006] [MainProcess/MainThread/INFO] (minecraft.py/__init__) System Info: Python: CPython 3.11.4
+System: AMD64 Windows 10 10.0.22621
+CPU: AMD64 Family 25 Model 68 Stepping 1, AuthenticAMD
+Display: AMD Radeon(TM) Graphics 
+(4, 6)
+[2023-09-12 19:28:59,006] [MainProcess/MainThread/INFO] (minecraft.py/__init__) Compiling Shaders
