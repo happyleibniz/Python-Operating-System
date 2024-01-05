@@ -5,7 +5,7 @@
 <div align="center">
 <p align="center">
     
-  ![img1](docs/img/desktop.png)
+  ![img1](docs/img/desktop(2).png)
   
   <h3 align="center">PythonOS</h3>   
   <a href="https://githubfast.com/happyleibniz/Python-Operating-System/releases">下载其他版本</a>
@@ -61,9 +61,9 @@
 
 ## 效果
 
-![img2](docs/img/suopin.png)
+![img2](docs/img/desktop(2).png)
 
-![img3](docs/img/desktop.png)
+![img3](docs/img/movie_pro1.png)
 
 ## 快速开始
 
