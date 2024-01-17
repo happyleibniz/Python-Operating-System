@@ -105,9 +105,9 @@ python main.py
 ## 许可证
 该项目采用 [MIT](https://githubfast.com/Github-Huangshaoqi/PythonOS?tab=MIT-1-ov-file)协议 ![license](https://img.shields.io/badge/license-MIT-blue)
 
-- :copyright:  Github-Huangshaoqi 2023
+- :copyright:  Github-Huangshaoqi 2024
 
-- :copyright:  [happyleibniz](https://githubfast.com/happyleibniz) 2023
+- :copyright:  [happyleibniz](https://githubfast.com/happyleibniz) 2024
 
 - ##alpha v1.0版本
 - :copyright:  [happyleibniz](https://githubfast.com/happyleibniz) 2023
