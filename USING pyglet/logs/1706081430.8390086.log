@@ -1,0 +1,448 @@
+[LOGS]
+[2024-01-24 15:30:31,006] [MainProcess/MainThread/INFO] (shell_startup.py/update) Clearing background
+[2024-01-24 15:30:31,006] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Sprites...Drawing Background Sprites
+[2024-01-24 15:30:31,006] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Windows Spites...Drawing Window Sprites
+[2024-01-24 15:30:31,024] [MainProcess/MainThread/INFO] (shell_startup.py/update) Clearing background
+[2024-01-24 15:30:31,024] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Sprites...Drawing Background Sprites
+[2024-01-24 15:30:31,026] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Windows Spites...Drawing Window Sprites
+[2024-01-24 15:30:31,042] [MainProcess/MainThread/INFO] (shell_startup.py/update) Clearing background
+[2024-01-24 15:30:31,042] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Sprites...Drawing Background Sprites
+[2024-01-24 15:30:31,042] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Windows Spites...Drawing Window Sprites
+[2024-01-24 15:30:31,062] [MainProcess/MainThread/INFO] (shell_startup.py/update) Clearing background
+[2024-01-24 15:30:31,062] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Sprites...Drawing Background Sprites
+[2024-01-24 15:30:31,062] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Windows Spites...Drawing Window Sprites
+[2024-01-24 15:30:31,079] [MainProcess/MainThread/INFO] (shell_startup.py/update) Clearing background
+[2024-01-24 15:30:31,079] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Sprites...Drawing Background Sprites
+[2024-01-24 15:30:31,079] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Windows Spites...Drawing Window Sprites
+[2024-01-24 15:30:31,097] [MainProcess/MainThread/INFO] (shell_startup.py/update) Clearing background
+[2024-01-24 15:30:31,097] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Sprites...Drawing Background Sprites
+[2024-01-24 15:30:31,097] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Windows Spites...Drawing Window Sprites
+[2024-01-24 15:30:31,116] [MainProcess/MainThread/INFO] (shell_startup.py/update) Clearing background
+[2024-01-24 15:30:31,116] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Sprites...Drawing Background Sprites
+[2024-01-24 15:30:31,116] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Windows Spites...Drawing Window Sprites
+[2024-01-24 15:30:31,134] [MainProcess/MainThread/INFO] (shell_startup.py/update) Clearing background
+[2024-01-24 15:30:31,134] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Sprites...Drawing Background Sprites
+[2024-01-24 15:30:31,134] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Windows Spites...Drawing Window Sprites
+[2024-01-24 15:30:31,151] [MainProcess/MainThread/INFO] (shell_startup.py/update) Clearing background
+[2024-01-24 15:30:31,151] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Sprites...Drawing Background Sprites
+[2024-01-24 15:30:31,151] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Windows Spites...Drawing Window Sprites
+[2024-01-24 15:30:31,169] [MainProcess/MainThread/INFO] (shell_startup.py/update) Clearing background
+[2024-01-24 15:30:31,169] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Sprites...Drawing Background Sprites
+[2024-01-24 15:30:31,169] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Windows Spites...Drawing Window Sprites
+[2024-01-24 15:30:31,188] [MainProcess/MainThread/INFO] (shell_startup.py/update) Clearing background
+[2024-01-24 15:30:31,188] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Sprites...Drawing Background Sprites
+[2024-01-24 15:30:31,188] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Windows Spites...Drawing Window Sprites
+[2024-01-24 15:30:31,205] [MainProcess/MainThread/INFO] (shell_startup.py/update) Clearing background
+[2024-01-24 15:30:31,206] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Sprites...Drawing Background Sprites
+[2024-01-24 15:30:31,206] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Windows Spites...Drawing Window Sprites
+[2024-01-24 15:30:31,225] [MainProcess/MainThread/INFO] (shell_startup.py/update) Clearing background
+[2024-01-24 15:30:31,225] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Sprites...Drawing Background Sprites
+[2024-01-24 15:30:31,225] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Windows Spites...Drawing Window Sprites
+[2024-01-24 15:30:31,242] [MainProcess/MainThread/INFO] (shell_startup.py/update) Clearing background
+[2024-01-24 15:30:31,242] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Sprites...Drawing Background Sprites
+[2024-01-24 15:30:31,242] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Windows Spites...Drawing Window Sprites
+[2024-01-24 15:30:31,260] [MainProcess/MainThread/INFO] (shell_startup.py/update) Clearing background
+[2024-01-24 15:30:31,260] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Sprites...Drawing Background Sprites
+[2024-01-24 15:30:31,260] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Windows Spites...Drawing Window Sprites
+[2024-01-24 15:30:31,279] [MainProcess/MainThread/INFO] (shell_startup.py/update) Clearing background
+[2024-01-24 15:30:31,279] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Sprites...Drawing Background Sprites
+[2024-01-24 15:30:31,279] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Windows Spites...Drawing Window Sprites
+[2024-01-24 15:30:31,297] [MainProcess/MainThread/INFO] (shell_startup.py/update) Clearing background
+[2024-01-24 15:30:31,297] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Sprites...Drawing Background Sprites
+[2024-01-24 15:30:31,297] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Windows Spites...Drawing Window Sprites
+[2024-01-24 15:30:31,315] [MainProcess/MainThread/INFO] (shell_startup.py/update) Clearing background
+[2024-01-24 15:30:31,315] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Sprites...Drawing Background Sprites
+[2024-01-24 15:30:31,315] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Windows Spites...Drawing Window Sprites
+[2024-01-24 15:30:31,332] [MainProcess/MainThread/INFO] (shell_startup.py/update) Clearing background
+[2024-01-24 15:30:31,332] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Sprites...Drawing Background Sprites
+[2024-01-24 15:30:31,333] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Windows Spites...Drawing Window Sprites
+[2024-01-24 15:30:31,351] [MainProcess/MainThread/INFO] (shell_startup.py/update) Clearing background
+[2024-01-24 15:30:31,351] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Sprites...Drawing Background Sprites
+[2024-01-24 15:30:31,351] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Windows Spites...Drawing Window Sprites
+[2024-01-24 15:30:31,368] [MainProcess/MainThread/INFO] (shell_startup.py/update) Clearing background
+[2024-01-24 15:30:31,369] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Sprites...Drawing Background Sprites
+[2024-01-24 15:30:31,369] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Windows Spites...Drawing Window Sprites
+[2024-01-24 15:30:31,386] [MainProcess/MainThread/INFO] (shell_startup.py/update) Clearing background
+[2024-01-24 15:30:31,386] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Sprites...Drawing Background Sprites
+[2024-01-24 15:30:31,386] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Windows Spites...Drawing Window Sprites
+[2024-01-24 15:30:31,406] [MainProcess/MainThread/INFO] (shell_startup.py/update) Clearing background
+[2024-01-24 15:30:31,406] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Sprites...Drawing Background Sprites
+[2024-01-24 15:30:31,406] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Windows Spites...Drawing Window Sprites
+[2024-01-24 15:30:31,424] [MainProcess/MainThread/INFO] (shell_startup.py/update) Clearing background
+[2024-01-24 15:30:31,424] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Sprites...Drawing Background Sprites
+[2024-01-24 15:30:31,424] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Windows Spites...Drawing Window Sprites
+[2024-01-24 15:30:31,443] [MainProcess/MainThread/INFO] (shell_startup.py/update) Clearing background
+[2024-01-24 15:30:31,443] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Sprites...Drawing Background Sprites
+[2024-01-24 15:30:31,443] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Windows Spites...Drawing Window Sprites
+[2024-01-24 15:30:31,461] [MainProcess/MainThread/INFO] (shell_startup.py/update) Clearing background
+[2024-01-24 15:30:31,461] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Sprites...Drawing Background Sprites
+[2024-01-24 15:30:31,461] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Windows Spites...Drawing Window Sprites
+[2024-01-24 15:30:31,479] [MainProcess/MainThread/INFO] (shell_startup.py/update) Clearing background
+[2024-01-24 15:30:31,479] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Sprites...Drawing Background Sprites
+[2024-01-24 15:30:31,479] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Windows Spites...Drawing Window Sprites
+[2024-01-24 15:30:31,497] [MainProcess/MainThread/INFO] (shell_startup.py/update) Clearing background
+[2024-01-24 15:30:31,498] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Sprites...Drawing Background Sprites
+[2024-01-24 15:30:31,498] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Windows Spites...Drawing Window Sprites
+[2024-01-24 15:30:31,516] [MainProcess/MainThread/INFO] (shell_startup.py/update) Clearing background
+[2024-01-24 15:30:31,516] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Sprites...Drawing Background Sprites
+[2024-01-24 15:30:31,516] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Windows Spites...Drawing Window Sprites
+[2024-01-24 15:30:31,534] [MainProcess/MainThread/INFO] (shell_startup.py/update) Clearing background
+[2024-01-24 15:30:31,534] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Sprites...Drawing Background Sprites
+[2024-01-24 15:30:31,534] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Windows Spites...Drawing Window Sprites
+[2024-01-24 15:30:31,551] [MainProcess/MainThread/INFO] (shell_startup.py/update) Clearing background
+[2024-01-24 15:30:31,551] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Sprites...Drawing Background Sprites
+[2024-01-24 15:30:31,551] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Windows Spites...Drawing Window Sprites
+[2024-01-24 15:30:31,569] [MainProcess/MainThread/INFO] (shell_startup.py/update) Clearing background
+[2024-01-24 15:30:31,569] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Sprites...Drawing Background Sprites
+[2024-01-24 15:30:31,569] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Windows Spites...Drawing Window Sprites
+[2024-01-24 15:30:31,587] [MainProcess/MainThread/INFO] (shell_startup.py/update) Clearing background
+[2024-01-24 15:30:31,588] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Sprites...Drawing Background Sprites
+[2024-01-24 15:30:31,588] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Windows Spites...Drawing Window Sprites
+[2024-01-24 15:30:31,606] [MainProcess/MainThread/INFO] (shell_startup.py/update) Clearing background
+[2024-01-24 15:30:31,606] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Sprites...Drawing Background Sprites
+[2024-01-24 15:30:31,607] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Windows Spites...Drawing Window Sprites
+[2024-01-24 15:30:31,623] [MainProcess/MainThread/INFO] (shell_startup.py/update) Clearing background
+[2024-01-24 15:30:31,623] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Sprites...Drawing Background Sprites
+[2024-01-24 15:30:31,623] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Windows Spites...Drawing Window Sprites
+[2024-01-24 15:30:31,643] [MainProcess/MainThread/INFO] (shell_startup.py/update) Clearing background
+[2024-01-24 15:30:31,644] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Sprites...Drawing Background Sprites
+[2024-01-24 15:30:31,644] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Windows Spites...Drawing Window Sprites
+[2024-01-24 15:30:31,661] [MainProcess/MainThread/INFO] (shell_startup.py/update) Clearing background
+[2024-01-24 15:30:31,662] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Sprites...Drawing Background Sprites
+[2024-01-24 15:30:31,662] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Windows Spites...Drawing Window Sprites
+[2024-01-24 15:30:31,679] [MainProcess/MainThread/INFO] (shell_startup.py/update) Clearing background
+[2024-01-24 15:30:31,680] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Sprites...Drawing Background Sprites
+[2024-01-24 15:30:31,680] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Windows Spites...Drawing Window Sprites
+[2024-01-24 15:30:31,698] [MainProcess/MainThread/INFO] (shell_startup.py/update) Clearing background
+[2024-01-24 15:30:31,698] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Sprites...Drawing Background Sprites
+[2024-01-24 15:30:31,698] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Windows Spites...Drawing Window Sprites
+[2024-01-24 15:30:31,715] [MainProcess/MainThread/INFO] (shell_startup.py/update) Clearing background
+[2024-01-24 15:30:31,716] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Sprites...Drawing Background Sprites
+[2024-01-24 15:30:31,716] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Windows Spites...Drawing Window Sprites
+[2024-01-24 15:30:31,734] [MainProcess/MainThread/INFO] (shell_startup.py/update) Clearing background
+[2024-01-24 15:30:31,734] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Sprites...Drawing Background Sprites
+[2024-01-24 15:30:31,734] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Windows Spites...Drawing Window Sprites
+[2024-01-24 15:30:31,751] [MainProcess/MainThread/INFO] (shell_startup.py/update) Clearing background
+[2024-01-24 15:30:31,751] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Sprites...Drawing Background Sprites
+[2024-01-24 15:30:31,751] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Windows Spites...Drawing Window Sprites
+[2024-01-24 15:30:31,769] [MainProcess/MainThread/INFO] (shell_startup.py/update) Clearing background
+[2024-01-24 15:30:31,769] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Sprites...Drawing Background Sprites
+[2024-01-24 15:30:31,769] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Windows Spites...Drawing Window Sprites
+[2024-01-24 15:30:31,787] [MainProcess/MainThread/INFO] (shell_startup.py/update) Clearing background
+[2024-01-24 15:30:31,788] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Sprites...Drawing Background Sprites
+[2024-01-24 15:30:31,788] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Windows Spites...Drawing Window Sprites
+[2024-01-24 15:30:31,806] [MainProcess/MainThread/INFO] (shell_startup.py/update) Clearing background
+[2024-01-24 15:30:31,806] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Sprites...Drawing Background Sprites
+[2024-01-24 15:30:31,806] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Windows Spites...Drawing Window Sprites
+[2024-01-24 15:30:31,824] [MainProcess/MainThread/INFO] (shell_startup.py/update) Clearing background
+[2024-01-24 15:30:31,824] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Sprites...Drawing Background Sprites
+[2024-01-24 15:30:31,824] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Windows Spites...Drawing Window Sprites
+[2024-01-24 15:30:31,843] [MainProcess/MainThread/INFO] (shell_startup.py/update) Clearing background
+[2024-01-24 15:30:31,843] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Sprites...Drawing Background Sprites
+[2024-01-24 15:30:31,843] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Windows Spites...Drawing Window Sprites
+[2024-01-24 15:30:31,862] [MainProcess/MainThread/INFO] (shell_startup.py/update) Clearing background
+[2024-01-24 15:30:31,862] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Sprites...Drawing Background Sprites
+[2024-01-24 15:30:31,863] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Windows Spites...Drawing Window Sprites
+[2024-01-24 15:30:31,879] [MainProcess/MainThread/INFO] (shell_startup.py/update) Clearing background
+[2024-01-24 15:30:31,880] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Sprites...Drawing Background Sprites
+[2024-01-24 15:30:31,880] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Windows Spites...Drawing Window Sprites
+[2024-01-24 15:30:31,898] [MainProcess/MainThread/INFO] (shell_startup.py/update) Clearing background
+[2024-01-24 15:30:31,898] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Sprites...Drawing Background Sprites
+[2024-01-24 15:30:31,898] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Windows Spites...Drawing Window Sprites
+[2024-01-24 15:30:31,916] [MainProcess/MainThread/INFO] (shell_startup.py/update) Clearing background
+[2024-01-24 15:30:31,916] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Sprites...Drawing Background Sprites
+[2024-01-24 15:30:31,916] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Windows Spites...Drawing Window Sprites
+[2024-01-24 15:30:31,934] [MainProcess/MainThread/INFO] (shell_startup.py/update) Clearing background
+[2024-01-24 15:30:31,934] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Sprites...Drawing Background Sprites
+[2024-01-24 15:30:31,934] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Windows Spites...Drawing Window Sprites
+[2024-01-24 15:30:31,952] [MainProcess/MainThread/INFO] (shell_startup.py/update) Clearing background
+[2024-01-24 15:30:31,952] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Sprites...Drawing Background Sprites
+[2024-01-24 15:30:31,952] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Windows Spites...Drawing Window Sprites
+[2024-01-24 15:30:31,970] [MainProcess/MainThread/INFO] (shell_startup.py/update) Clearing background
+[2024-01-24 15:30:31,970] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Sprites...Drawing Background Sprites
+[2024-01-24 15:30:31,970] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Windows Spites...Drawing Window Sprites
+[2024-01-24 15:30:31,988] [MainProcess/MainThread/INFO] (shell_startup.py/update) Clearing background
+[2024-01-24 15:30:31,988] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Sprites...Drawing Background Sprites
+[2024-01-24 15:30:31,988] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Windows Spites...Drawing Window Sprites
+[2024-01-24 15:30:32,006] [MainProcess/MainThread/INFO] (shell_startup.py/update) Clearing background
+[2024-01-24 15:30:32,006] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Sprites...Drawing Background Sprites
+[2024-01-24 15:30:32,006] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Windows Spites...Drawing Window Sprites
+[2024-01-24 15:30:32,024] [MainProcess/MainThread/INFO] (shell_startup.py/update) Clearing background
+[2024-01-24 15:30:32,024] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Sprites...Drawing Background Sprites
+[2024-01-24 15:30:32,024] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Windows Spites...Drawing Window Sprites
+[2024-01-24 15:30:32,042] [MainProcess/MainThread/INFO] (shell_startup.py/update) Clearing background
+[2024-01-24 15:30:32,042] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Sprites...Drawing Background Sprites
+[2024-01-24 15:30:32,043] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Windows Spites...Drawing Window Sprites
+[2024-01-24 15:30:32,060] [MainProcess/MainThread/INFO] (shell_startup.py/update) Clearing background
+[2024-01-24 15:30:32,060] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Sprites...Drawing Background Sprites
+[2024-01-24 15:30:32,061] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Windows Spites...Drawing Window Sprites
+[2024-01-24 15:30:32,079] [MainProcess/MainThread/INFO] (shell_startup.py/update) Clearing background
+[2024-01-24 15:30:32,079] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Sprites...Drawing Background Sprites
+[2024-01-24 15:30:32,079] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Windows Spites...Drawing Window Sprites
+[2024-01-24 15:30:32,098] [MainProcess/MainThread/INFO] (shell_startup.py/update) Clearing background
+[2024-01-24 15:30:32,098] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Sprites...Drawing Background Sprites
+[2024-01-24 15:30:32,098] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Windows Spites...Drawing Window Sprites
+[2024-01-24 15:30:32,116] [MainProcess/MainThread/INFO] (shell_startup.py/update) Clearing background
+[2024-01-24 15:30:32,116] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Sprites...Drawing Background Sprites
+[2024-01-24 15:30:32,117] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Windows Spites...Drawing Window Sprites
+[2024-01-24 15:30:32,134] [MainProcess/MainThread/INFO] (shell_startup.py/update) Clearing background
+[2024-01-24 15:30:32,135] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Sprites...Drawing Background Sprites
+[2024-01-24 15:30:32,135] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Windows Spites...Drawing Window Sprites
+[2024-01-24 15:30:32,153] [MainProcess/MainThread/INFO] (shell_startup.py/update) Clearing background
+[2024-01-24 15:30:32,153] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Sprites...Drawing Background Sprites
+[2024-01-24 15:30:32,153] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Windows Spites...Drawing Window Sprites
+[2024-01-24 15:30:32,170] [MainProcess/MainThread/INFO] (shell_startup.py/update) Clearing background
+[2024-01-24 15:30:32,171] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Sprites...Drawing Background Sprites
+[2024-01-24 15:30:32,171] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Windows Spites...Drawing Window Sprites
+[2024-01-24 15:30:32,189] [MainProcess/MainThread/INFO] (shell_startup.py/update) Clearing background
+[2024-01-24 15:30:32,189] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Sprites...Drawing Background Sprites
+[2024-01-24 15:30:32,189] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Windows Spites...Drawing Window Sprites
+[2024-01-24 15:30:32,207] [MainProcess/MainThread/INFO] (shell_startup.py/update) Clearing background
+[2024-01-24 15:30:32,207] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Sprites...Drawing Background Sprites
+[2024-01-24 15:30:32,207] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Windows Spites...Drawing Window Sprites
+[2024-01-24 15:30:32,225] [MainProcess/MainThread/INFO] (shell_startup.py/update) Clearing background
+[2024-01-24 15:30:32,225] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Sprites...Drawing Background Sprites
+[2024-01-24 15:30:32,225] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Windows Spites...Drawing Window Sprites
+[2024-01-24 15:30:32,243] [MainProcess/MainThread/INFO] (shell_startup.py/update) Clearing background
+[2024-01-24 15:30:32,243] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Sprites...Drawing Background Sprites
+[2024-01-24 15:30:32,244] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Windows Spites...Drawing Window Sprites
+[2024-01-24 15:30:32,261] [MainProcess/MainThread/INFO] (shell_startup.py/update) Clearing background
+[2024-01-24 15:30:32,261] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Sprites...Drawing Background Sprites
+[2024-01-24 15:30:32,262] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Windows Spites...Drawing Window Sprites
+[2024-01-24 15:30:32,279] [MainProcess/MainThread/INFO] (shell_startup.py/update) Clearing background
+[2024-01-24 15:30:32,280] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Sprites...Drawing Background Sprites
+[2024-01-24 15:30:32,280] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Windows Spites...Drawing Window Sprites
+[2024-01-24 15:30:32,298] [MainProcess/MainThread/INFO] (shell_startup.py/update) Clearing background
+[2024-01-24 15:30:32,299] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Sprites...Drawing Background Sprites
+[2024-01-24 15:30:32,299] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Windows Spites...Drawing Window Sprites
+[2024-01-24 15:30:32,316] [MainProcess/MainThread/INFO] (shell_startup.py/update) Clearing background
+[2024-01-24 15:30:32,317] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Sprites...Drawing Background Sprites
+[2024-01-24 15:30:32,317] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Windows Spites...Drawing Window Sprites
+[2024-01-24 15:30:32,335] [MainProcess/MainThread/INFO] (shell_startup.py/update) Clearing background
+[2024-01-24 15:30:32,335] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Sprites...Drawing Background Sprites
+[2024-01-24 15:30:32,335] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Windows Spites...Drawing Window Sprites
+[2024-01-24 15:30:32,353] [MainProcess/MainThread/INFO] (shell_startup.py/update) Clearing background
+[2024-01-24 15:30:32,353] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Sprites...Drawing Background Sprites
+[2024-01-24 15:30:32,353] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Windows Spites...Drawing Window Sprites
+[2024-01-24 15:30:32,371] [MainProcess/MainThread/INFO] (shell_startup.py/update) Clearing background
+[2024-01-24 15:30:32,371] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Sprites...Drawing Background Sprites
+[2024-01-24 15:30:32,371] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Windows Spites...Drawing Window Sprites
+[2024-01-24 15:30:32,389] [MainProcess/MainThread/INFO] (shell_startup.py/update) Clearing background
+[2024-01-24 15:30:32,390] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Sprites...Drawing Background Sprites
+[2024-01-24 15:30:32,390] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Windows Spites...Drawing Window Sprites
+[2024-01-24 15:30:32,406] [MainProcess/MainThread/INFO] (shell_startup.py/update) Clearing background
+[2024-01-24 15:30:32,407] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Sprites...Drawing Background Sprites
+[2024-01-24 15:30:32,407] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Windows Spites...Drawing Window Sprites
+[2024-01-24 15:30:32,424] [MainProcess/MainThread/INFO] (shell_startup.py/update) Clearing background
+[2024-01-24 15:30:32,424] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Sprites...Drawing Background Sprites
+[2024-01-24 15:30:32,424] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Windows Spites...Drawing Window Sprites
+[2024-01-24 15:30:32,443] [MainProcess/MainThread/INFO] (shell_startup.py/update) Clearing background
+[2024-01-24 15:30:32,443] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Sprites...Drawing Background Sprites
+[2024-01-24 15:30:32,443] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Windows Spites...Drawing Window Sprites
+[2024-01-24 15:30:32,461] [MainProcess/MainThread/INFO] (shell_startup.py/update) Clearing background
+[2024-01-24 15:30:32,461] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Sprites...Drawing Background Sprites
+[2024-01-24 15:30:32,461] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Windows Spites...Drawing Window Sprites
+[2024-01-24 15:30:32,480] [MainProcess/MainThread/INFO] (shell_startup.py/update) Clearing background
+[2024-01-24 15:30:32,480] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Sprites...Drawing Background Sprites
+[2024-01-24 15:30:32,480] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Windows Spites...Drawing Window Sprites
+[2024-01-24 15:30:32,498] [MainProcess/MainThread/INFO] (shell_startup.py/update) Clearing background
+[2024-01-24 15:30:32,498] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Sprites...Drawing Background Sprites
+[2024-01-24 15:30:32,498] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Windows Spites...Drawing Window Sprites
+[2024-01-24 15:30:32,516] [MainProcess/MainThread/INFO] (shell_startup.py/update) Clearing background
+[2024-01-24 15:30:32,517] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Sprites...Drawing Background Sprites
+[2024-01-24 15:30:32,517] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Windows Spites...Drawing Window Sprites
+[2024-01-24 15:30:32,535] [MainProcess/MainThread/INFO] (shell_startup.py/update) Clearing background
+[2024-01-24 15:30:32,535] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Sprites...Drawing Background Sprites
+[2024-01-24 15:30:32,535] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Windows Spites...Drawing Window Sprites
+[2024-01-24 15:30:32,553] [MainProcess/MainThread/INFO] (shell_startup.py/update) Clearing background
+[2024-01-24 15:30:32,553] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Sprites...Drawing Background Sprites
+[2024-01-24 15:30:32,553] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Windows Spites...Drawing Window Sprites
+[2024-01-24 15:30:32,571] [MainProcess/MainThread/INFO] (shell_startup.py/update) Clearing background
+[2024-01-24 15:30:32,571] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Sprites...Drawing Background Sprites
+[2024-01-24 15:30:32,572] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Windows Spites...Drawing Window Sprites
+[2024-01-24 15:30:32,589] [MainProcess/MainThread/INFO] (shell_startup.py/update) Clearing background
+[2024-01-24 15:30:32,589] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Sprites...Drawing Background Sprites
+[2024-01-24 15:30:32,589] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Windows Spites...Drawing Window Sprites
+[2024-01-24 15:30:32,606] [MainProcess/MainThread/INFO] (shell_startup.py/update) Clearing background
+[2024-01-24 15:30:32,606] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Sprites...Drawing Background Sprites
+[2024-01-24 15:30:32,607] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Windows Spites...Drawing Window Sprites
+[2024-01-24 15:30:32,626] [MainProcess/MainThread/INFO] (shell_startup.py/update) Clearing background
+[2024-01-24 15:30:32,626] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Sprites...Drawing Background Sprites
+[2024-01-24 15:30:32,626] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Windows Spites...Drawing Window Sprites
+[2024-01-24 15:30:32,643] [MainProcess/MainThread/INFO] (shell_startup.py/update) Clearing background
+[2024-01-24 15:30:32,643] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Sprites...Drawing Background Sprites
+[2024-01-24 15:30:32,644] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Windows Spites...Drawing Window Sprites
+[2024-01-24 15:30:32,662] [MainProcess/MainThread/INFO] (shell_startup.py/update) Clearing background
+[2024-01-24 15:30:32,662] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Sprites...Drawing Background Sprites
+[2024-01-24 15:30:32,662] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Windows Spites...Drawing Window Sprites
+[2024-01-24 15:30:32,679] [MainProcess/MainThread/INFO] (shell_startup.py/update) Clearing background
+[2024-01-24 15:30:32,680] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Sprites...Drawing Background Sprites
+[2024-01-24 15:30:32,680] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Windows Spites...Drawing Window Sprites
+[2024-01-24 15:30:32,698] [MainProcess/MainThread/INFO] (shell_startup.py/update) Clearing background
+[2024-01-24 15:30:32,698] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Sprites...Drawing Background Sprites
+[2024-01-24 15:30:32,698] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Windows Spites...Drawing Window Sprites
+[2024-01-24 15:30:32,717] [MainProcess/MainThread/INFO] (shell_startup.py/update) Clearing background
+[2024-01-24 15:30:32,718] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Sprites...Drawing Background Sprites
+[2024-01-24 15:30:32,718] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Windows Spites...Drawing Window Sprites
+[2024-01-24 15:30:32,734] [MainProcess/MainThread/INFO] (shell_startup.py/update) Clearing background
+[2024-01-24 15:30:32,734] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Sprites...Drawing Background Sprites
+[2024-01-24 15:30:32,734] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Windows Spites...Drawing Window Sprites
+[2024-01-24 15:30:32,753] [MainProcess/MainThread/INFO] (shell_startup.py/update) Clearing background
+[2024-01-24 15:30:32,753] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Sprites...Drawing Background Sprites
+[2024-01-24 15:30:32,753] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Windows Spites...Drawing Window Sprites
+[2024-01-24 15:30:32,771] [MainProcess/MainThread/INFO] (shell_startup.py/update) Clearing background
+[2024-01-24 15:30:32,771] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Sprites...Drawing Background Sprites
+[2024-01-24 15:30:32,771] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Windows Spites...Drawing Window Sprites
+[2024-01-24 15:30:32,790] [MainProcess/MainThread/INFO] (shell_startup.py/update) Clearing background
+[2024-01-24 15:30:32,790] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Sprites...Drawing Background Sprites
+[2024-01-24 15:30:32,790] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Windows Spites...Drawing Window Sprites
+[2024-01-24 15:30:32,807] [MainProcess/MainThread/INFO] (shell_startup.py/update) Clearing background
+[2024-01-24 15:30:32,808] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Sprites...Drawing Background Sprites
+[2024-01-24 15:30:32,808] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Windows Spites...Drawing Window Sprites
+[2024-01-24 15:30:32,825] [MainProcess/MainThread/INFO] (shell_startup.py/update) Clearing background
+[2024-01-24 15:30:32,825] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Sprites...Drawing Background Sprites
+[2024-01-24 15:30:32,826] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Windows Spites...Drawing Window Sprites
+[2024-01-24 15:30:32,844] [MainProcess/MainThread/INFO] (shell_startup.py/update) Clearing background
+[2024-01-24 15:30:32,844] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Sprites...Drawing Background Sprites
+[2024-01-24 15:30:32,844] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Windows Spites...Drawing Window Sprites
+[2024-01-24 15:30:32,861] [MainProcess/MainThread/INFO] (shell_startup.py/update) Clearing background
+[2024-01-24 15:30:32,861] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Sprites...Drawing Background Sprites
+[2024-01-24 15:30:32,863] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Windows Spites...Drawing Window Sprites
+[2024-01-24 15:30:32,880] [MainProcess/MainThread/INFO] (shell_startup.py/update) Clearing background
+[2024-01-24 15:30:32,880] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Sprites...Drawing Background Sprites
+[2024-01-24 15:30:32,880] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Windows Spites...Drawing Window Sprites
+[2024-01-24 15:30:32,899] [MainProcess/MainThread/INFO] (shell_startup.py/update) Clearing background
+[2024-01-24 15:30:32,899] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Sprites...Drawing Background Sprites
+[2024-01-24 15:30:32,899] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Windows Spites...Drawing Window Sprites
+[2024-01-24 15:30:32,916] [MainProcess/MainThread/INFO] (shell_startup.py/update) Clearing background
+[2024-01-24 15:30:32,916] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Sprites...Drawing Background Sprites
+[2024-01-24 15:30:32,916] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Windows Spites...Drawing Window Sprites
+[2024-01-24 15:30:32,935] [MainProcess/MainThread/INFO] (shell_startup.py/update) Clearing background
+[2024-01-24 15:30:32,936] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Sprites...Drawing Background Sprites
+[2024-01-24 15:30:32,936] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Windows Spites...Drawing Window Sprites
+[2024-01-24 15:30:32,953] [MainProcess/MainThread/INFO] (shell_startup.py/update) Clearing background
+[2024-01-24 15:30:32,954] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Sprites...Drawing Background Sprites
+[2024-01-24 15:30:32,954] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Windows Spites...Drawing Window Sprites
+[2024-01-24 15:30:32,971] [MainProcess/MainThread/INFO] (shell_startup.py/update) Clearing background
+[2024-01-24 15:30:32,971] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Sprites...Drawing Background Sprites
+[2024-01-24 15:30:32,972] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Windows Spites...Drawing Window Sprites
+[2024-01-24 15:30:32,990] [MainProcess/MainThread/INFO] (shell_startup.py/update) Clearing background
+[2024-01-24 15:30:32,990] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Sprites...Drawing Background Sprites
+[2024-01-24 15:30:32,990] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Windows Spites...Drawing Window Sprites
+[2024-01-24 15:30:33,008] [MainProcess/MainThread/INFO] (shell_startup.py/update) Clearing background
+[2024-01-24 15:30:33,008] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Sprites...Drawing Background Sprites
+[2024-01-24 15:30:33,008] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Windows Spites...Drawing Window Sprites
+[2024-01-24 15:30:33,025] [MainProcess/MainThread/INFO] (shell_startup.py/update) Clearing background
+[2024-01-24 15:30:33,026] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Sprites...Drawing Background Sprites
+[2024-01-24 15:30:33,026] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Windows Spites...Drawing Window Sprites
+[2024-01-24 15:30:33,043] [MainProcess/MainThread/INFO] (shell_startup.py/update) Clearing background
+[2024-01-24 15:30:33,044] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Sprites...Drawing Background Sprites
+[2024-01-24 15:30:33,044] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Windows Spites...Drawing Window Sprites
+[2024-01-24 15:30:33,063] [MainProcess/MainThread/INFO] (shell_startup.py/update) Clearing background
+[2024-01-24 15:30:33,063] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Sprites...Drawing Background Sprites
+[2024-01-24 15:30:33,063] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Windows Spites...Drawing Window Sprites
+[2024-01-24 15:30:33,081] [MainProcess/MainThread/INFO] (shell_startup.py/update) Clearing background
+[2024-01-24 15:30:33,081] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Sprites...Drawing Background Sprites
+[2024-01-24 15:30:33,081] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Windows Spites...Drawing Window Sprites
+[2024-01-24 15:30:33,099] [MainProcess/MainThread/INFO] (shell_startup.py/update) Clearing background
+[2024-01-24 15:30:33,099] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Sprites...Drawing Background Sprites
+[2024-01-24 15:30:33,099] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Windows Spites...Drawing Window Sprites
+[2024-01-24 15:30:33,117] [MainProcess/MainThread/INFO] (shell_startup.py/update) Clearing background
+[2024-01-24 15:30:33,117] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Sprites...Drawing Background Sprites
+[2024-01-24 15:30:33,117] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Windows Spites...Drawing Window Sprites
+[2024-01-24 15:30:33,136] [MainProcess/MainThread/INFO] (shell_startup.py/update) Clearing background
+[2024-01-24 15:30:33,136] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Sprites...Drawing Background Sprites
+[2024-01-24 15:30:33,136] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Windows Spites...Drawing Window Sprites
+[2024-01-24 15:30:33,153] [MainProcess/MainThread/INFO] (shell_startup.py/update) Clearing background
+[2024-01-24 15:30:33,154] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Sprites...Drawing Background Sprites
+[2024-01-24 15:30:33,154] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Windows Spites...Drawing Window Sprites
+[2024-01-24 15:30:33,172] [MainProcess/MainThread/INFO] (shell_startup.py/update) Clearing background
+[2024-01-24 15:30:33,172] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Sprites...Drawing Background Sprites
+[2024-01-24 15:30:33,172] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Windows Spites...Drawing Window Sprites
+[2024-01-24 15:30:33,192] [MainProcess/MainThread/INFO] (shell_startup.py/update) Clearing background
+[2024-01-24 15:30:33,192] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Sprites...Drawing Background Sprites
+[2024-01-24 15:30:33,192] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Windows Spites...Drawing Window Sprites
+[2024-01-24 15:30:33,209] [MainProcess/MainThread/INFO] (shell_startup.py/update) Clearing background
+[2024-01-24 15:30:33,209] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Sprites...Drawing Background Sprites
+[2024-01-24 15:30:33,209] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Windows Spites...Drawing Window Sprites
+[2024-01-24 15:30:33,227] [MainProcess/MainThread/INFO] (shell_startup.py/update) Clearing background
+[2024-01-24 15:30:33,227] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Sprites...Drawing Background Sprites
+[2024-01-24 15:30:33,227] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Windows Spites...Drawing Window Sprites
+[2024-01-24 15:30:33,245] [MainProcess/MainThread/INFO] (shell_startup.py/update) Clearing background
+[2024-01-24 15:30:33,245] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Sprites...Drawing Background Sprites
+[2024-01-24 15:30:33,245] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Windows Spites...Drawing Window Sprites
+[2024-01-24 15:30:33,262] [MainProcess/MainThread/INFO] (shell_startup.py/update) Clearing background
+[2024-01-24 15:30:33,262] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Sprites...Drawing Background Sprites
+[2024-01-24 15:30:33,262] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Windows Spites...Drawing Window Sprites
+[2024-01-24 15:30:33,280] [MainProcess/MainThread/INFO] (shell_startup.py/update) Clearing background
+[2024-01-24 15:30:33,280] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Sprites...Drawing Background Sprites
+[2024-01-24 15:30:33,280] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Windows Spites...Drawing Window Sprites
+[2024-01-24 15:30:33,299] [MainProcess/MainThread/INFO] (shell_startup.py/update) Clearing background
+[2024-01-24 15:30:33,299] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Sprites...Drawing Background Sprites
+[2024-01-24 15:30:33,299] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Windows Spites...Drawing Window Sprites
+[2024-01-24 15:30:33,317] [MainProcess/MainThread/INFO] (shell_startup.py/update) Clearing background
+[2024-01-24 15:30:33,317] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Sprites...Drawing Background Sprites
+[2024-01-24 15:30:33,317] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Windows Spites...Drawing Window Sprites
+[2024-01-24 15:30:33,335] [MainProcess/MainThread/INFO] (shell_startup.py/update) Clearing background
+[2024-01-24 15:30:33,336] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Sprites...Drawing Background Sprites
+[2024-01-24 15:30:33,336] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Windows Spites...Drawing Window Sprites
+[2024-01-24 15:30:33,354] [MainProcess/MainThread/INFO] (shell_startup.py/update) Clearing background
+[2024-01-24 15:30:33,355] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Sprites...Drawing Background Sprites
+[2024-01-24 15:30:33,355] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Windows Spites...Drawing Window Sprites
+[2024-01-24 15:30:33,372] [MainProcess/MainThread/INFO] (shell_startup.py/update) Clearing background
+[2024-01-24 15:30:33,372] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Sprites...Drawing Background Sprites
+[2024-01-24 15:30:33,372] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Windows Spites...Drawing Window Sprites
+[2024-01-24 15:30:33,391] [MainProcess/MainThread/INFO] (shell_startup.py/update) Clearing background
+[2024-01-24 15:30:33,391] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Sprites...Drawing Background Sprites
+[2024-01-24 15:30:33,391] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Windows Spites...Drawing Window Sprites
+[2024-01-24 15:30:33,409] [MainProcess/MainThread/INFO] (shell_startup.py/update) Clearing background
+[2024-01-24 15:30:33,409] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Sprites...Drawing Background Sprites
+[2024-01-24 15:30:33,409] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Windows Spites...Drawing Window Sprites
+[2024-01-24 15:30:33,427] [MainProcess/MainThread/INFO] (shell_startup.py/update) Clearing background
+[2024-01-24 15:30:33,427] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Sprites...Drawing Background Sprites
+[2024-01-24 15:30:33,427] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Windows Spites...Drawing Window Sprites
+[2024-01-24 15:30:33,446] [MainProcess/MainThread/INFO] (shell_startup.py/update) Clearing background
+[2024-01-24 15:30:33,446] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Sprites...Drawing Background Sprites
+[2024-01-24 15:30:33,446] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Windows Spites...Drawing Window Sprites
+[2024-01-24 15:30:33,463] [MainProcess/MainThread/INFO] (shell_startup.py/update) Clearing background
+[2024-01-24 15:30:33,464] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Sprites...Drawing Background Sprites
+[2024-01-24 15:30:33,464] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Windows Spites...Drawing Window Sprites
+[2024-01-24 15:30:33,482] [MainProcess/MainThread/INFO] (shell_startup.py/update) Clearing background
+[2024-01-24 15:30:33,482] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Sprites...Drawing Background Sprites
+[2024-01-24 15:30:33,482] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Windows Spites...Drawing Window Sprites
+[2024-01-24 15:30:33,499] [MainProcess/MainThread/INFO] (shell_startup.py/update) Clearing background
+[2024-01-24 15:30:33,500] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Sprites...Drawing Background Sprites
+[2024-01-24 15:30:33,500] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Windows Spites...Drawing Window Sprites
+[2024-01-24 15:30:33,518] [MainProcess/MainThread/INFO] (shell_startup.py/update) Clearing background
+[2024-01-24 15:30:33,518] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Sprites...Drawing Background Sprites
+[2024-01-24 15:30:33,518] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Windows Spites...Drawing Window Sprites
+[2024-01-24 15:30:33,536] [MainProcess/MainThread/INFO] (shell_startup.py/update) Clearing background
+[2024-01-24 15:30:33,536] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Sprites...Drawing Background Sprites
+[2024-01-24 15:30:33,536] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Windows Spites...Drawing Window Sprites
+[2024-01-24 15:30:33,554] [MainProcess/MainThread/INFO] (shell_startup.py/update) Clearing background
+[2024-01-24 15:30:33,555] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Sprites...Drawing Background Sprites
+[2024-01-24 15:30:33,555] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Windows Spites...Drawing Window Sprites
+[2024-01-24 15:30:33,572] [MainProcess/MainThread/INFO] (shell_startup.py/update) Clearing background
+[2024-01-24 15:30:33,573] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Sprites...Drawing Background Sprites
+[2024-01-24 15:30:33,573] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Windows Spites...Drawing Window Sprites
+[2024-01-24 15:30:33,591] [MainProcess/MainThread/INFO] (shell_startup.py/update) Clearing background
+[2024-01-24 15:30:33,591] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Sprites...Drawing Background Sprites
+[2024-01-24 15:30:33,591] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Windows Spites...Drawing Window Sprites
+[2024-01-24 15:30:33,609] [MainProcess/MainThread/INFO] (shell_startup.py/update) Clearing background
+[2024-01-24 15:30:33,609] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Sprites...Drawing Background Sprites
+[2024-01-24 15:30:33,610] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Windows Spites...Drawing Window Sprites
+[2024-01-24 15:30:33,627] [MainProcess/MainThread/INFO] (shell_startup.py/update) Clearing background
+[2024-01-24 15:30:33,627] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Sprites...Drawing Background Sprites
+[2024-01-24 15:30:33,627] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Windows Spites...Drawing Window Sprites
+[2024-01-24 15:30:33,646] [MainProcess/MainThread/INFO] (shell_startup.py/update) Clearing background
+[2024-01-24 15:30:33,646] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Sprites...Drawing Background Sprites
+[2024-01-24 15:30:33,647] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Windows Spites...Drawing Window Sprites
+[2024-01-24 15:30:33,664] [MainProcess/MainThread/INFO] (shell_startup.py/update) Clearing background
+[2024-01-24 15:30:33,665] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Sprites...Drawing Background Sprites
+[2024-01-24 15:30:33,665] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Windows Spites...Drawing Window Sprites
+[2024-01-24 15:30:33,681] [MainProcess/MainThread/INFO] (shell_startup.py/update) Clearing background
+[2024-01-24 15:30:33,681] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Sprites...Drawing Background Sprites
+[2024-01-24 15:30:33,681] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Windows Spites...Drawing Window Sprites
+[2024-01-24 15:30:33,700] [MainProcess/MainThread/INFO] (shell_startup.py/update) Clearing background
+[2024-01-24 15:30:33,700] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Sprites...Drawing Background Sprites
+[2024-01-24 15:30:33,700] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Windows Spites...Drawing Window Sprites
