@@ -1,6 +1,4 @@
-# Python-Operating-System
-
-# PythonOS
+# PythonOS (Python-Operating-System)
 
 <div align="center">
 <p align="center">
