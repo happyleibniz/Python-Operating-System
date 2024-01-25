@@ -1,0 +1,92 @@
+#   crash report files
+crash_report/
+#   log files
+logs/
+
+# viztracer
+result.json
+
+# pdm files
+.pdm.toml
+__pypackages__
+
+# ruff
+.ruff_cache
+
+# nuitka build
+build/
+.github/workflows/env.ps1
+nuitka-crash-report.xml
+
+# PyCharm file
+.idea/
+# Fleet files
+.fleet/
+# Visual Studio file
+.vs/
+# Visual Studio Code file
+DR.code-workspace
+# Spyder project settings
+.spyderproject
+.spyproject
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+
+# Mac files
+.DS_Store
+
+# C extensions (dr rs)
+*.so
+
+# Distribution / packaging
+.Python
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+sdist/
+var/
+wheels/
+pip-wheel-metadata/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+.pytest_cache/
+
+# Translations
+*.mo
+*.pot
+
+# Environments
+env*
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# github
+# .gitignore
+# .gitattributes

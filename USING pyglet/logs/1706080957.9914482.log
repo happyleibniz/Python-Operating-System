@@ -1,4 +1,0 @@
-[LOGS]
-[2024-01-24 15:22:38,145] [MainProcess/MainThread/INFO] (shell_startup.py/update) Clearing background
-[2024-01-24 15:22:38,146] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Sprites...Drawing Background Sprites
-[2024-01-24 15:22:38,146] [MainProcess/MainThread/INFO] (shell_startup.py/update) Creating Windows Spites...Drawing Window Sprites

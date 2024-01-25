@@ -8,12 +8,12 @@
   ![img1](docs/img/desktop.png)
   
   <h3 align="center">PythonOS</h3>   
-  <a href="https://githubfast.com/happyleibniz/Python-Operating-System/releases">下载其他版本</a>
+  <a href="https://github.com/happyleibniz/Python-Operating-System/releases">下载其他版本</a>
     ·
-  <a href="https://githubfast.com/Github-Huangshaoqi/PythonOS/issues">报告Bug</a>
-  <a href="https://githubfast.com/happyleibniz/Python-Operating-System/issues">报告Bug2</a>
+  <a href="https://github.com/Github-Huangshaoqi/PythonOS/issues">报告Bug</a>
+  <a href="https://github.com/happyleibniz/Python-Operating-System/issues">报告Bug2</a>
     ·
-  <a href="https://githubfast.com/Github-Huangshaoqi/PythonOS/issues">提出新功能</a>
+  <a href="https://github.com/Github-Huangshaoqi/PythonOS/issues">提出新功能</a>
 </p>
 </div>
 
@@ -49,15 +49,19 @@
 
 ## 目录
 
-- [概述](#概述)
-- [效果](#效果)
-- [快速开始](#快速开始)
-  - [环境要求](#环境要求)
-  - [安装依赖](#安装依赖)
-  - [运行](#运行)
-- [项目结构](#项目结构)
-- [贡献](#贡献)
-- [许可证](#许可证)
+- [Python-Operating-System](#python-operating-system)
+- [PythonOS](#pythonos)
+  - [概述](#概述)
+  - [目录](#目录)
+  - [效果](#效果)
+  - [快速开始](#快速开始)
+    - [环境要求](#环境要求)
+    - [安装依赖](#安装依赖)
+    - [运行](#运行)
+  - [项目结构](#项目结构)
+  - [贡献](#贡献)
+  - [许可证](#许可证)
+  - [alpha v1.0版本](#alpha-v10版本)
 
 ## 效果
 
@@ -76,7 +80,7 @@
 ### 安装依赖
 
 ```bash
-pip install pygame
+pip install pyglet
 pip install psutil
 pip install easygui
 pip install pil
@@ -92,22 +96,26 @@ python main.py
 
 
 ## 项目结构
+
 > - `font/`:字体文件夹 :capital_abcd:
 > - `images/`:图片文件夹 :flower_playing_cards:
 > - `software/`:系统应用文件夹 :computer:
 >   - `code/`:用于存储exe应用的源代码文件夹 :computer:
 > - `system/`:用于存放系统设置变量或其他配置文件的文件夹 :computer:
-> - `Disk/`:虚拟磁盘文件夹 :floppy_disk:
+> - `core/`:虚拟磁盘文件夹 :floppy_disk:
 
 ## 贡献
-你可以[fork](https://githubfast.com/Github-Huangshaoqi/PythonOS/fork)项目到你的仓库更改，然后pull过来 :blush: :tada:
+
+你可以[fork](https://github.com/Github-Huangshaoqi/PythonOS/fork)项目到你的仓库更改，然后pull过来 :blush: :tada:
 
 ## 许可证
-该项目采用 [MIT](https://githubfast.com/Github-Huangshaoqi/PythonOS?tab=MIT-1-ov-file)协议 ![license](https://img.shields.io/badge/license-MIT-blue)
+
+该项目采用 [MIT](https://github.com/Github-Huangshaoqi/PythonOS?tab=MIT-1-ov-file)协议 ![license](https://img.shields.io/badge/license-MIT-blue)
 
 - :copyright:  Github-Huangshaoqi 2023
 
-- :copyright:  [happyleibniz](https://githubfast.com/happyleibniz) 2023
+- :copyright:  [happyleibniz](https://github.com/happyleibniz) 2023
 
-- ##alpha v1.0版本
-- :copyright:  [happyleibniz](https://githubfast.com/happyleibniz) 2023
+## alpha v1.0版本
+
+- :copyright:  [happyleibniz](https://github.com/happyleibniz) 2023
