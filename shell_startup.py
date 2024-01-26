@@ -45,11 +45,11 @@ class Initialization(pyglet.window.Window):
             x=self.width / 2.014,
             y=self.height / 2.3
         )
-        animation = pyglet.image.load_animation("core/assets/PythonOS/images/startup/startup.gif")
+        self.animation = pyglet.image.load_animation("core/assets/PythonOS/images/startup/startup.gif")
         bin = pyglet.image.atlas.TextureBin()
-        animation.add_to_texture_bin(bin)
+        self.animation.add_to_texture_bin(bin)
         self.init_gif_sprite = pyglet.sprite.Sprite(
-            img=animation,
+            img=self.animation,
             x=self.width / 2.3,
             y=self.height / 30,
             batch=self.main_batch,
@@ -74,21 +74,16 @@ class Initialization(pyglet.window.Window):
             self.WindowsLogoRightUp_sprite.draw()
             self.WindowsLogoLeftDown_sprite.draw()
             self.WindowsLogoRightDown_sprite.draw()
-            try:
-                self.startuplist[self.crraima].draw()
-                self.crraima = (self.crraima + 1) % len(self.startuplist)
-                if self.crraima == 1:  # Check if one loop is completed
-                    self.loop_counter += 1
-                    if self.loop_counter >= 2:  # Check if two loops are completed
-                        self.ANIMATION_STARTUP_COMPLETED = True
-            except:
-                pass
-        else:
+            pyglet.clock.schedule_once(self.delayfunc1,3.0)
 
+        else:
+            # Remove the sprites when animation is completed
+            self.clear()
             pyglet.clock.schedule_interval(
                 self.LoggingGUI, 1 / 60
             )
-
+    def delayfunc1(self,delay_time):
+        self.ANIMATION_STARTUP_COMPLETED=True
     def on_mouse_motion(self, x, y, dx, dy):
         # Now you have access to the mouse coordinates
         self.MOUSE_X, self.MOUSE_Y = x, y
