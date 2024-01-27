@@ -1,4 +1,3 @@
-
 from core.utils import options, freezed_variables
 import time
 import pyglet
@@ -74,16 +73,18 @@ class Initialization(pyglet.window.Window):
             self.WindowsLogoRightUp_sprite.draw()
             self.WindowsLogoLeftDown_sprite.draw()
             self.WindowsLogoRightDown_sprite.draw()
-            pyglet.clock.schedule_once(self.delayfunc1,3.0)
+            pyglet.clock.schedule_once(self.delayfunc1, 3.0)
 
         else:
             # Remove the sprites when animation is completed
             self.clear()
             pyglet.clock.schedule_interval(
-                self.LoggingGUI, 1 / 60
+                self.LoggingGUI, 1 / 30
             )
-    def delayfunc1(self,delay_time):
-        self.ANIMATION_STARTUP_COMPLETED=True
+
+    def delayfunc1(self, delay_time):
+        self.ANIMATION_STARTUP_COMPLETED = True
+
     def on_mouse_motion(self, x, y, dx, dy):
         # Now you have access to the mouse coordinates
         self.MOUSE_X, self.MOUSE_Y = x, y
@@ -124,6 +125,7 @@ class Initialization(pyglet.window.Window):
 
     def on_resize(self, width, height):
         gl.glViewport(0, 0, width, height)
+
 
 '''
 def initialize_logger():
