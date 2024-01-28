@@ -31,8 +31,8 @@ class Initialization(pyglet.window.Window):
         self.user_image = pyglet.image.load("core/assets/PythonOS/images/account.png")
         self.user_image_sprite = pyglet.sprite.Sprite(
             self.user_image,
-            x=self.width/2 - 150,
-            y=self.height/2,
+            x=self.width / 2 - 150,
+            y=self.height / 2,
             batch=self.LoggingGUI_batch
         )
         self.button = Button(
@@ -44,9 +44,10 @@ class Initialization(pyglet.window.Window):
             font_size=30,
             x=self.width / 2 - 50,
             y=self.height / 2 - 100,
-            batch=self.LoggingGUI_batch
+            batch=self.LoggingGUI_batch,
+            bold=True
         )
-        
+
         self.background = pyglet.image.load("core/assets/PythonOS/images/background_black.png")
         self.background_sprite = pyglet.sprite.Sprite(
             img=self.background, x=0, y=0, batch=self.init_batch
@@ -55,7 +56,7 @@ class Initialization(pyglet.window.Window):
         self.WindowsLogoRightUp = pyglet.image.load("core/assets/PythonOS/images/win2.png")
         self.WindowsLogoLeftDown = pyglet.image.load("Disk/images/win3.png")
         self.WindowsLogoRightDown = pyglet.image.load("Disk/images/win4.png")
-        
+
         self.WindowsLogoLeftUp_sprite = pyglet.sprite.Sprite(
             self.WindowsLogoLeftUp,
             x=self.width / 2.74,
@@ -88,6 +89,7 @@ class Initialization(pyglet.window.Window):
         self.crraima = 0
         self.loop_counter = 0  # Initialize the loop counter
         self.ANIMATION_STARTUP_COMPLETED = False
+        self.InUserGUI = False
         self.clear()
         self.loop_counter = 0  # Initialize the loop counter
         pyglet.clock.schedule_interval(
@@ -150,14 +152,18 @@ class Initialization(pyglet.window.Window):
             self.LoggingGUI_batch.draw()
             self.button.draw()
 
-
-        
     def on_key_press(self, symbol, modifiers):
         if symbol == pyglet.window.key.SPACE:
             if self.ANIMATION_STARTUP_COMPLETED:
                 self.No_Blur_LoggingGUI = True
+
     def on_button_click(self):
-        print("Hello there")
+        pyglet.clock.schedule_interval(self.User_GUI, 1 / 60)
+
+    def User_GUI(self, delta_time):
+        self.InUserGUI = True
+        self.clear()
+        print("bruh")
 
     def on_resize(self, width, height):
         gl.glViewport(0, 0, width, height)  # free resize
@@ -198,9 +204,11 @@ class Computer:
             caption="PythonOS v0.114515.1919810",
             resizable=True,
             vsync=options.VSYNC,
+
         )
         self.window.set_location(50, 60)
         self.window.set_vsync(True)
+        self.window.set_icon(pyglet.image.load("core/assets/PythonOS/images/logo.png"))
 
 
 def main():
