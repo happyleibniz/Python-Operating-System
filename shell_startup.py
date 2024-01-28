@@ -11,19 +11,51 @@ class Initialization(pyglet.window.Window):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
         # config
-        self.main_batch = Batch()
-
+        self.init_batch = Batch()
+        self.LoggingGUI_batch = Batch()
+        self.No_Blur_LoggingGUI = False
+        self.LoggingGUI_bg_img = pyglet.image.load("core/assets/PythonOS/images/astounding_background1.jpg")
+        self.LoggingGUI_bg = pyglet.sprite.Sprite(
+            self.LoggingGUI_bg_img,
+            x=0,
+            y=0,
+        )
+        self.LoggingGUI_bg_img_blurred = pyglet.image.load(
+            "core/assets/PythonOS/images/astounding_background1_blured.jpg"
+        )
+        self.LoggingGUI_bg_img_blurred_sprite = pyglet.sprite.Sprite(
+            self.LoggingGUI_bg_img_blurred,
+            x=0,
+            y=0
+        )
+        self.user_image = pyglet.image.load("core/assets/PythonOS/images/account.png")
+        self.user_image_sprite = pyglet.sprite.Sprite(
+            self.user_image,
+            x=self.width/2 - 150,
+            y=self.height/2,
+            batch=self.LoggingGUI_batch
+        )
+        self.button = Button(
+            self.width / 2 - 120, self.height / 2 - 200, 200, 50, "LOGIN", self.on_button_click
+        )
+        self.User = pyglet.text.Label(
+            str("User"),
+            font_name="calibri",
+            font_size=30,
+            x=self.width / 2 - 50,
+            y=self.height / 2 - 100,
+            batch=self.LoggingGUI_batch
+        )
+        
         self.background = pyglet.image.load("core/assets/PythonOS/images/background_black.png")
         self.background_sprite = pyglet.sprite.Sprite(
-            img=self.background, x=0, y=0, batch=self.main_batch
+            img=self.background, x=0, y=0, batch=self.init_batch
         )
         self.WindowsLogoLeftUp = pyglet.image.load("core/assets/PythonOS/images/win1.png")
         self.WindowsLogoRightUp = pyglet.image.load("core/assets/PythonOS/images/win2.png")
         self.WindowsLogoLeftDown = pyglet.image.load("Disk/images/win3.png")
         self.WindowsLogoRightDown = pyglet.image.load("Disk/images/win4.png")
-        self.button = Button(
-            100, 100, 200, 50, "Click me", self.on_button_click
-        )
+        
         self.WindowsLogoLeftUp_sprite = pyglet.sprite.Sprite(
             self.WindowsLogoLeftUp,
             x=self.width / 2.74,
@@ -51,7 +83,7 @@ class Initialization(pyglet.window.Window):
             img=self.animation,
             x=self.width / 2.3,
             y=self.height / 30,
-            batch=self.main_batch,
+            batch=self.init_batch,
         )
         self.crraima = 0
         self.loop_counter = 0  # Initialize the loop counter
@@ -66,7 +98,7 @@ class Initialization(pyglet.window.Window):
         """Every time this method is called"""
 
         self.clear()
-        self.main_batch.draw()
+        self.init_batch.draw()
 
         if not self.ANIMATION_STARTUP_COMPLETED:
             self.WindowsLogoLeftUp_sprite.draw()
@@ -79,7 +111,7 @@ class Initialization(pyglet.window.Window):
             # Remove the sprites when animation is completed
             self.clear()
             pyglet.clock.schedule_interval(
-                self.LoggingGUI, 1 / 30
+                self.LoggingGUI, 1 / 60
             )
 
     def delayfunc1(self, delay_time):
@@ -108,23 +140,27 @@ class Initialization(pyglet.window.Window):
         )
 
     def LoggingGUI(self, delta_time):
+        if not self.No_Blur_LoggingGUI:
+            self.clear()
+            self.LoggingGUI_bg.draw()
+            self.LoggingGUI_batch.draw()
+        else:
+            self.clear()
+            self.LoggingGUI_bg_img_blurred_sprite.draw()
+            self.LoggingGUI_batch.draw()
+            self.button.draw()
 
-        self.test = pyglet.text.Label(
-            str("（恼"),
-            font_name="calibri",
-            font_size=30,
-            x=self.width / 2,
-            y=self.height / 2
-        )
 
-        self.button.draw()
-        self.test.draw()
-
+        
+    def on_key_press(self, symbol, modifiers):
+        if symbol == pyglet.window.key.SPACE:
+            if self.ANIMATION_STARTUP_COMPLETED:
+                self.No_Blur_LoggingGUI = True
     def on_button_click(self):
-        print("Button clicked,hello there")
+        print("Hello there")
 
     def on_resize(self, width, height):
-        gl.glViewport(0, 0, width, height)
+        gl.glViewport(0, 0, width, height)  # free resize
 
 
 '''
@@ -163,6 +199,8 @@ class Computer:
             resizable=True,
             vsync=options.VSYNC,
         )
+        self.window.set_location(50, 60)
+        self.window.set_vsync(True)
 
 
 def main():
