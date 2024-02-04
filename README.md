@@ -1,6 +1,6 @@
 # Python-Operating-System alpha v1.0
 old version
-# the first version
+# the first version & first release
 
 requirements
 ```
@@ -26,3 +26,6 @@ pyglm
 ```
 pip install --user setuptools pyglet nbtlib base36 pyglm easygui opencv-python numpy ffpyplayer pygame
 ```
+
+# updated
+
