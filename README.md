@@ -108,5 +108,5 @@ python main.py
 
 - :copyright:  [happyleibniz](https://githubfast.com/happyleibniz) 2023
 
-- ##alpha v1.0版本
+## alpha v1.0版本
 - :copyright:  [happyleibniz](https://githubfast.com/happyleibniz) 2023
