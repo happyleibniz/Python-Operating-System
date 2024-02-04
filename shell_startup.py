@@ -106,7 +106,7 @@ class Initialization(pyglet.window.Window):
         self.clear()
         
         pyglet.clock.schedule_interval(
-            self.update, 1 / 60
+            self.update, 1 / 25
         )
         # GPU command syncs
         self.fences = deque()
@@ -133,7 +133,7 @@ class Initialization(pyglet.window.Window):
             # Remove the sprites when animation is completed
             self.clear()
             pyglet.clock.schedule_interval(
-                self.LoggingGUI, 1 / 60
+                self.LoggingGUI, 1 / float("inf")
             )
 
     def delayfunc1(self, delay_time):
