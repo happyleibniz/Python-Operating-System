@@ -5,15 +5,30 @@ import pyglet.image
 import pyglet.gl as gl
 from pyglet.graphics import Batch
 from Button import Button
-
+from collections import deque
+pyglet.options["shadow_window"] = False
+pyglet.options["debug_gl"] = False
+pyglet.options["search_local_libs"] = True
+pyglet.options["audio"] = ("openal", "pulse", "directsound", "xaudio2", "silent")
 
 class Initialization(pyglet.window.Window):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
         # config
+        """batches"""
         self.init_batch = Batch()
         self.LoggingGUI_batch = Batch()
+        """baches end"""
+        """vars"""
         self.No_Blur_LoggingGUI = False
+        self.crraima = 0
+        self.loop_counter = 0  # Initialize the loop counter
+        self.ANIMATION_STARTUP_COMPLETED = False
+        self.InUserGUI = False
+        self.loop_counter = 0  # Initialize the loop counter
+        self.options = options
+        """vars end"""
+        """images and sprites"""
         self.LoggingGUI_bg_img = pyglet.image.load("core/assets/PythonOS/images/astounding_background1.jpg")
         self.LoggingGUI_bg = pyglet.sprite.Sprite(
             self.LoggingGUI_bg_img,
@@ -26,7 +41,7 @@ class Initialization(pyglet.window.Window):
         self.LoggingGUI_bg_img_blurred_sprite = pyglet.sprite.Sprite(
             self.LoggingGUI_bg_img_blurred,
             x=0,
-            y=0
+            y=0,
         )
         self.user_image = pyglet.image.load("core/assets/PythonOS/images/account.png")
         self.user_image_sprite = pyglet.sprite.Sprite(
@@ -86,19 +101,24 @@ class Initialization(pyglet.window.Window):
             y=self.height / 30,
             batch=self.init_batch,
         )
-        self.crraima = 0
-        self.loop_counter = 0  # Initialize the loop counter
-        self.ANIMATION_STARTUP_COMPLETED = False
-        self.InUserGUI = False
+        """images and sprites end"""
+        
         self.clear()
-        self.loop_counter = 0  # Initialize the loop counter
+        
         pyglet.clock.schedule_interval(
             self.update, 1 / 60
         )
+        # GPU command syncs
+        self.fences = deque()
+        gl.glFinish()
+        # self.fences.append(gl.glFenceSync(gl.GL_SYNC_GPU_COMMANDS_COMPLETE, 0)) # Broken in pyglet 2; glFenceSync is missing
 
     def update(self, delta_time):
         """Every time this method is called"""
-
+        while len(self.fences) > self.options.MAX_CPU_AHEAD_FRAMES:
+            fence = self.fences.popleft()
+            gl.glClientWaitSync(fence, gl.GL_SYNC_FLUSH_COMMANDS_BIT, 2147483647)
+            gl.glDeleteSync(fence)
         self.clear()
         self.init_batch.draw()
 
@@ -107,7 +127,7 @@ class Initialization(pyglet.window.Window):
             self.WindowsLogoRightUp_sprite.draw()
             self.WindowsLogoLeftDown_sprite.draw()
             self.WindowsLogoRightDown_sprite.draw()
-            pyglet.clock.schedule_once(self.delayfunc1, 3.0)
+            pyglet.clock.schedule_once(self.delayfunc1, 2)
 
         else:
             # Remove the sprites when animation is completed
@@ -125,10 +145,7 @@ class Initialization(pyglet.window.Window):
         # print("x: {0}, y: {1}".format(MOUSE_X, MOUSE_Y))
         try:
             self.button.on_mouse_motion(
-                x,
-                y,
-                dx,
-                dy
+                x,y,dx,dy
             )
         except:
             pass
@@ -191,10 +208,10 @@ def initialize_logger():
 class Computer:
     def __init__(self):
         self.config = gl.Config(
-            double_buffer=True,
+            double_buffer=options.DOUBLE_BUFFER,
             major_version=3,
             minor_version=3,
-            depth_size=32,
+            depth_size=options.DEPTH_SIZE,
             sample_buffers=bool(options.ANTIALIASING),
         )
         self.window = Initialization(
@@ -207,7 +224,6 @@ class Computer:
 
         )
         self.window.set_location(50, 60)
-        self.window.set_vsync(True)
         self.window.set_icon(pyglet.image.load("core/assets/PythonOS/images/logo.png"))
 
 
@@ -217,4 +233,4 @@ def main():
 
 if __name__ == "__main__":
     computer = Computer()
-    pyglet.app.run()
+    pyglet.app.run(interval=1/float("inf"))
