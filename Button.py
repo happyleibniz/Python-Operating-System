@@ -30,4 +30,3 @@ class Button:
         if self.is_hovered and button == pyglet.window.mouse.LEFT and self.on_click_callback:
             self.on_click_callback()
 
-

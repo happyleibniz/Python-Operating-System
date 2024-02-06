@@ -11,6 +11,9 @@ pyglet.options["debug_gl"] = False
 pyglet.options["search_local_libs"] = True
 pyglet.options["audio"] = ("openal", "pulse", "directsound", "xaudio2", "silent")
 
+
+
+
 class Initialization(pyglet.window.Window):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
@@ -18,6 +21,7 @@ class Initialization(pyglet.window.Window):
         """batches"""
         self.init_batch = Batch()
         self.LoggingGUI_batch = Batch()
+        self.UserGUI_batch = Batch()
         """baches end"""
         """vars"""
         self.No_Blur_LoggingGUI = False
@@ -75,22 +79,26 @@ class Initialization(pyglet.window.Window):
         self.WindowsLogoLeftUp_sprite = pyglet.sprite.Sprite(
             self.WindowsLogoLeftUp,
             x=self.width / 2.74,
-            y=self.height / 1.5
+            y=self.height / 1.5,
+            batch=self.init_batch
         )
         self.WindowsLogoRightUp_sprite = pyglet.sprite.Sprite(
             self.WindowsLogoRightUp,
             x=self.width / 2.014,
-            y=self.height / 1.5
+            y=self.height / 1.5,
+            batch=self.init_batch
         )
         self.WindowsLogoLeftDown_sprite = pyglet.sprite.Sprite(
             self.WindowsLogoLeftDown,
             x=self.width / 2.74,
-            y=self.height / 2.3
+            y=self.height / 2.3,
+            batch=self.init_batch
         )
         self.WindowsLogoRightDown_sprite = pyglet.sprite.Sprite(
             self.WindowsLogoRightDown,
             x=self.width / 2.014,
-            y=self.height / 2.3
+            y=self.height / 2.3,
+            batch=self.init_batch
         )
         self.animation = pyglet.image.load_animation("core/assets/PythonOS/images/startup/startup.gif")
         bin = pyglet.image.atlas.TextureBin()
@@ -100,6 +108,20 @@ class Initialization(pyglet.window.Window):
             x=self.width / 2.3,
             y=self.height / 30,
             batch=self.init_batch,
+        )
+        self.OS_User_GUI_IMG = pyglet.image.load("./core/assets/PythonOS/images/background_pythonOS1.jpg")
+        self.OS_User_GUI = pyglet.sprite.Sprite(
+            img=self.OS_User_GUI_IMG,
+            x=0,
+            y=0,
+            batch=self.UserGUI_batch
+        )
+        self.Computer_Image = pyglet.image.load("./core/assets/PythonOS/images/computer.png")
+        self.Computer_Sprite = pyglet.sprite.Sprite(
+            img=self.Computer_Image,
+            x=0,
+            y=0,
+            batch=self.UserGUI_batch
         )
         """images and sprites end"""
         
@@ -120,13 +142,10 @@ class Initialization(pyglet.window.Window):
             gl.glClientWaitSync(fence, gl.GL_SYNC_FLUSH_COMMANDS_BIT, 2147483647)
             gl.glDeleteSync(fence)
         self.clear()
-        self.init_batch.draw()
+        
 
         if not self.ANIMATION_STARTUP_COMPLETED:
-            self.WindowsLogoLeftUp_sprite.draw()
-            self.WindowsLogoRightUp_sprite.draw()
-            self.WindowsLogoLeftDown_sprite.draw()
-            self.WindowsLogoRightDown_sprite.draw()
+            self.init_batch.draw()
             pyglet.clock.schedule_once(self.delayfunc1, 2)
 
         else:
@@ -136,10 +155,41 @@ class Initialization(pyglet.window.Window):
                 self.LoggingGUI, 1 / float("inf")
             )
 
+
     def delayfunc1(self, delay_time):
         self.ANIMATION_STARTUP_COMPLETED = True
 
+    
+    def LoggingGUI(self, delta_time):
+        try:
+            if not self.No_Blur_LoggingGUI:
+                self.clear()
+                self.LoggingGUI_bg.draw()
+                self.LoggingGUI_batch.draw()
+            else:
+                self.clear()
+                self.LoggingGUI_bg_img_blurred_sprite.draw()
+                self.LoggingGUI_batch.draw()
+                self.button.draw()
+        except AttributeError:
+            pass
+
+    def User_GUI(self, delta_time):
+        self.InUserGUI = True
+        self.LoggingGUI_bg = None
+        self.LoggingGUI_batch = None
+        self.LoggingGUI_bg_img_blurred_sprite = None
+        self.LoggingGUI_batch = None
+        self.button = None
+        self.clear()
+        self.UserGUI_batch.draw()
+        
+
     def on_mouse_motion(self, x, y, dx, dy):
+        try:
+            self.computer_is_hovered = int(self.Computer_Sprite.x) < x < int(self.Computer_Sprite.x) + self.Computer_Sprite.width and self.Computer_Sprite.y < y < self.Computer_Sprite.y + self.Computer_Sprite.height
+        except:
+            pass
         # Now you have access to the mouse coordinates
         self.MOUSE_X, self.MOUSE_Y = x, y
         # print("x: {0}, y: {1}".format(MOUSE_X, MOUSE_Y))
@@ -151,39 +201,27 @@ class Initialization(pyglet.window.Window):
             pass
 
     def on_mouse_press(self, x, y, button, modifiers):
-        self.button.on_mouse_press(
-            x,
-            y,
-            button,
-            modifiers
-        )
-
-    def LoggingGUI(self, delta_time):
-        if not self.No_Blur_LoggingGUI:
-            self.clear()
-            self.LoggingGUI_bg.draw()
-            self.LoggingGUI_batch.draw()
-        else:
-            self.clear()
-            self.LoggingGUI_bg_img_blurred_sprite.draw()
-            self.LoggingGUI_batch.draw()
-            self.button.draw()
-
+        if not self.InUserGUI:
+            self.button.on_mouse_press(
+                x,
+                y,
+                button,
+                modifiers
+            )
+        if self.InUserGUI:
+            if self.computer_is_hovered and button == pyglet.window.mouse.LEFT:
+                print("hello there")
     def on_key_press(self, symbol, modifiers):
         if symbol == pyglet.window.key.SPACE:
             if self.ANIMATION_STARTUP_COMPLETED:
                 self.No_Blur_LoggingGUI = True
 
     def on_button_click(self):
-        pyglet.clock.schedule_interval(self.User_GUI, 1 / 60)
-
-    def User_GUI(self, delta_time):
-        self.InUserGUI = True
-        self.clear()
-        print("bruh")
+        pyglet.clock.schedule_interval(self.User_GUI, 1/11451)
 
     def on_resize(self, width, height):
         gl.glViewport(0, 0, width, height)  # free resize
+    
 
 
 '''
@@ -218,18 +256,13 @@ class Computer:
             config=self.config,
             width=options.WIDTH,
             height=options.HEIGHT,
-            caption="PythonOS v0.114515.1919810",
+            caption="PythonOS Alpha v.0.3.567 pre",
             resizable=True,
             vsync=options.VSYNC,
 
         )
         self.window.set_location(50, 60)
         self.window.set_icon(pyglet.image.load("core/assets/PythonOS/images/logo.png"))
-
-
-def main():
-    initialize_logger()
-
 
 if __name__ == "__main__":
     computer = Computer()
