@@ -3,7 +3,7 @@
 <div align="center">
 <p align="center">
     
-  ![img1](docs/img/desktop.png)
+  ![img1](docs/img/desktop(2).png)
   
   <h3 align="center">PythonOS</h3>   
   <a href="https://githubfast.com/happyleibniz/Python-Operating-System/releases">下载其他版本</a>
@@ -60,9 +60,9 @@
 
 ## 效果
 
-![img2](docs/img/suopin.png)
+![img2](docs/img/desktop(2).png)
 
-![img3](docs/img/desktop.png)
+![img3](docs/img/movie_pro1.png)
 
 ## 快速开始
 
@@ -104,9 +104,9 @@ python main.py
 ## 许可证
 该项目采用 [MIT](https://githubfast.com/Github-Huangshaoqi/PythonOS?tab=MIT-1-ov-file)协议 ![license](https://img.shields.io/badge/license-MIT-blue)
 
-- :copyright:  Github-Huangshaoqi 2023
+- :copyright:  Github-Huangshaoqi 2024
 
-- :copyright:  [happyleibniz](https://githubfast.com/happyleibniz) 2023
+- :copyright:  [happyleibniz](https://githubfast.com/happyleibniz) 2024
 
 ## alpha v1.0版本
 - :copyright:  [happyleibniz](https://githubfast.com/happyleibniz) 2023
