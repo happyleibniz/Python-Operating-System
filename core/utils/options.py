@@ -9,7 +9,7 @@ WIDTH = 1000
 HEIGHT = 562
 is_white = False
 SMOOTH_FPS = True
-VSYNC = True
+VSYNC = False
 # Max CPU ahead frames
 MAX_CPU_AHEAD_FRAMES = 3 # Number of frames the CPU can be ahead of the GPU until waiting for it to finish rendering. 
                            # Higher values gives higher framerate but causes framerate instability and higher frame spikes
