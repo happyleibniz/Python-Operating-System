@@ -233,4 +233,4 @@ def main():
 
 if __name__ == "__main__":
     computer = Computer()
-    pyglet.app.run(interval=1/float("inf"))
+    pyglet.app.run(interval=1/1145)
