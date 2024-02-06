@@ -33,7 +33,7 @@ class Video:
 
     def __repr__(self) -> str:
         return f"<{__name__}.{self.__class__.__name__}(frame#{self.current_frame})>"
-    
+
     def __del__(self) -> None:
         self.release()
 
@@ -76,18 +76,20 @@ class Video:
         self.frame_width = int(self.__vidcap.get(cv2.CAP_PROP_FRAME_WIDTH))
         self.frame_height = int(self.__vidcap.get(cv2.CAP_PROP_FRAME_HEIGHT))
 
-        self.frame_surf = pygame.Surface((self.frame_width, self.frame_height)).convert()
+        self.frame_surf = pygame.Surface(
+            (self.frame_width, self.frame_height)
+        ).convert()
 
         self.is_ready = True
 
     def reload(self) -> None:
-        """ Reload the video from the same filepath. """
+        """Reload the video from the same filepath."""
 
         self.release()
         self.load(self.filepath)
 
     def release(self) -> None:
-        """ Release the resources used by the video player. """
+        """Release the resources used by the video player."""
 
         if self.is_ready:
             self.__vidcap.release()
@@ -126,45 +128,47 @@ class Video:
         self.__ff.set_pause(True)
 
     def pause(self) -> None:
-        """ Pause the video. """
+        """Pause the video."""
 
         if self.is_playing:
             self.is_paused = True
             self.__ff.set_pause(True)
 
     def resume(self) -> None:
-        """ Resume the video. """
+        """Resume the video."""
 
         if self.is_playing:
             self.is_paused = False
             self.__ff.set_pause(False)
 
     def toggle_pause(self) -> None:
-        """ Switch between paused states. """
+        """Switch between paused states."""
 
         if self.is_playing:
-            if self.is_paused: self.resume()
-            else: self.pause()
+            if self.is_paused:
+                self.resume()
+            else:
+                self.pause()
 
     # Audio methods
 
     def mute(self) -> None:
-        """ Mute audio playback. """
+        """Mute audio playback."""
         # MediaPlayer.set_mute doesn't work!
         self.is_muted = True
         self.__volume_before_mute = self.volume
         self.__ff.set_volume(0.0)
 
     def unmute(self) -> None:
-        """ Unmute audio playback. """
+        """Unmute audio playback."""
         self.is_muted = False
         self.__ff.set_volume(self.__volume_before_mute)
 
     @property
     def volume(self) -> float:
-        """ Volume of the audio playback. """
+        """Volume of the audio playback."""
         return self.__volume
-    
+
     @volume.setter
     def volume(self, value: float) -> None:
         self.__volume = value
@@ -175,28 +179,29 @@ class Video:
 
     @property
     def duration(self) -> float:
-        """ Total duration of the video in milliseconds. """
+        """Total duration of the video in milliseconds."""
         return (self.total_frames / self.fps) * 1000
 
     @property
     def current_time(self) -> float:
-        """ Current time into the video in milliseconds. """
-        if not self.is_ready or not self.is_playing: return 0
+        """Current time into the video in milliseconds."""
+        if not self.is_ready or not self.is_playing:
+            return 0
         return self.__vidcap.get(cv2.CAP_PROP_POS_MSEC)
 
     @property
     def remaining_time(self) -> float:
-        """ Remaining time left in the video in milliseconds. """
+        """Remaining time left in the video in milliseconds."""
         return self.duration - self.current_time
 
     @property
     def current_frame(self) -> int:
-        """ Current frame into the video. """
+        """Current frame into the video."""
         return self.__vidcap.get(cv2.CAP_PROP_POS_FRAMES)
 
     @property
     def remaining_frames(self) -> int:
-        """ Remaining frames left in the video. """
+        """Remaining frames left in the video."""
         return self.frame_count - self.current_frame
 
     def seek_time(self, timepoint: float) -> None:
@@ -257,16 +262,16 @@ class Video:
                             return self.frame_surf
 
                 pygame.pixelcopy.array_to_surface(
-                    self.frame_surf,
-                    numpy.flip(numpy.rot90(frame[::-1]))
+                    self.frame_surf, numpy.flip(numpy.rot90(frame[::-1]))
                 )
 
             return self.frame_surf
 
-    def draw_to(self,
-            dest_surface: pygame.Surface,
-            position: Union[tuple[float, float], pygame.Vector2, pygame.Rect]
-            ) -> None:
+    def draw_to(
+        self,
+        dest_surface: pygame.Surface,
+        position: Union[tuple[float, float], pygame.Vector2, pygame.Rect],
+    ) -> None:
         """
         Blit the current video frame to the surface.
 

@@ -16,18 +16,26 @@ class Terminal(object):
             import pyglet
         except ImportError:
             print("pyglet is not installed")
-            Pyglet_Is_Needed_To_Be_Installed = input("Do you want to install pyglet?(y/n)")
+            Pyglet_Is_Needed_To_Be_Installed = input(
+                "Do you want to install pyglet?(y/n)"
+            )
             try:
-                if Pyglet_Is_Needed_To_Be_Installed == "y" or Pyglet_Is_Needed_To_Be_Installed == "Y":
+                if (
+                    Pyglet_Is_Needed_To_Be_Installed == "y"
+                    or Pyglet_Is_Needed_To_Be_Installed == "Y"
+                ):
                     subprocess.check_output("pip3 install pyglet")
                 else:
-                    print("thank you for using, but pyglet is not installed, Exiting in four seconds")
+                    print(
+                        "thank you for using, but pyglet is not installed, Exiting in four seconds"
+                    )
                     time.sleep(4)
                     sys.exit("Dependencies not installed")
             except ValueError:
                 print(
                     "you need to install pyglet,thank you for using, but pyglet is not installed, Exiting in four "
-                    "seconds")
+                    "seconds"
+                )
                 time.sleep(4)
                 sys.exit("Dependencies not installed")
         except not ImportError as e:
