@@ -1,11 +1,9 @@
-from core.utils import options, freezed_variables
-import time
+from core.utils import options
 import pyglet
 import pyglet.image
 import pyglet.gl as gl
 from pyglet.graphics import Batch
 from Button import Button
-from collections import deque
 
 pyglet.options["shadow_window"] = False
 pyglet.options["debug_gl"] = False
@@ -62,7 +60,7 @@ class Initialization(pyglet.window.Window):
             self.on_button_click,
         )
         self.User = pyglet.text.Label(
-            str("User"),
+            "User",
             font_name="calibri",
             font_size=30,
             x=self.width / 2 - 50,
@@ -259,7 +257,7 @@ class Computer:
             config=self.config,
             width=options.WIDTH,
             height=options.HEIGHT,
-            caption=f"PythonOS Alpha v.0.3.567 pre",
+            caption="PythonOS Alpha v.0.3.567 pre",
             resizable=True,
             vsync=options.VSYNC,
         )

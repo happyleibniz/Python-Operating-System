@@ -64,7 +64,7 @@ class Calculator(tk.Tk):
             try:
                 result = eval(self.result_var.get())
                 self.result_var.set(result)
-            except Exception as e:
+            except Exception:
                 self.result_var.set("错误")
         else:
             current_text = self.result_var.get()

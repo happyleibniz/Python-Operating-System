@@ -1,11 +1,9 @@
 import os
 import tkinter as tk
-from tkinter import filedialog
 from tkinter import ttk
 from tkinter import messagebox
 from tkinter.simpledialog import askstring
 from PIL import Image, ImageTk
-import cv2
 
 
 class FileManagerApp:

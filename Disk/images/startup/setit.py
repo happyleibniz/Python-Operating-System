@@ -8,4 +8,4 @@ frames = [frame.copy() for frame in ImageSequence.Iterator(img)]
 
 # 保存每一帧图片
 for i, frame in enumerate(frames):
-    frame.save("startup_{}.png".format(i))
+    frame.save(f"startup_{i}.png")

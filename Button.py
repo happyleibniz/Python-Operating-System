@@ -1,6 +1,5 @@
 from pyglet import shapes
 import pyglet
-from pyglet import gl
 
 
 class Button:

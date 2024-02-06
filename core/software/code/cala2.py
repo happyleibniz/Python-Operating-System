@@ -71,7 +71,7 @@ class Calculator:
             try:
                 result = eval(self.result_text)
                 self.result_text = str(result)
-            except Exception as e:
+            except Exception:
                 self.result_text = "错误"
         else:
             self.result_text += value

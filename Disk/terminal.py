@@ -8,7 +8,7 @@ class UnknownError(Exception):
         Exception.__init__(self)
 
 
-class Terminal(object):
+class Terminal:
     def __init__(self):
         print("initializing Terminal...")
         print("trying to start pyglet...")
