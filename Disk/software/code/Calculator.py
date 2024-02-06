@@ -51,9 +51,7 @@ class Calculator(tk.Tk):
         ]
 
         for text, row, col in button_layout:
-            button = ttk.Button(
-                self, text=text, command=lambda t=text: self.on_button_click(t)
-            )
+            button = ttk.Button(self, text=text, command=lambda t=text: self.on_button_click(t))
             button.grid(row=row, column=col, sticky="nsew")
 
             self.grid_rowconfigure(row, weight=1)

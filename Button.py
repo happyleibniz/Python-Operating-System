@@ -30,14 +30,8 @@ class Button:
         ).draw()
 
     def on_mouse_motion(self, x, y, dx, dy):
-        self.is_hovered = (
-            self.x < x < self.x + self.width and self.y < y < self.y + self.height
-        )
+        self.is_hovered = self.x < x < self.x + self.width and self.y < y < self.y + self.height
 
     def on_mouse_press(self, x, y, button, modifiers):
-        if (
-            self.is_hovered
-            and button == pyglet.window.mouse.LEFT
-            and self.on_click_callback
-        ):
+        if self.is_hovered and button == pyglet.window.mouse.LEFT and self.on_click_callback:
             self.on_click_callback()

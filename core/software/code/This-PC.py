@@ -20,27 +20,19 @@ class FileManagerApp:
         self.toolbar = ttk.Frame(self.master)
         self.toolbar.pack(side=tk.TOP, fill=tk.X)
 
-        self.refresh_button = ttk.Button(
-            self.toolbar, text="刷新", command=self.refresh_files
-        )
+        self.refresh_button = ttk.Button(self.toolbar, text="刷新", command=self.refresh_files)
         self.refresh_button.pack(side=tk.LEFT)
 
-        self.open_button = ttk.Button(
-            self.toolbar, text="打开选定的文件夹", command=self.open_selected_folder
-        )
+        self.open_button = ttk.Button(self.toolbar, text="打开选定的文件夹", command=self.open_selected_folder)
         self.open_button.pack(side=tk.LEFT)
 
-        self.go_back_button = ttk.Button(
-            self.toolbar, text="返回上一级", command=self.go_back
-        )
+        self.go_back_button = ttk.Button(self.toolbar, text="返回上一级", command=self.go_back)
         self.go_back_button.pack(side=tk.LEFT)
 
         self.text_display = tk.Text(self.master, wrap=tk.WORD, height=10, width=40)
         self.text_display.pack(side=tk.RIGHT, fill=tk.BOTH, expand=tk.YES)
 
-        self.save_button = ttk.Button(
-            self.toolbar, text="保存", command=self.save_text_content
-        )
+        self.save_button = ttk.Button(self.toolbar, text="保存", command=self.save_text_content)
         self.save_button.pack(side=tk.LEFT)
 
         # Create the file listbox below the toolbar
@@ -50,9 +42,7 @@ class FileManagerApp:
         # Bind right-click event to show context menu
         self.file_listbox.bind("<Button-3>", self.show_context_menu)
         self.context_menu = tk.Menu(self.master, tearoff=0)
-        self.context_menu.add_command(
-            label="新建文本文档", command=self.create_text_document
-        )
+        self.context_menu.add_command(label="新建文本文档", command=self.create_text_document)
         self.context_menu.add_command(label="新建文件夹", command=self.create_folder)
         self.context_menu.add_command(label="复制", command=self.copy_selected)
         self.context_menu.add_command(label="打开", command=self.open_selected_folder)
@@ -114,9 +104,7 @@ class FileManagerApp:
 
     def go_back(self):
         print(f"Before - Current Directory: {self.current_directory}")
-        if os.path.normpath(self.current_directory) != os.path.normpath(
-            os.path.join(os.getcwd(), "disk")
-        ):
+        if os.path.normpath(self.current_directory) != os.path.normpath(os.path.join(os.getcwd(), "disk")):
             parent_directory = os.path.dirname(self.current_directory)
             print(f"Going back to: {parent_directory}")
 
@@ -134,16 +122,12 @@ class FileManagerApp:
             if os.path.isdir(selected_path):
                 self.current_directory = selected_path
                 self.refresh_files()
-            elif selected_path.lower().endswith(
-                (".txt", ".py", ".html", ".bat", ".cmd")
-            ):
+            elif selected_path.lower().endswith((".txt", ".py", ".html", ".bat", ".cmd")):
                 self.display_text_content(selected_path)  # 对于支持的文件类型显示内容
             elif selected_path.lower().endswith((".png", ".jpg", ".jpeg", ".gif")):
                 self.open_image_file(selected_path)  # 对于图片文件打开图片
             else:
-                self.text_display.delete(
-                    1.0, tk.END
-                )  # 对于不支持的文件类型清除文本显示
+                self.text_display.delete(1.0, tk.END)  # 对于不支持的文件类型清除文本显示
 
     def open_image_file(self, image_path):
         try:

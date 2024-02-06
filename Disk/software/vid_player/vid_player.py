@@ -76,9 +76,7 @@ class Video:
         self.frame_width = int(self.__vidcap.get(cv2.CAP_PROP_FRAME_WIDTH))
         self.frame_height = int(self.__vidcap.get(cv2.CAP_PROP_FRAME_HEIGHT))
 
-        self.frame_surf = pygame.Surface(
-            (self.frame_width, self.frame_height)
-        ).convert()
+        self.frame_surf = pygame.Surface((self.frame_width, self.frame_height)).convert()
 
         self.is_ready = True
 
@@ -261,9 +259,7 @@ class Video:
                             self.stop()
                             return self.frame_surf
 
-                pygame.pixelcopy.array_to_surface(
-                    self.frame_surf, numpy.flip(numpy.rot90(frame[::-1]))
-                )
+                pygame.pixelcopy.array_to_surface(self.frame_surf, numpy.flip(numpy.rot90(frame[::-1])))
 
             return self.frame_surf
 

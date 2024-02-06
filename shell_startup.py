@@ -32,9 +32,7 @@ class Initialization(pyglet.window.Window):
         self.options = options
         """vars end"""
         """images and sprites"""
-        self.LoggingGUI_bg_img = pyglet.image.load(
-            "core/assets/PythonOS/images/astounding_background1.jpg"
-        )
+        self.LoggingGUI_bg_img = pyglet.image.load("core/assets/PythonOS/images/astounding_background1.jpg")
         self.LoggingGUI_bg = pyglet.sprite.Sprite(
             self.LoggingGUI_bg_img,
             x=0,
@@ -73,18 +71,10 @@ class Initialization(pyglet.window.Window):
             bold=True,
         )
 
-        self.background = pyglet.image.load(
-            "core/assets/PythonOS/images/background_black.png"
-        )
-        self.background_sprite = pyglet.sprite.Sprite(
-            img=self.background, x=0, y=0, batch=self.init_batch
-        )
-        self.WindowsLogoLeftUp = pyglet.image.load(
-            "core/assets/PythonOS/images/win1.png"
-        )
-        self.WindowsLogoRightUp = pyglet.image.load(
-            "core/assets/PythonOS/images/win2.png"
-        )
+        self.background = pyglet.image.load("core/assets/PythonOS/images/background_black.png")
+        self.background_sprite = pyglet.sprite.Sprite(img=self.background, x=0, y=0, batch=self.init_batch)
+        self.WindowsLogoLeftUp = pyglet.image.load("core/assets/PythonOS/images/win1.png")
+        self.WindowsLogoRightUp = pyglet.image.load("core/assets/PythonOS/images/win2.png")
         self.WindowsLogoLeftDown = pyglet.image.load("Disk/images/win3.png")
         self.WindowsLogoRightDown = pyglet.image.load("Disk/images/win4.png")
 
@@ -112,9 +102,7 @@ class Initialization(pyglet.window.Window):
             y=self.height / 2.3,
             batch=self.init_batch,
         )
-        self.animation = pyglet.image.load_animation(
-            "core/assets/PythonOS/images/startup/startup.gif"
-        )
+        self.animation = pyglet.image.load_animation("core/assets/PythonOS/images/startup/startup.gif")
         bin = pyglet.image.atlas.TextureBin()
         self.animation.add_to_texture_bin(bin)
         self.init_gif_sprite = pyglet.sprite.Sprite(
@@ -123,24 +111,12 @@ class Initialization(pyglet.window.Window):
             y=self.height / 30,
             batch=self.init_batch,
         )
-        self.OS_User_GUI_IMG = pyglet.image.load(
-            "./core/assets/PythonOS/images/background_pythonOS1.jpg"
-        )
-        self.OS_User_GUI = pyglet.sprite.Sprite(
-            img=self.OS_User_GUI_IMG, x=0, y=0, batch=self.UserGUI_batch
-        )
-        self.Computer_Image = pyglet.image.load(
-            "./core/assets/PythonOS/images/computer.png"
-        )
-        self.Computer_Sprite = pyglet.sprite.Sprite(
-            img=self.Computer_Image, x=5, y=505, batch=self.UserGUI_batch
-        )
-        self.Installer_Image = pyglet.image.load(
-            "./core/assets/PythonOS/images/setup-icon.png"
-        )
-        self.Installer_Sprite = pyglet.sprite.Sprite(
-            img=self.Installer_Image, x=5, y=450, batch=self.UserGUI_batch
-        )
+        self.OS_User_GUI_IMG = pyglet.image.load("./core/assets/PythonOS/images/background_pythonOS1.jpg")
+        self.OS_User_GUI = pyglet.sprite.Sprite(img=self.OS_User_GUI_IMG, x=0, y=0, batch=self.UserGUI_batch)
+        self.Computer_Image = pyglet.image.load("./core/assets/PythonOS/images/computer.png")
+        self.Computer_Sprite = pyglet.sprite.Sprite(img=self.Computer_Image, x=5, y=505, batch=self.UserGUI_batch)
+        self.Installer_Image = pyglet.image.load("./core/assets/PythonOS/images/setup-icon.png")
+        self.Installer_Sprite = pyglet.sprite.Sprite(img=self.Installer_Image, x=5, y=450, batch=self.UserGUI_batch)
         """images and sprites end"""
 
         self.clear()
@@ -204,23 +180,15 @@ class Initialization(pyglet.window.Window):
     def on_mouse_motion(self, x, y, dx, dy):
         try:
             self.computer_is_hovered = (
-                int(self.Computer_Sprite.x)
-                < x
-                < int(self.Computer_Sprite.x) + self.Computer_Sprite.width
-                and self.Computer_Sprite.y
-                < y
-                < self.Computer_Sprite.y + self.Computer_Sprite.height
+                int(self.Computer_Sprite.x) < x < int(self.Computer_Sprite.x) + self.Computer_Sprite.width
+                and self.Computer_Sprite.y < y < self.Computer_Sprite.y + self.Computer_Sprite.height
             )
         except Exception:
             pass
         try:
             self.Installer_is_hovered = (
-                int(self.Installer_Sprite.x)
-                < x
-                < int(self.Installer_Sprite.x) + self.Installer_Sprite.width
-                and self.Installer_Sprite.y
-                < y
-                < self.Installer_Sprite.y + self.Installer_Sprite.height
+                int(self.Installer_Sprite.x) < x < int(self.Installer_Sprite.x) + self.Installer_Sprite.width
+                and self.Installer_Sprite.y < y < self.Installer_Sprite.y + self.Installer_Sprite.height
             )
         except Exception:
             pass
