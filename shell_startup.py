@@ -138,19 +138,19 @@ class Initialization(pyglet.window.Window):
             self.update, 1 / 25
         )
         
-        # GPU command syncs
-        self.fences = deque()
-        gl.glFinish()
+        # # GPU command syncs
+        # self.fences = deque()
+        # gl.glFinish()
         # self.fences.append(gl.glFenceSync(gl.GL_SYNC_GPU_COMMANDS_COMPLETE, 0)) # Broken in pyglet 2; glFenceSync is missing
 
     def update(self, delta_time):
         
         """Every time this method is called"""
-        while len(self.fences) > self.options.MAX_CPU_AHEAD_FRAMES:
-            fence = self.fences.popleft()
-            gl.glClientWaitSync(fence, gl.GL_SYNC_FLUSH_COMMANDS_BIT, 2147483647)
-            gl.glDeleteSync(fence)
-        self.clear()
+        # while len(self.fences) > self.options.MAX_CPU_AHEAD_FRAMES:
+        #     fence = self.fences.popleft()
+        #     gl.glClientWaitSync(fence, gl.GL_SYNC_FLUSH_COMMANDS_BIT, 2147483647)
+        #     gl.glDeleteSync(fence)
+        # self.clear()
         
 
         if not self.ANIMATION_STARTUP_COMPLETED:
