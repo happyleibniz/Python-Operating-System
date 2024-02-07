@@ -126,7 +126,8 @@ class Initialization(pyglet.window.Window):
         # self.fences.append(gl.glFenceSync(gl.GL_SYNC_GPU_COMMANDS_COMPLETE, 0)) # Broken in pyglet 2; glFenceSync is missing
 
     def on_draw(self):
-        pyglet.clock.schedule_interval(self.print_fps, 1 / 240)
+        if options.DEBUG:
+            pyglet.clock.schedule_interval(self.print_fps, 1 / 240)
         if not self.ANIMATION_STARTUP_COMPLETED:
             self.init_batch.draw()
             pyglet.clock.schedule_once(self.delayfunc1, 2)
