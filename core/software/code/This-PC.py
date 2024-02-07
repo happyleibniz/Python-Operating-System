@@ -8,6 +8,7 @@ from PIL import Image, ImageTk
 
 class FileManagerApp:
     def __init__(self, master):
+        self.copied_path = None
         self.master = master
         self.master.title("文件资源管理器")
 
@@ -111,7 +112,7 @@ class FileManagerApp:
 
         print(f"After - Current Directory: {self.current_directory}")
 
-    def double_click_file(self, event):
+    def double_click_file(self):
         selected_index = self.file_listbox.curselection()
         if selected_index:
             selected_item = self.file_listbox.get(selected_index[0])
@@ -150,7 +151,7 @@ class FileManagerApp:
     def create_text_document(self):
         # Implement the creation of a new text document here
         new_text_file = os.path.join(self.current_directory, "新建文本文档.txt")
-        with open(new_text_file, "w") as file:
+        with open(new_text_file, "w"):
             pass  # Just creating an empty file for demonstration
         self.refresh_files()
 
@@ -197,6 +198,7 @@ class FileManagerApp:
 def main():
     root = tk.Tk()
     app = FileManagerApp(root)
+    print(app)
     root.geometry("700x450")
     root.mainloop()
 
