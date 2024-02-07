@@ -3,8 +3,6 @@ import pyglet
 import pyglet.image
 import pyglet.gl as gl
 from pyglet.graphics import Batch
-from Button import Button
-from collections import deque
 
 pyglet.options["shadow_window"] = False
 pyglet.options["debug_gl"] = False
@@ -16,21 +14,24 @@ class Initialization(pyglet.window.Window):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
         # config
-        self.MOUSE_Y = None
-        self.MOUSE_X = None
-        self.Installer_is_hovered = None  # pass because in the future, I'm using it
+        self.Installer_is_hovered = None
         self.computer_is_hovered = None
-        """batches"""
+        self.fps_text = None
+        # batches
         self.init_batch = Batch()
         self.LoggingGUI_batch = Batch()
         self.UserGUI_batch = Batch()
-        """batches end"""
-        """vars"""
+        # batches end
+        # vars
         self.No_Blur_LoggingGUI = False
+        self.crraima = 0
+        self.loop_counter = 0  # Initialize the loop counter
         self.ANIMATION_STARTUP_COMPLETED = False
         self.InUserGUI = False
-        """vars end"""
-        """images and sprites"""
+        self.loop_counter = 0  # Initialize the loop counter
+        self.options = options
+        # vars end
+        # images and sprites
         self.LoggingGUI_bg_img = pyglet.image.load("core/assets/PythonOS/images/astounding_background1.jpg")
         self.LoggingGUI_bg = pyglet.sprite.Sprite(
             self.LoggingGUI_bg_img,
@@ -52,14 +53,6 @@ class Initialization(pyglet.window.Window):
             y=self.height / 2,
             batch=self.LoggingGUI_batch,
         )
-        self.button = Button(
-            self.width / 2 - 120,
-            self.height / 2 - 200,
-            200,
-            50,
-            "LOGIN",
-            self.on_button_click,
-        )
         self.User = pyglet.text.Label(
             "User",
             font_name="calibri",
@@ -78,25 +71,25 @@ class Initialization(pyglet.window.Window):
         self.WindowsLogoRightDown = pyglet.image.load("core/assets/PythonOS/images/win4.png")
 
         self.WindowsLogoLeftUp_sprite = pyglet.sprite.Sprite(
-            img=self.WindowsLogoLeftUp,
+            self.WindowsLogoLeftUp,
             x=self.width / 2.74,
             y=self.height / 1.5,
             batch=self.init_batch,
         )
         self.WindowsLogoRightUp_sprite = pyglet.sprite.Sprite(
-            img=self.WindowsLogoRightUp,
+            self.WindowsLogoRightUp,
             x=self.width / 2.014,
             y=self.height / 1.5,
             batch=self.init_batch,
         )
         self.WindowsLogoLeftDown_sprite = pyglet.sprite.Sprite(
-            img=self.WindowsLogoLeftDown,
+            self.WindowsLogoLeftDown,
             x=self.width / 2.74,
             y=self.height / 2.3,
             batch=self.init_batch,
         )
         self.WindowsLogoRightDown_sprite = pyglet.sprite.Sprite(
-            img=self.WindowsLogoRightDown,
+            self.WindowsLogoRightDown,
             x=self.width / 2.014,
             y=self.height / 2.3,
             batch=self.init_batch,
@@ -116,78 +109,64 @@ class Initialization(pyglet.window.Window):
         self.Computer_Sprite = pyglet.sprite.Sprite(img=self.Computer_Image, x=5, y=505, batch=self.UserGUI_batch)
         self.Installer_Image = pyglet.image.load("./core/assets/PythonOS/images/setup-icon.png")
         self.Installer_Sprite = pyglet.sprite.Sprite(img=self.Installer_Image, x=5, y=450, batch=self.UserGUI_batch)
-        """images and sprites end"""
+        # images and sprites end
 
-        self.clear()
-        # GPU command syncs
-        self.fences = deque()
-        gl.glFinish()
-        self.fences.append(
-            gl.glFenceSync(gl.GL_SYNC_GPU_COMMANDS_COMPLETE, 0))  # Broken in pyglet 2; glFenceSync is missing
+        # # GPU command syncs
+        # self.fences = deque()
+        # gl.glFinish()
+        # self.fences.append(gl.glFenceSync(gl.GL_SYNC_GPU_COMMANDS_COMPLETE, 0)) # Broken in pyglet 2; glFenceSync is missing
 
-    def on_draw(self):
-        pyglet.clock.schedule_interval(self.run_fps_debug, 1 / 120)
-        # fps = run_fps_debug(1/120)
-        # self.fps_text = f"PythonOS Alpha v.0.3.567 pre fps:{round(1 / fps)}"
-        # pyglet.text.Label(text=self.fps_text, font_name="Calibri",color=(255,255,255,0), x=10, y=10).draw()
+    def on_draw(self, delta_time):
+        """Every time this method is called"""
+        fps = round(1/delta_time)
+        print(fps)
         if not self.ANIMATION_STARTUP_COMPLETED:
             self.init_batch.draw()
             pyglet.clock.schedule_once(self.delayfunc1, 2)
 
         else:
-            if not self.InUserGUI:
-                try:
-                    if not self.No_Blur_LoggingGUI:
-                        self.clear()
-                        self.LoggingGUI_bg.draw()
-                        self.LoggingGUI_batch.draw()
-                    else:
-                        self.clear()
-                        self.LoggingGUI_bg_img_blurred_sprite.draw()
-                        self.LoggingGUI_batch.draw()
-                        self.button.draw()
-                except AttributeError:
-                    pass
-            else:
-                self.LoggingGUI_bg = None
-                self.LoggingGUI_batch = None
-                self.LoggingGUI_bg_img_blurred_sprite = None
-                self.LoggingGUI_batch = None
-                self.button = None
-                self.clear()
-                self.UserGUI_batch.draw()
-
-    @staticmethod
-    def run_fps_debug(delta_time):
-        print(round(1 / delta_time))
-        return delta_time
+            # Remove the sprites when animation is completed
+            self.clear()
+            pyglet.clock.schedule_interval(self.logging_gui, 1 / 114514)
 
     def delayfunc1(self, delay_time):
         self.ANIMATION_STARTUP_COMPLETED = True
 
-    def on_button_click(self):
+    def logging_gui(self, delta_time):
+        try:
+            if not self.No_Blur_LoggingGUI:
+                self.clear()
+                self.LoggingGUI_bg.draw()
+                self.LoggingGUI_batch.draw()
+            else:
+                self.clear()
+                self.LoggingGUI_bg_img_blurred_sprite.draw()
+                self.LoggingGUI_batch.draw()
+        except AttributeError:
+            pass
+        self.fps_text = f"PythonOS Alpha v.0.3.567 pre fps:{round(1/delta_time)}"
+        pyglet.text.Label(text=self.fps_text, font_name="Calibri", x=10, y=10).draw()
+
+    def user_gui(self, delta_time):
         self.InUserGUI = True
+        self.LoggingGUI_bg = None
+        self.LoggingGUI_batch = None
+        self.LoggingGUI_bg_img_blurred_sprite = None
+        self.LoggingGUI_batch = None
+        self.clear()
+        self.UserGUI_batch.draw()
 
     def on_mouse_motion(self, x, y, dx, dy):
         self.computer_is_hovered = (
-                int(self.Computer_Sprite.x) < x < int(self.Computer_Sprite.x) + self.Computer_Sprite.width
-                and self.Computer_Sprite.y < y < self.Computer_Sprite.y + self.Computer_Sprite.height
+            int(self.Computer_Sprite.x) < x < int(self.Computer_Sprite.x) + self.Computer_Sprite.width
+            and self.Computer_Sprite.y < y < self.Computer_Sprite.y + self.Computer_Sprite.height
         )
         self.Installer_is_hovered = (
-                int(self.Installer_Sprite.x) < x < int(self.Installer_Sprite.x) + self.Installer_Sprite.width
-                and self.Installer_Sprite.y < y < self.Installer_Sprite.y + self.Installer_Sprite.height
+            int(self.Installer_Sprite.x) < x < int(self.Installer_Sprite.x) + self.Installer_Sprite.width
+            and self.Installer_Sprite.y < y < self.Installer_Sprite.y + self.Installer_Sprite.height
         )
-        # Now you have access to the mouse coordinates
-        self.MOUSE_X, self.MOUSE_Y = x, y
-        # print("x: {0}, y: {1}".format(MOUSE_X, MOUSE_Y))
-        try:
-            self.button.on_mouse_motion(x, y, dx, dy)
-        except AttributeError:
-            pass
 
     def on_mouse_press(self, x, y, button, modifiers):
-        if not self.InUserGUI:
-            self.button.on_mouse_press(x, y, button, modifiers)
         if self.InUserGUI:
             if self.computer_is_hovered and button == pyglet.window.mouse.LEFT:
                 print("hello there")
@@ -203,28 +182,6 @@ class Initialization(pyglet.window.Window):
         if symbol == pyglet.window.key.SPACE:
             if self.ANIMATION_STARTUP_COMPLETED:
                 self.No_Blur_LoggingGUI = True
-
-    def on_resize(self, width, height):
-        gl.glViewport(0, 0, width, height)  # free resize
-
-
-"""
-def initialize_logger():
-    log_folder = "logs/"
-    log_filename = f"{time.time()}.log"
-    log_path = os.path.join(log_folder, log_filename)
-
-    if not os.path.isdir(log_folder):
-        os.mkdir(log_folder)
-        print(f"Created {log_folder}")
-    with open(log_path, "x") as file:
-        file.write("[LOGS]\n")
-
-    logging.basicConfig(level=logging.INFO, filename=log_path,
-                        format="[%(asctime)s] [%(processName)s/%(threadName)s/%(levelname)s] (%(module)s.py/%("
-                               "funcName)s) %(message)s")
-
-"""
 
 
 class Computer:
@@ -251,4 +208,4 @@ class Computer:
 
 if __name__ == "__main__":
     computer = Computer()
-    pyglet.app.run(interval=1 / 1145)
+    pyglet.app.run()
