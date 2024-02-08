@@ -4,6 +4,14 @@ import pyglet.image
 import pyglet.gl as gl
 from pyglet.graphics import Batch
 from Button import Button
+import win32api
+
+device = win32api.EnumDisplayDevices()
+settings = win32api.EnumDisplaySettings(device.DeviceName, -1)
+if options.DEBUG:
+    print((device.DeviceName, device.DeviceString))
+    for varName in ['Color', 'BitsPerPel', 'DisplayFrequency']:
+        print("%s: %s" % (varName, getattr(settings, varName)))
 
 if not options.SHADOW_WINDOW:
     pyglet.options["shadow_window"] = False
@@ -137,7 +145,7 @@ class Initialization(pyglet.window.Window):
             pyglet.clock.schedule_interval(self.print_fps, 1 / 480)
         if not self.ANIMATION_STARTUP_COMPLETED:
             self.init_batch.draw()
-            pyglet.clock.schedule_once(self.delayfunc1, 2)
+            pyglet.clock.schedule_once(self.delayfunction1, 2)
         else:
             if not self.InUserGUI:
                 try:
@@ -161,7 +169,7 @@ class Initialization(pyglet.window.Window):
                 self.clear()
                 self.UserGUI_batch.draw()
 
-    def delayfunc1(self, delay_time):
+    def delayfunction1(self, delay_time):
         self.ANIMATION_STARTUP_COMPLETED = True
 
     @staticmethod
@@ -238,4 +246,4 @@ class Computer:
 
 if __name__ == "__main__":
     computer = Computer()
-    pyglet.app.run(interval=1 / 100)
+    pyglet.app.run(interval=1 / int(getattr(settings, 'DisplayFrequency')))
