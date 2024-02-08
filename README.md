@@ -73,7 +73,7 @@
 
 ### 环境要求
 
-- Python 3.x ![python](https://img.shields.io/badge/python-%3E%3D3-brightgreen
+- Python 3.8+ ![python](https://img.shields.io/badge/python-%3E%3D3-brightgreen
 )
 - 依赖库 [安装依赖](#安装依赖)
 
