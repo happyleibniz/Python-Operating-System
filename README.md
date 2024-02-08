@@ -37,7 +37,7 @@
 )
 
 
-## 概述
+## 概述（Pygame edition）
 
 - :star:使用 Python 编写，易于理解和修改。
 - :star:提供基本的操作系统组件，如进程管理、内存管理等。
@@ -63,7 +63,7 @@
   - [许可证](#许可证)
   - [alpha v1.0版本](#alpha-v10版本)
 
-## 效果
+## 效果(Pygame edition)
 
 ![img2](docs/img/suopin.png)
 
@@ -81,11 +81,7 @@
 
 ```bash
 pip install pyglet
-pip install psutil
-pip install easygui
-pip install pil
-pip install opencv-python
-pip install ffpyplayer
+pip install pywin32
 ```
 
 ### 运行
@@ -97,12 +93,12 @@ python main.py
 
 ## 项目结构
 
-> - `font/`:字体文件夹 :capital_abcd:
-> - `images/`:图片文件夹 :flower_playing_cards:
-> - `software/`:系统应用文件夹 :computer:
+> - `core/`:System Core folder 📇
+> - `core/assets/PythonOS/images/`:图片文件夹 :flower_playing_cards:
+> - `core/assets/PythonOS/software/`:系统应用文件夹 :computer:
 >   - `code/`:用于存储exe应用的源代码文件夹 :computer:
-> - `system/`:用于存放系统设置变量或其他配置文件的文件夹 :computer:
-> - `core/`:虚拟磁盘文件夹 :floppy_disk:
+> - `core/system/`:用于存放系统设置变量或其他配置文件的文件夹 :computer:
+> - `Disk/`:虚拟磁盘文件夹 :floppy_disk:
 
 ## 贡献
 
@@ -112,10 +108,13 @@ python main.py
 
 该项目采用 [MIT](https://github.com/Github-Huangshaoqi/PythonOS?tab=MIT-1-ov-file)协议 ![license](https://img.shields.io/badge/license-MIT-blue)
 
-- :copyright:  Github-Huangshaoqi 2023
+- :copyright:  [Github-Huangshaoqi](https://github.com/Github-Huangshaoqi) 2024
+
+- :copyright:  [happyleibniz](https://github.com/happyleibniz) 2024
+
+## Pygame版本(停工)
 
 - :copyright:  [happyleibniz](https://github.com/happyleibniz) 2023
-
-## alpha v1.0版本
-
-- :copyright:  [happyleibniz](https://github.com/happyleibniz) 2023
+- :copyright:  [Github-Huangshaoqi](https://github.com/Github-Huangshaoqi) 2024
+ ## alpha v1.0  
+  :copyright:  [happyleibniz](https://github.com/happyleibniz) 2023
