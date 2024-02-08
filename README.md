@@ -112,6 +112,9 @@ python main.py
 
 - :copyright:  [happyleibniz](https://github.com/happyleibniz) 2024
 
+## 其他开发（帮助）者：
+- [shenjackyuanjie](https://github.com/shenjackyuanjie)
+
 ## Pygame版本(停工)
 
 - :copyright:  [happyleibniz](https://github.com/happyleibniz) 2023
