@@ -5,8 +5,15 @@ import pyglet.gl as gl
 from pyglet.graphics import Batch
 from Button import Button
 
-pyglet.options["shadow_window"] = False
-pyglet.options["debug_gl"] = False
+if not options.SHADOW_WINDOW:
+    pyglet.options["shadow_window"] = False
+else:
+    pyglet.options["shadow_window"] = True
+
+if not options.DEBUG_GL:
+    pyglet.options["debug_gl"] = False
+else:
+    pyglet.options["debug_gl"] = True
 
 
 class Initialization(pyglet.window.Window):
@@ -118,16 +125,16 @@ class Initialization(pyglet.window.Window):
         self.Computer_Sprite = pyglet.sprite.Sprite(img=self.Computer_Image, x=5, y=505, batch=self.UserGUI_batch)
         self.Installer_Image = pyglet.image.load("./core/assets/PythonOS/images/setup-icon.png")
         self.Installer_Sprite = pyglet.sprite.Sprite(img=self.Installer_Image, x=5, y=450, batch=self.UserGUI_batch)
+        self.taskbar = pyglet.shapes.Rectangle(0, 0, self.width, 30, color=(100, 100, 100, 150),
+                                               batch=self.UserGUI_batch)
         """images and sprites end"""
 
-        # # GPU command syncs
-        # self.fences = deque()
-        # gl.glFinish()
-        # self.fences.append(gl.glFenceSync(gl.GL_SYNC_GPU_COMMANDS_COMPLETE, 0)) # Broken in pyglet 2; glFenceSync is missing
+        # # GPU command syncs self.fences = deque() gl.glFinish() self.fences.append(gl.glFenceSync(
+        # gl.GL_SYNC_GPU_COMMANDS_COMPLETE, 0)) # Broken in pyglet 2; glFenceSync is missing
 
     def on_draw(self):
         if options.DEBUG:
-            pyglet.clock.schedule_interval(self.print_fps, 1 / 240)
+            pyglet.clock.schedule_interval(self.print_fps, 1 / 480)
         if not self.ANIMATION_STARTUP_COMPLETED:
             self.init_batch.draw()
             pyglet.clock.schedule_once(self.delayfunc1, 2)
@@ -191,6 +198,9 @@ class Initialization(pyglet.window.Window):
         if self.computer_is_hovered:
             self.Computer_Sprite.x += dx
             self.Computer_Sprite.y += dy
+        if self.Installer_is_hovered:
+            self.Installer_Sprite.x += dx
+            self.Installer_Sprite.y += dy
 
     def on_key_press(self, symbol, modifiers):
         if symbol == pyglet.window.key.SPACE:
@@ -202,25 +212,6 @@ class Initialization(pyglet.window.Window):
 
     def on_resize(self, width, height):
         gl.glViewport(0, 0, width, height)  # free resize
-
-
-"""
-def initialize_logger():
-    log_folder = "logs/"
-    log_filename = f"{time.time()}.log"
-    log_path = os.path.join(log_folder, log_filename)
-
-    if not os.path.isdir(log_folder):
-        os.mkdir(log_folder)
-        print(f"Created {log_folder}")
-    with open(log_path, "x") as file:
-        file.write("[LOGS]\n")
-
-    logging.basicConfig(level=logging.INFO, filename=log_path,
-                        format="[%(asctime)s] [%(processName)s/%(threadName)s/%(levelname)s] (%(module)s.py/%("
-                               "funcName)s) %(message)s")
-
-"""
 
 
 class Computer:
@@ -247,4 +238,4 @@ class Computer:
 
 if __name__ == "__main__":
     computer = Computer()
-    pyglet.app.run(interval=0)
+    pyglet.app.run(interval=1 / 100)
