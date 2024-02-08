@@ -6,7 +6,7 @@
 <p align="center">
     
   ![img1](docs/img/desktop.png)
-  
+  (↑Pygame edition)
   <h3 align="center">PythonOS</h3>   
   <a href="https://github.com/happyleibniz/Python-Operating-System/releases">下载其他版本</a>
     ·
