@@ -2,7 +2,7 @@ from core.utils import options
 import pyglet
 import time
 import pyglet.image
-import pyglet.gl as gl
+from pyglet import gl
 from pyglet.graphics import Batch
 from Button import Button
 import win32api
@@ -29,17 +29,21 @@ class Initialization(pyglet.window.Window):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
         # config
+        self.Installer_pg1_is_hovered = None
         self.MOUSE_Y = None
         self.MOUSE_X = None
         self.Installer_is_hovered = None
         self.computer_is_hovered = None
         self.fps_text = None
+        self.last_mouse_release = None
         """batches"""
         self.init_batch = Batch()
         self.LoggingGUI_batch = Batch()
         self.UserGUI_batch = Batch()
+
         """batches end"""
         """vars"""
+        self.Installer_pg = False
         self.No_Blur_LoggingGUI = False
         self.crraima = 0
         self.loop_counter = 0  # Initialize the loop counter
@@ -134,8 +138,15 @@ class Initialization(pyglet.window.Window):
         self.Computer_Sprite = pyglet.sprite.Sprite(img=self.Computer_Image, x=5, y=505, batch=self.UserGUI_batch)
         self.Installer_Image = pyglet.image.load("./core/assets/PythonOS/images/setup-icon.png")
         self.Installer_Sprite = pyglet.sprite.Sprite(img=self.Installer_Image, x=5, y=450, batch=self.UserGUI_batch)
-        self.taskbar = pyglet.shapes.Rectangle(0, 0, self.width, 30, color=(100, 100, 100, 150),
-                                               batch=self.UserGUI_batch)
+        self.taskbar_image = pyglet.image.load("./core/assets/PythonOS/images/taskbar.png")
+        self.taskbar = pyglet.sprite.Sprite(
+            img=self.taskbar_image,
+            x=0,
+            y=0,
+            batch=self.UserGUI_batch
+        )
+        self.Installer_pg1img = pyglet.image.load("./core/assets/PythonOS/images/Installer_page1.png")
+        self.Installer_pg1 = pyglet.sprite.Sprite(img=self.Installer_pg1img, x=self.width / 5, y=self.width / 6.5)
         """images and sprites end"""
 
         # # GPU command syncs self.fences = deque() gl.glFinish() self.fences.append(gl.glFenceSync(
@@ -169,6 +180,8 @@ class Initialization(pyglet.window.Window):
                 self.button = None
                 self.clear()
                 self.UserGUI_batch.draw()
+                if self.Installer_pg:
+                    self.Installer_pg1.draw()
 
     def delayfunction1(self, delay_time):
         self.ANIMATION_STARTUP_COMPLETED = True
@@ -185,6 +198,10 @@ class Initialization(pyglet.window.Window):
         self.Installer_is_hovered = (
                 int(self.Installer_Sprite.x) < x < int(self.Installer_Sprite.x) + self.Installer_Sprite.width
                 and self.Installer_Sprite.y < y < self.Installer_Sprite.y + self.Installer_Sprite.height
+        )
+        self.Installer_pg1_is_hovered = (
+            int(self.Installer_pg1.x) < x < int(self.Installer_pg1.x) + self.Installer_pg1.width
+            and self.Installer_pg1.y < y < int(self.Installer_pg1.y) + self.Installer_pg1.height
         )
         # Now you have access to the mouse coordinates
         self.MOUSE_X, self.MOUSE_Y = x, y
@@ -206,18 +223,20 @@ class Initialization(pyglet.window.Window):
                     if (x, y, button) == self.last_mouse_release[:-1]:
                         if time.time() - self.last_mouse_release[-1] < 0.2:
                             print("computer.double_click_sound")
-
             if self.Installer_is_hovered and button == pyglet.window.mouse.LEFT:
                 if hasattr(self, 'last_mouse_release'):
                     if (x, y, button) == self.last_mouse_release[:-1]:
                         if time.time() - self.last_mouse_release[-1] < 0.2:
                             print("Installer.doubleclick.sound")
-
-        if hasattr(self, 'last_mouse_release'):
-            if (x, y, button) == self.last_mouse_release[:-1]:
-                """Same place, same button"""
-                if time.time() - self.last_mouse_release[-1] < 0.2:
-                    print("Double-click")
+                            self.Installer_pg = not self.Installer_pg
+        try:
+            if hasattr(self, 'last_mouse_release'):
+                if (x, y, button) == self.last_mouse_release[:-1]:
+                    """Same place, same button"""
+                    if time.time() - self.last_mouse_release[-1] < 0.2:
+                        print("Double-click")
+        except TypeError:
+            pass
 
     def on_mouse_drag(self, x, y, dx, dy, buttons, modifiers):
         if self.computer_is_hovered:
@@ -226,6 +245,9 @@ class Initialization(pyglet.window.Window):
         if self.Installer_is_hovered:
             self.Installer_Sprite.x += dx
             self.Installer_Sprite.y += dy
+        if self.Installer_pg1_is_hovered:
+            self.Installer_pg1.x += dx
+            self.Installer_pg1.y += dy
 
     def on_key_press(self, symbol, modifiers):
         if symbol == pyglet.window.key.SPACE:
@@ -236,7 +258,7 @@ class Initialization(pyglet.window.Window):
         self.InUserGUI = True
 
     def on_resize(self, width, height):
-        gl.glViewport(0, 0, width, height)  # free resize
+        gl.glViewport(0, 0, width, height)
 
 
 class Computer:
