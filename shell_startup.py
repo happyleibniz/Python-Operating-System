@@ -1,5 +1,6 @@
 from core.utils import options
 import pyglet
+import time
 import pyglet.image
 import pyglet.gl as gl
 from pyglet.graphics import Batch
@@ -193,14 +194,30 @@ class Initialization(pyglet.window.Window):
         except AttributeError:
             pass
 
+    def on_mouse_release(self, x, y, button, modifiers):
+        self.last_mouse_release = (x, y, button, time.time())
+
     def on_mouse_press(self, x, y, button, modifiers):
         if not self.InUserGUI:
             self.button.on_mouse_press(x, y, button, modifiers)
         if self.InUserGUI:
             if self.computer_is_hovered and button == pyglet.window.mouse.LEFT:
-                print("hello there")
+                if hasattr(self, 'last_mouse_release'):
+                    if (x, y, button) == self.last_mouse_release[:-1]:
+                        if time.time() - self.last_mouse_release[-1] < 0.2:
+                            print("computer.double_click_sound")
+
             if self.Installer_is_hovered and button == pyglet.window.mouse.LEFT:
-                print("installer clicked")
+                if hasattr(self, 'last_mouse_release'):
+                    if (x, y, button) == self.last_mouse_release[:-1]:
+                        if time.time() - self.last_mouse_release[-1] < 0.2:
+                            print("Installer.doubleclick.sound")
+
+        if hasattr(self, 'last_mouse_release'):
+            if (x, y, button) == self.last_mouse_release[:-1]:
+                """Same place, same button"""
+                if time.time() - self.last_mouse_release[-1] < 0.2:
+                    print("Double-click")
 
     def on_mouse_drag(self, x, y, dx, dy, buttons, modifiers):
         if self.computer_is_hovered:
