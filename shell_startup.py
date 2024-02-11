@@ -29,6 +29,9 @@ class Initialization(pyglet.window.Window):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
         # config
+        self.McIcon_is_hovered = None
+        self.Installer_pg1_opacity_done = False
+        self.Installer_pg1_opacity_done2 = False
         self.Installer_pg1_is_hovered = None
         self.MOUSE_Y = None
         self.MOUSE_X = None
@@ -147,6 +150,11 @@ class Initialization(pyglet.window.Window):
         )
         self.Installer_pg1img = pyglet.image.load("./core/assets/PythonOS/images/Installer_page1.png")
         self.Installer_pg1 = pyglet.sprite.Sprite(img=self.Installer_pg1img, x=self.width / 5, y=self.width / 6.5)
+        self.Minecraft_Logo_Installer = pyglet.sprite.Sprite(
+            img=pyglet.image.load("./core/assets/PythonOS/images/minecraft-logo-icon.png"), x=self.Installer_pg1.width / 3,
+            y=self.Installer_pg1.width / 6)
+        self.Minecraft_Logo_Installer.height = 95
+        self.Minecraft_Logo_Installer.width = 128
         """images and sprites end"""
 
         # # GPU command syncs self.fences = deque() gl.glFinish() self.fences.append(gl.glFenceSync(
@@ -180,8 +188,23 @@ class Initialization(pyglet.window.Window):
                 self.button = None
                 self.clear()
                 self.UserGUI_batch.draw()
+                self.Minecraft_Logo_Installer = pyglet.sprite.Sprite(
+                    img=pyglet.image.load("./core/assets/PythonOS/images/minecraft-logo-icon.png"),
+                    x=self.Installer_pg1.x / 0.35,
+                    y=self.Installer_pg1.y / 0.4)
+                self.Minecraft_Logo_Installer.height = 95
+                self.Minecraft_Logo_Installer.width = 128
                 if self.Installer_pg:
+                    for i in range(51000):
+                        self.Installer_pg1.opacity += 0.005
+                    if self.Installer_pg1.opacity >= 255:  # this bug fixed <BUG#1 solved>
+                        self.Installer_pg1.opacity = 255
                     self.Installer_pg1.draw()
+                    self.Minecraft_Logo_Installer.draw()
+                else:
+                    self.Installer_pg1.opacity -= 5
+                    if self.Installer_pg1.opacity == 5:
+                        self.Installer_pg1.opacity = 0
 
     def delayfunction1(self, delay_time):
         self.ANIMATION_STARTUP_COMPLETED = True
@@ -200,8 +223,13 @@ class Initialization(pyglet.window.Window):
                 and self.Installer_Sprite.y < y < self.Installer_Sprite.y + self.Installer_Sprite.height
         )
         self.Installer_pg1_is_hovered = (
-            int(self.Installer_pg1.x) < x < int(self.Installer_pg1.x) + self.Installer_pg1.width
-            and self.Installer_pg1.y < y < int(self.Installer_pg1.y) + self.Installer_pg1.height
+                int(self.Installer_pg1.x) < x < int(self.Installer_pg1.x) + self.Installer_pg1.width
+                and self.Installer_pg1.y < y < int(self.Installer_pg1.y) + self.Installer_pg1.height
+        )
+        self.McIcon_is_hovered = (
+                int(self.Minecraft_Logo_Installer.x) < x < int(self.Minecraft_Logo_Installer.x) +
+                self.Minecraft_Logo_Installer.width and self.Minecraft_Logo_Installer.y < y <
+                int(self.Minecraft_Logo_Installer.y) + self.Minecraft_Logo_Installer.height
         )
         # Now you have access to the mouse coordinates
         self.MOUSE_X, self.MOUSE_Y = x, y
@@ -229,6 +257,12 @@ class Initialization(pyglet.window.Window):
                         if time.time() - self.last_mouse_release[-1] < 0.2:
                             print("Installer.doubleclick.sound")
                             self.Installer_pg = not self.Installer_pg
+            if self.McIcon_is_hovered and button == pyglet.window.mouse.LEFT:
+                if hasattr(self, 'last_mouse_release'):
+                    if (x, y, button) == self.last_mouse_release[:-1]:
+                        if time.time() - self.last_mouse_release[-1] < 0.2:
+                            print("Minecraft_icon.doubleclick.sound")
+
         try:
             if hasattr(self, 'last_mouse_release'):
                 if (x, y, button) == self.last_mouse_release[:-1]:

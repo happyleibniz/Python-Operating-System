@@ -23,6 +23,6 @@ SMOOTH_FPS = False  # Legacy way to force the flushing of command buffer and for
 # Enable this to test whether its impact is better. Similar to Max CPU Ahead frames to 0
 
 """DEBUGGING"""
-DEBUG = False
+DEBUG = True
 DEBUG_GL = False
 SHADOW_WINDOW = False
