@@ -7,7 +7,7 @@ import time
 import pyglet.image
 from pyglet import gl
 from pyglet.graphics import Batch
-from Button import Button
+from pyglet.gui import *
 import win32api
 
 device = win32api.EnumDisplayDevices()
@@ -15,7 +15,7 @@ settings = win32api.EnumDisplaySettings(device.DeviceName, -1)
 if options.DEBUG:
     print((device.DeviceName, device.DeviceString))
     for varname in ['Color', 'BitsPerPel', 'DisplayFrequency']:
-        print(varname,":",getattr(settings, varname))
+        print(varname, ":", getattr(settings, varname))
 
 if not options.SHADOW_WINDOW:
     pyglet.options["shadow_window"] = False
@@ -29,9 +29,10 @@ else:
 
 
 class Initialization(pyglet.window.Window):
-    def __init__(self, **kwargs):
-        super().__init__(**kwargs)
+    def __init__(self,*args, **kwargs):
+        super().__init__(*args,**kwargs)
         # config
+        # self.gui = pyglet.gui.GUI()
         self.start_up_sound_var = None
         self.asine = None
         self.start_up_sounds = None
@@ -83,13 +84,17 @@ class Initialization(pyglet.window.Window):
             y=self.height / 2,
             batch=self.logging_gui_batch,
         )
-        self.button = Button(
-            self.width / 2 - 120,
-            self.height / 2 - 200,
-            200,
-            50,
-            "LOGIN",
-            self.on_button_click,
+        self.login_button_list = [
+            pyglet.image.load("core/assets/PythonOS/images/oreui/mc_play_button.png"),
+            pyglet.image.load("core/assets/PythonOS/images/oreui/mc_play_button_not_pressed.png")
+        ]
+        self.login_button = ToggleButton(
+            x=self.width / 2 - 260,
+            y=self.height / 2 - 250,
+            pressed=self.login_button_list[0],
+            depressed=self.login_button_list[1],
+            batch=self.logging_gui_batch,
+            # self.on_button_click,
         )
         self.user = pyglet.text.Label(
             "User",
@@ -183,6 +188,7 @@ class Initialization(pyglet.window.Window):
         self.asine = pyglet.media.load("./core/assets/PythonOS/Media/asine_shortend.wav", streaming=True)
         print("Sound asine.mp3 load complete")
 
+
     def load_sound_variables(self):
         self.startupsound_var = 0
 
@@ -198,7 +204,7 @@ class Initialization(pyglet.window.Window):
                     if not self.no_blur_logging_gui:
                         try:
                             if self.startupsound_var >= 0:
-                                self.start_up_sounds_list[random.randint(1, len(self.start_up_sounds_list))].play()
+                                self.start_up_sounds_list[random.randint(1, len(self.start_up_sounds_list) - 1)].play()
                                 self.startupsound_var += -1
                         except pyglet.media.exceptions.MediaException:
                             pass
@@ -209,7 +215,7 @@ class Initialization(pyglet.window.Window):
                         self.clear()
                         self.logging_gui_bg_img_blurred_sprite.draw()
                         self.logging_gui_batch.draw()
-                        self.button.draw()
+
                 except AttributeError:
                     pass
             else:
@@ -275,8 +281,8 @@ class Initialization(pyglet.window.Window):
         self.last_mouse_release = (x, y, button, time.time())
 
     def on_mouse_press(self, x, y, button, modifiers):
-        if not self.in_user_gui:
-            self.button.on_mouse_press(x, y, button, modifiers)
+        # if not self.in_user_gui:
+        #     self.button.on_mouse_press(x, y, button, modifiers)
         if self.in_user_gui:
             if self.computer_is_hovered and button == pyglet.window.mouse.LEFT:
                 if hasattr(self, 'last_mouse_release'):
