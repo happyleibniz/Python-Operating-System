@@ -14,8 +14,8 @@ device = win32api.EnumDisplayDevices()
 settings = win32api.EnumDisplaySettings(device.DeviceName, -1)
 if options.DEBUG:
     print((device.DeviceName, device.DeviceString))
-    for varName in ['Color', 'BitsPerPel', 'DisplayFrequency']:
-        print("%s: %s" % (varName, getattr(settings, varName)))
+    for varname in ['Color', 'BitsPerPel', 'DisplayFrequency']:
+        print(varname,":",getattr(settings, varname))
 
 if not options.SHADOW_WINDOW:
     pyglet.options["shadow_window"] = False
@@ -32,6 +32,9 @@ class Initialization(pyglet.window.Window):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
         # config
+        self.startupsound_var = None
+        self.asine = None
+        self.StartUP_sounds = None
         self.McIcon_is_hovered = None
         self.Installer_pg1_opacity_done = False
         self.Installer_pg1_opacity_done2 = False
