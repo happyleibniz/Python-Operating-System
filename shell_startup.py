@@ -1,3 +1,6 @@
+import os
+import random
+
 from core.utils import options
 import pyglet
 import time
@@ -151,14 +154,34 @@ class Initialization(pyglet.window.Window):
         self.Installer_pg1img = pyglet.image.load("./core/assets/PythonOS/images/Installer_page1.png")
         self.Installer_pg1 = pyglet.sprite.Sprite(img=self.Installer_pg1img, x=self.width / 5, y=self.width / 6.5)
         self.Minecraft_Logo_Installer = pyglet.sprite.Sprite(
-            img=pyglet.image.load("./core/assets/PythonOS/images/minecraft-logo-icon.png"), x=self.Installer_pg1.width / 3,
+            img=pyglet.image.load("./core/assets/PythonOS/images/minecraft-logo-icon.png"),
+            x=self.Installer_pg1.width / 3,
             y=self.Installer_pg1.width / 6)
         self.Minecraft_Logo_Installer.height = 95
         self.Minecraft_Logo_Installer.width = 128
+        self.load_sounds()
         """images and sprites end"""
 
         # # GPU command syncs self.fences = deque() gl.glFinish() self.fences.append(gl.glFenceSync(
         # gl.GL_SYNC_GPU_COMMANDS_COMPLETE, 0)) # Broken in pyglet 2; glFenceSync is missing
+
+    def load_sounds(self):
+        self.load_sound_variables()
+        print("Loading sounds")
+        print("loading StartUp sounds")
+        self.StartUP_sounds = []
+        print("./core/assets/PythonOS/Media/ file names:",
+              str([f for f in os.listdir("./core/assets/PythonOS/Media/") if
+                   os.path.isfile(os.path.join("./core/assets/PythonOS/Media/", f))]))
+        for f in os.listdir("./core/assets/PythonOS/Media/"):
+            if os.path.isfile(os.path.join("./core/assets/PythonOS/Media/", f)):
+                self.StartUP_sounds.append(pyglet.media.load("./core/assets/PythonOS/Media/" + str(f)))
+        print(self.StartUP_sounds)
+        self.asine = pyglet.media.load("./core/assets/PythonOS/Media/asine_shortend.wav", streaming=True)
+        print("Sound asine.mp3 load complete")
+
+    def load_sound_variables(self):
+        self.startupsound_var = 0
 
     def on_draw(self):
         if options.DEBUG:
@@ -170,6 +193,12 @@ class Initialization(pyglet.window.Window):
             if not self.InUserGUI:
                 try:
                     if not self.No_Blur_LoggingGUI:
+                        try:
+                            if self.startupsound_var >= 0:
+                                self.StartUP_sounds[random.randint(1, len(self.StartUP_sounds))].play()
+                                self.startupsound_var += -1
+                        except pyglet.media.exceptions.MediaException:
+                            pass
                         self.clear()
                         self.LoggingGUI_bg.draw()
                         self.LoggingGUI_batch.draw()
