@@ -32,47 +32,47 @@ class Initialization(pyglet.window.Window):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
         # config
-        self.startupsound_var = None
+        self.start_up_sound_var = None
         self.asine = None
-        self.StartUP_sounds = None
-        self.McIcon_is_hovered = None
-        self.Installer_pg1_opacity_done = False
-        self.Installer_pg1_opacity_done2 = False
-        self.Installer_pg1_is_hovered = None
+        self.start_up_sounds = None
+        self.mc_icon_is_hovered = None
+        self.installer_pg1_opacity_done = False
+        self.installer_pg1_opacity_done2 = False
+        self.installer_pg1_is_hovered = None
         self.MOUSE_Y = None
         self.MOUSE_X = None
-        self.Installer_is_hovered = None
+        self.installer_is_hovered = None
         self.computer_is_hovered = None
         self.fps_text = None
         self.last_mouse_release = None
         """batches"""
         self.init_batch = Batch()
-        self.LoggingGUI_batch = Batch()
-        self.UserGUI_batch = Batch()
+        self.logging_gui_batch = Batch()
+        self.user_gui_batch = Batch()
 
         """batches end"""
         """vars"""
-        self.Installer_pg = False
-        self.No_Blur_LoggingGUI = False
+        self.installer_pg = False
+        self.no_blur_logging_gui = False
         self.crraima = 0
         self.loop_counter = 0  # Initialize the loop counter
-        self.ANIMATION_STARTUP_COMPLETED = False
-        self.InUserGUI = False
+        self.animation_startup_completed = False
+        self.in_user_gui = False
         self.loop_counter = 0  # Initialize the loop counter
         self.options = options
         """vars end"""
         """images and sprites"""
-        self.LoggingGUI_bg_img = pyglet.image.load("core/assets/PythonOS/images/astounding_background1.jpg")
-        self.LoggingGUI_bg = pyglet.sprite.Sprite(
-            self.LoggingGUI_bg_img,
+        self.logging_gui_bg_img = pyglet.image.load("core/assets/PythonOS/images/astounding_background1.jpg")
+        self.logging_gui_bg = pyglet.sprite.Sprite(
+            self.logging_gui_bg_img,
             x=0,
             y=0,
         )
-        self.LoggingGUI_bg_img_blurred = pyglet.image.load(
+        self.logging_gui_bg_img_blurred = pyglet.image.load(
             "core/assets/PythonOS/images/astounding_background1_blured.jpg"
         )
-        self.LoggingGUI_bg_img_blurred_sprite = pyglet.sprite.Sprite(
-            self.LoggingGUI_bg_img_blurred,
+        self.logging_gui_bg_img_blurred_sprite = pyglet.sprite.Sprite(
+            self.logging_gui_bg_img_blurred,
             x=0,
             y=0,
         )
@@ -81,7 +81,7 @@ class Initialization(pyglet.window.Window):
             self.user_image,
             x=self.width / 2 - 150,
             y=self.height / 2,
-            batch=self.LoggingGUI_batch,
+            batch=self.logging_gui_batch,
         )
         self.button = Button(
             self.width / 2 - 120,
@@ -91,13 +91,13 @@ class Initialization(pyglet.window.Window):
             "LOGIN",
             self.on_button_click,
         )
-        self.User = pyglet.text.Label(
+        self.user = pyglet.text.Label(
             "User",
             font_name="calibri",
             font_size=30,
             x=self.width / 2 - 50,
             y=self.height / 2 - 100,
-            batch=self.LoggingGUI_batch,
+            batch=self.logging_gui_batch,
             bold=True,
         )
 
@@ -141,27 +141,27 @@ class Initialization(pyglet.window.Window):
             y=self.height / 30,
             batch=self.init_batch,
         )
-        self.OS_User_GUI_IMG = pyglet.image.load("./core/assets/PythonOS/images/background_pythonOS1.jpg")
-        self.OS_User_GUI = pyglet.sprite.Sprite(img=self.OS_User_GUI_IMG, x=0, y=0, batch=self.UserGUI_batch)
-        self.Computer_Image = pyglet.image.load("./core/assets/PythonOS/images/computer.png")
-        self.Computer_Sprite = pyglet.sprite.Sprite(img=self.Computer_Image, x=5, y=505, batch=self.UserGUI_batch)
-        self.Installer_Image = pyglet.image.load("./core/assets/PythonOS/images/setup-icon.png")
-        self.Installer_Sprite = pyglet.sprite.Sprite(img=self.Installer_Image, x=5, y=450, batch=self.UserGUI_batch)
+        self.os_user_gui_img = pyglet.image.load("./core/assets/PythonOS/images/background_pythonOS1.jpg")
+        self.os_user_gui = pyglet.sprite.Sprite(img=self.os_user_gui_img, x=0, y=0, batch=self.user_gui_batch)
+        self.computer_image = pyglet.image.load("./core/assets/PythonOS/images/computer.png")
+        self.computer_sprite = pyglet.sprite.Sprite(img=self.computer_image, x=5, y=505, batch=self.user_gui_batch)
+        self.installer_image = pyglet.image.load("./core/assets/PythonOS/images/setup-icon.png")
+        self.installer_sprite = pyglet.sprite.Sprite(img=self.installer_image, x=5, y=450, batch=self.user_gui_batch)
         self.taskbar_image = pyglet.image.load("./core/assets/PythonOS/images/taskbar.png")
         self.taskbar = pyglet.sprite.Sprite(
             img=self.taskbar_image,
             x=0,
             y=0,
-            batch=self.UserGUI_batch
+            batch=self.user_gui_batch
         )
-        self.Installer_pg1img = pyglet.image.load("./core/assets/PythonOS/images/Installer_page1.png")
-        self.Installer_pg1 = pyglet.sprite.Sprite(img=self.Installer_pg1img, x=self.width / 5, y=self.width / 6.5)
-        self.Minecraft_Logo_Installer = pyglet.sprite.Sprite(
+        self.installer_pg1img = pyglet.image.load("./core/assets/PythonOS/images/Installer_page1.png")
+        self.installer_pg1 = pyglet.sprite.Sprite(img=self.installer_pg1img, x=self.width / 5, y=self.width / 6.5)
+        self.minecraft_logo_installer = pyglet.sprite.Sprite(
             img=pyglet.image.load("./core/assets/PythonOS/images/minecraft-logo-icon.png"),
-            x=self.Installer_pg1.width / 3,
-            y=self.Installer_pg1.width / 6)
-        self.Minecraft_Logo_Installer.height = 95
-        self.Minecraft_Logo_Installer.width = 128
+            x=self.installer_pg1.width / 3,
+            y=self.installer_pg1.width / 6)
+        self.minecraft_logo_installer.height = 95
+        self.minecraft_logo_installer.width = 128
         self.load_sounds()
         """images and sprites end"""
 
@@ -172,14 +172,14 @@ class Initialization(pyglet.window.Window):
         self.load_sound_variables()
         print("Loading sounds")
         print("loading StartUp sounds")
-        self.StartUP_sounds = []
+        self.start_up_sounds_list = []
         print("./core/assets/PythonOS/Media/ file names:",
               str([f for f in os.listdir("./core/assets/PythonOS/Media/") if
                    os.path.isfile(os.path.join("./core/assets/PythonOS/Media/", f))]))
         for f in os.listdir("./core/assets/PythonOS/Media/"):
             if os.path.isfile(os.path.join("./core/assets/PythonOS/Media/", f)):
-                self.StartUP_sounds.append(pyglet.media.load("./core/assets/PythonOS/Media/" + str(f)))
-        print(self.StartUP_sounds)
+                self.start_up_sounds_list.append(pyglet.media.load("./core/assets/PythonOS/Media/" + str(f)))
+        print(self.start_up_sounds_list)
         self.asine = pyglet.media.load("./core/assets/PythonOS/Media/asine_shortend.wav", streaming=True)
         print("Sound asine.mp3 load complete")
 
@@ -189,57 +189,57 @@ class Initialization(pyglet.window.Window):
     def on_draw(self):
         if options.DEBUG:
             pyglet.clock.schedule_interval(self.print_fps, 1 / 480)
-        if not self.ANIMATION_STARTUP_COMPLETED:
+        if not self.animation_startup_completed:
             self.init_batch.draw()
             pyglet.clock.schedule_once(self.delayfunction1, 2)
         else:
-            if not self.InUserGUI:
+            if not self.in_user_gui:
                 try:
-                    if not self.No_Blur_LoggingGUI:
+                    if not self.no_blur_logging_gui:
                         try:
                             if self.startupsound_var >= 0:
-                                self.StartUP_sounds[random.randint(1, len(self.StartUP_sounds))].play()
+                                self.start_up_sounds_list[random.randint(1, len(self.start_up_sounds_list))].play()
                                 self.startupsound_var += -1
                         except pyglet.media.exceptions.MediaException:
                             pass
                         self.clear()
-                        self.LoggingGUI_bg.draw()
-                        self.LoggingGUI_batch.draw()
+                        self.logging_gui_bg.draw()
+                        self.logging_gui_batch.draw()
                     else:
                         self.clear()
-                        self.LoggingGUI_bg_img_blurred_sprite.draw()
-                        self.LoggingGUI_batch.draw()
+                        self.logging_gui_bg_img_blurred_sprite.draw()
+                        self.logging_gui_batch.draw()
                         self.button.draw()
                 except AttributeError:
                     pass
             else:
-                self.LoggingGUI_bg = None
-                self.LoggingGUI_batch = None
-                self.LoggingGUI_bg_img_blurred_sprite = None
-                self.LoggingGUI_batch = None
+                self.logging_gui_bg = None
+                self.logging_gui_batch = None
+                self.logging_gui_bg_img_blurred_sprite = None
+                self.logging_gui_batch = None
                 self.button = None
                 self.clear()
-                self.UserGUI_batch.draw()
-                self.Minecraft_Logo_Installer = pyglet.sprite.Sprite(
+                self.user_gui_batch.draw()
+                self.minecraft_logo_installer = pyglet.sprite.Sprite(
                     img=pyglet.image.load("./core/assets/PythonOS/images/minecraft-logo-icon.png"),
-                    x=self.Installer_pg1.x / 0.35,
-                    y=self.Installer_pg1.y / 0.4)
-                self.Minecraft_Logo_Installer.height = 95
-                self.Minecraft_Logo_Installer.width = 128
-                if self.Installer_pg:
+                    x=self.installer_pg1.x / 0.35,
+                    y=self.installer_pg1.y / 0.4)
+                self.minecraft_logo_installer.height = 95
+                self.minecraft_logo_installer.width = 128
+                if self.installer_pg:
                     for i in range(51000):
-                        self.Installer_pg1.opacity += 0.005
-                    if self.Installer_pg1.opacity >= 255:  # this bug fixed <BUG#1 solved>
-                        self.Installer_pg1.opacity = 255
-                    self.Installer_pg1.draw()
-                    self.Minecraft_Logo_Installer.draw()
+                        self.installer_pg1.opacity += 0.005
+                    if self.installer_pg1.opacity >= 255:  # this bug fixed <BUG#1 solved>
+                        self.installer_pg1.opacity = 255
+                    self.installer_pg1.draw()
+                    self.minecraft_logo_installer.draw()
                 else:
-                    self.Installer_pg1.opacity -= 5
-                    if self.Installer_pg1.opacity == 5:
-                        self.Installer_pg1.opacity = 0
+                    self.installer_pg1.opacity -= 5
+                    if self.installer_pg1.opacity == 5:
+                        self.installer_pg1.opacity = 0
 
     def delayfunction1(self, delay_time):
-        self.ANIMATION_STARTUP_COMPLETED = True
+        self.animation_startup_completed = True
 
     @staticmethod
     def print_fps(delta_time):
@@ -247,21 +247,21 @@ class Initialization(pyglet.window.Window):
 
     def on_mouse_motion(self, x, y, dx, dy):
         self.computer_is_hovered = (
-                int(self.Computer_Sprite.x) < x < int(self.Computer_Sprite.x) + self.Computer_Sprite.width
-                and self.Computer_Sprite.y < y < self.Computer_Sprite.y + self.Computer_Sprite.height
+                int(self.computer_sprite.x) < x < int(self.computer_sprite.x) + self.computer_sprite.width
+                and self.computer_sprite.y < y < self.computer_sprite.y + self.computer_sprite.height
         )  # pycharm
-        self.Installer_is_hovered = (
-                int(self.Installer_Sprite.x) < x < int(self.Installer_Sprite.x) + self.Installer_Sprite.width
-                and self.Installer_Sprite.y < y < self.Installer_Sprite.y + self.Installer_Sprite.height
+        self.installer_is_hovered = (
+                int(self.installer_sprite.x) < x < int(self.installer_sprite.x) + self.installer_sprite.width
+                and self.installer_sprite.y < y < self.installer_sprite.y + self.installer_sprite.height
         )
-        self.Installer_pg1_is_hovered = (
-                int(self.Installer_pg1.x) < x < int(self.Installer_pg1.x) + self.Installer_pg1.width
-                and self.Installer_pg1.y < y < int(self.Installer_pg1.y) + self.Installer_pg1.height
+        self.installer_pg1_is_hovered = (
+                int(self.installer_pg1.x) < x < int(self.installer_pg1.x) + self.installer_pg1.width
+                and self.installer_pg1.y < y < int(self.installer_pg1.y) + self.installer_pg1.height
         )
-        self.McIcon_is_hovered = (
-                int(self.Minecraft_Logo_Installer.x) < x < int(self.Minecraft_Logo_Installer.x) +
-                self.Minecraft_Logo_Installer.width and self.Minecraft_Logo_Installer.y < y <
-                int(self.Minecraft_Logo_Installer.y) + self.Minecraft_Logo_Installer.height
+        self.mc_icon_is_hovered = (
+                int(self.minecraft_logo_installer.x) < x < int(self.minecraft_logo_installer.x) +
+                self.minecraft_logo_installer.width and self.minecraft_logo_installer.y < y <
+                int(self.minecraft_logo_installer.y) + self.minecraft_logo_installer.height
         )
         # Now you have access to the mouse coordinates
         self.MOUSE_X, self.MOUSE_Y = x, y
@@ -275,21 +275,21 @@ class Initialization(pyglet.window.Window):
         self.last_mouse_release = (x, y, button, time.time())
 
     def on_mouse_press(self, x, y, button, modifiers):
-        if not self.InUserGUI:
+        if not self.in_user_gui:
             self.button.on_mouse_press(x, y, button, modifiers)
-        if self.InUserGUI:
+        if self.in_user_gui:
             if self.computer_is_hovered and button == pyglet.window.mouse.LEFT:
                 if hasattr(self, 'last_mouse_release'):
                     if (x, y, button) == self.last_mouse_release[:-1]:
                         if time.time() - self.last_mouse_release[-1] < 0.2:
                             print("computer.double_click_sound")
-            if self.Installer_is_hovered and button == pyglet.window.mouse.LEFT:
+            if self.installer_is_hovered and button == pyglet.window.mouse.LEFT:
                 if hasattr(self, 'last_mouse_release'):
                     if (x, y, button) == self.last_mouse_release[:-1]:
                         if time.time() - self.last_mouse_release[-1] < 0.2:
                             print("Installer.doubleclick.sound")
-                            self.Installer_pg = not self.Installer_pg
-            if self.McIcon_is_hovered and button == pyglet.window.mouse.LEFT:
+                            self.installer_pg = not self.installer_pg
+            if self.mc_icon_is_hovered and button == pyglet.window.mouse.LEFT:
                 if hasattr(self, 'last_mouse_release'):
                     if (x, y, button) == self.last_mouse_release[:-1]:
                         if time.time() - self.last_mouse_release[-1] < 0.2:
@@ -306,22 +306,22 @@ class Initialization(pyglet.window.Window):
 
     def on_mouse_drag(self, x, y, dx, dy, buttons, modifiers):
         if self.computer_is_hovered:
-            self.Computer_Sprite.x += dx
-            self.Computer_Sprite.y += dy
-        if self.Installer_is_hovered:
-            self.Installer_Sprite.x += dx
-            self.Installer_Sprite.y += dy
-        if self.Installer_pg1_is_hovered:
-            self.Installer_pg1.x += dx
-            self.Installer_pg1.y += dy
+            self.computer_sprite.x += dx
+            self.computer_sprite.y += dy
+        if self.installer_is_hovered:
+            self.installer_sprite.x += dx
+            self.installer_sprite.y += dy
+        if self.installer_pg1_is_hovered:
+            self.installer_pg1.x += dx
+            self.installer_pg1.y += dy
 
     def on_key_press(self, symbol, modifiers):
         if symbol == pyglet.window.key.SPACE:
-            if self.ANIMATION_STARTUP_COMPLETED:
-                self.No_Blur_LoggingGUI = True
+            if self.animation_startup_completed:
+                self.no_blur_logging_gui = True
 
     def on_button_click(self):
-        self.InUserGUI = True
+        self.in_user_gui = True
 
     def on_resize(self, width, height):
         gl.glViewport(0, 0, width, height)
