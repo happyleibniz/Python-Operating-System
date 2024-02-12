@@ -178,20 +178,17 @@ class Initialization(pyglet.window.Window):
         """ ####################"""
 
         # Determine the size of the green rectangle based on some condition
-        green_rectangle_width = int(self.installer_pg_1_re_mc.width)  # which is 607
-        green_rectangle_height = int(self.installer_pg_1_re_mc.height)  # which is 370
-
-        # Modify the size of the green rectangle based on some criteria
-        # For example, increase width and height by a certain factor
-        green_rectangle_width *= 1.5
-        green_rectangle_height *= 1.5
-        green_rectangle = pyglet.image.SolidColorImagePattern((50, 205, 50, 100))
-        green_rectangle_image = pyglet.image.create(green_rectangle_width, green_rectangle_height, green_rectangle)
-        green_rectangle_sprite = pyglet.sprite.Sprite(green_rectangle_image,
-                                                      x=self.installer_pg_1_re_mc.x,
-                                                      y=self.installer_pg_1_re_mc.y,
+        self.green_rectangle_width = int(self.installer_pg_1_re_mc.width/4)  # which is 607
+        self.green_rectangle_height = int(self.installer_pg_1_re_mc.height/4)  # which is 370
+        self.green_rectangle_width = int(self.green_rectangle_width * 1.5)
+        self.green_rectangle_height = int(self.green_rectangle_height * 1.5)
+        self.green_rectangle = pyglet.image.SolidColorImagePattern((50, 205, 50, 100))
+        self.green_rectangle_image = pyglet.image.create(self.green_rectangle_width, self.green_rectangle_height, self.green_rectangle)
+        self.green_rectangle_sprite = pyglet.sprite.Sprite(self.green_rectangle_image,
+                                                      x=self.installer_pg_1_re_mc.x/2/2,
+                                                      y=self.installer_pg_1_re_mc.y/2/2/2,
                                                       batch=self.user_gui_batch)
-        green_rectangle_sprite.draw()
+
         #####################################
         """images and sprites end"""
 
@@ -279,6 +276,16 @@ class Initialization(pyglet.window.Window):
                         pass
                 if self.installer_pg_1_re_mc_:
                     self.installer_pg_1_re_mc.draw()
+                    self.green_rectangle_width = int(self.green_rectangle_width + 1)
+                    self.green_rectangle = pyglet.image.SolidColorImagePattern((50, 205, 50, 100))
+                    self.green_rectangle_image = pyglet.image.create(self.green_rectangle_width,
+                                                                     self.green_rectangle_height,
+                                                                self.green_rectangle)
+                    self.green_rectangle_sprite = pyglet.sprite.Sprite(self.green_rectangle_image,
+                                                                       x=self.installer_pg_1_re_mc.x / 2 / 2,
+                                                                       y=self.installer_pg_1_re_mc.y / 2 / 2 / 2,
+                                                                       batch=self.user_gui_batch)
+                    self.green_rectangle_sprite.draw()
                 else:
                     pass
 
