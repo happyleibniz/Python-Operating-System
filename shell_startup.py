@@ -89,11 +89,13 @@ class Initialization(pyglet.window.Window):
             pyglet.image.load("core/assets/PythonOS/images/oreui/mc_play_button_not_pressed.png")
         ]
         self.login_button = ToggleButton(
-            x=self.width / 2 - 260,
-            y=self.height / 2 - 250,
+            x=self.width / 2 - 170,
+            y=self.height / 2 - 200,
             pressed=self.login_button_list[0],
             depressed=self.login_button_list[1],
+            hover=self.login_button_list[0],
             batch=self.logging_gui_batch,
+
             # self.on_button_click,
         )
         self.user = pyglet.text.Label(
@@ -172,7 +174,6 @@ class Initialization(pyglet.window.Window):
 
         # # GPU command syncs self.fences = deque() gl.glFinish() self.fences.append(gl.glFenceSync(
         # gl.GL_SYNC_GPU_COMMANDS_COMPLETE, 0)) # Broken in pyglet 2; glFenceSync is missing
-
     def load_sounds(self):
         self.load_sound_variables()
         print("Loading sounds")
@@ -251,6 +252,8 @@ class Initialization(pyglet.window.Window):
     def print_fps(delta_time):
         print(f"fps:{round(1 / delta_time)}")
 
+    def on_close(self):
+
     def on_mouse_motion(self, x, y, dx, dy):
         self.computer_is_hovered = (
                 int(self.computer_sprite.x) < x < int(self.computer_sprite.x) + self.computer_sprite.width
@@ -281,8 +284,10 @@ class Initialization(pyglet.window.Window):
         self.last_mouse_release = (x, y, button, time.time())
 
     def on_mouse_press(self, x, y, button, modifiers):
-        # if not self.in_user_gui:
-        #     self.button.on_mouse_press(x, y, button, modifiers)
+        if not self.in_user_gui:
+            self.login_button.on_mouse_press(x, y, button, modifiers)
+            # I want to add a log in animation here
+            self.in_user_gui = True
         if self.in_user_gui:
             if self.computer_is_hovered and button == pyglet.window.mouse.LEFT:
                 if hasattr(self, 'last_mouse_release'):
