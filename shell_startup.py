@@ -1,14 +1,14 @@
 import os
 import random
-
-from core.utils import options
-import pyglet
 import time
+
 import pyglet.image
+import win32api
 from pyglet import gl
 from pyglet.graphics import Batch
 from pyglet.gui import *
-import win32api
+
+from core.utils import options
 
 device = win32api.EnumDisplayDevices()
 settings = win32api.EnumDisplaySettings(device.DeviceName, -1)
@@ -29,8 +29,8 @@ else:
 
 
 class Initialization(pyglet.window.Window):
-    def __init__(self,*args, **kwargs):
-        super().__init__(*args,**kwargs)
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
         # config
         # self.gui = pyglet.gui.GUI()
         self.start_up_sound_var = None
@@ -61,6 +61,7 @@ class Initialization(pyglet.window.Window):
         self.in_user_gui = False
         self.loop_counter = 0  # Initialize the loop counter
         self.options = options
+        self.installer_pg_1_re_mc_ = False
         """vars end"""
         """images and sprites"""
         self.logging_gui_bg_img = pyglet.image.load("core/assets/PythonOS/images/astounding_background1.jpg")
@@ -163,6 +164,10 @@ class Initialization(pyglet.window.Window):
         )
         self.installer_pg1img = pyglet.image.load("./core/assets/PythonOS/images/Installer_page1.png")
         self.installer_pg1 = pyglet.sprite.Sprite(img=self.installer_pg1img, x=self.width / 5, y=self.width / 6.5)
+        self.installer_pg_1_re_mc = pyglet.sprite.Sprite(img=pyglet.image.load("./core/assets/PythonOS/images"
+                                                                               "/Installer_page2.png"), x=self.width
+                                                                                                          / 5,
+                                                         y=self.width / 6.5)
         self.minecraft_logo_installer = pyglet.sprite.Sprite(
             img=pyglet.image.load("./core/assets/PythonOS/images/minecraft-logo-icon.png"),
             x=self.installer_pg1.width / 3,
@@ -170,10 +175,29 @@ class Initialization(pyglet.window.Window):
         self.minecraft_logo_installer.height = 95
         self.minecraft_logo_installer.width = 128
         self.load_sounds()
+        """ ####################"""
+
+        # Determine the size of the green rectangle based on some condition
+        green_rectangle_width = int(self.installer_pg_1_re_mc.width)  # which is 607
+        green_rectangle_height = int(self.installer_pg_1_re_mc.height)  # which is 370
+
+        # Modify the size of the green rectangle based on some criteria
+        # For example, increase width and height by a certain factor
+        green_rectangle_width *= 1.5
+        green_rectangle_height *= 1.5
+        green_rectangle = pyglet.image.SolidColorImagePattern((50, 205, 50, 100))
+        green_rectangle_image = pyglet.image.create(green_rectangle_width, green_rectangle_height, green_rectangle)
+        green_rectangle_sprite = pyglet.sprite.Sprite(green_rectangle_image,
+                                                      x=self.installer_pg_1_re_mc.x,
+                                                      y=self.installer_pg_1_re_mc.y,
+                                                      batch=self.user_gui_batch)
+        green_rectangle_sprite.draw()
+        #####################################
         """images and sprites end"""
 
         # # GPU command syncs self.fences = deque() gl.glFinish() self.fences.append(gl.glFenceSync(
         # gl.GL_SYNC_GPU_COMMANDS_COMPLETE, 0)) # Broken in pyglet 2; glFenceSync is missing
+
     def load_sounds(self):
         self.load_sound_variables()
         print("Loading sounds")
@@ -188,7 +212,6 @@ class Initialization(pyglet.window.Window):
         print(self.start_up_sounds_list)
         self.asine = pyglet.media.load("./core/assets/PythonOS/Media/asine_shortend.wav", streaming=True)
         print("Sound asine.mp3 load complete")
-
 
     def load_sound_variables(self):
         self.startupsound_var = 0
@@ -227,23 +250,37 @@ class Initialization(pyglet.window.Window):
                 self.button = None
                 self.clear()
                 self.user_gui_batch.draw()
-                self.minecraft_logo_installer = pyglet.sprite.Sprite(
-                    img=pyglet.image.load("./core/assets/PythonOS/images/minecraft-logo-icon.png"),
-                    x=self.installer_pg1.x / 0.35,
-                    y=self.installer_pg1.y / 0.4)
-                self.minecraft_logo_installer.height = 95
-                self.minecraft_logo_installer.width = 128
+                try:
+                    self.minecraft_logo_installer = pyglet.sprite.Sprite(
+                        img=pyglet.image.load("./core/assets/PythonOS/images/minecraft-logo-icon.png"),
+                        x=self.installer_pg1.x / 0.35,
+                        y=self.installer_pg1.y / 0.4)
+                    self.minecraft_logo_installer.height = 95
+                    self.minecraft_logo_installer.width = 128
+                except AttributeError:
+                    pass
                 if self.installer_pg:
-                    for i in range(51000):
-                        self.installer_pg1.opacity += 0.005
-                    if self.installer_pg1.opacity >= 255:  # this bug fixed <BUG#1 solved>
-                        self.installer_pg1.opacity = 255
-                    self.installer_pg1.draw()
-                    self.minecraft_logo_installer.draw()
+                    try:
+                        for i in range(51000):
+                            self.installer_pg1.opacity += 0.005
+                        if self.installer_pg1.opacity >= 255:  # this bug fixed <BUG#1 solved>
+                            self.installer_pg1.opacity = 255
+                        self.installer_pg1.draw()
+                        self.minecraft_logo_installer.draw()
+                    except AttributeError:
+                        pass
+
                 else:
-                    self.installer_pg1.opacity -= 5
-                    if self.installer_pg1.opacity == 5:
-                        self.installer_pg1.opacity = 0
+                    try:
+                        self.installer_pg1.opacity -= 5
+                        if self.installer_pg1.opacity == 5:
+                            self.installer_pg1.opacity = 0
+                    except AttributeError:
+                        pass
+                if self.installer_pg_1_re_mc_:
+                    self.installer_pg_1_re_mc.draw()
+                else:
+                    pass
 
     def delayfunction1(self, delay_time):
         self.animation_startup_completed = True
@@ -251,8 +288,6 @@ class Initialization(pyglet.window.Window):
     @staticmethod
     def print_fps(delta_time):
         print(f"fps:{round(1 / delta_time)}")
-
-    def on_close(self):
 
     def on_mouse_motion(self, x, y, dx, dy):
         self.computer_is_hovered = (
@@ -263,15 +298,21 @@ class Initialization(pyglet.window.Window):
                 int(self.installer_sprite.x) < x < int(self.installer_sprite.x) + self.installer_sprite.width
                 and self.installer_sprite.y < y < self.installer_sprite.y + self.installer_sprite.height
         )
-        self.installer_pg1_is_hovered = (
-                int(self.installer_pg1.x) < x < int(self.installer_pg1.x) + self.installer_pg1.width
-                and self.installer_pg1.y < y < int(self.installer_pg1.y) + self.installer_pg1.height
-        )
-        self.mc_icon_is_hovered = (
-                int(self.minecraft_logo_installer.x) < x < int(self.minecraft_logo_installer.x) +
-                self.minecraft_logo_installer.width and self.minecraft_logo_installer.y < y <
-                int(self.minecraft_logo_installer.y) + self.minecraft_logo_installer.height
-        )
+        try:
+            self.installer_pg1_is_hovered = (
+                    int(self.installer_pg1.x) < x < int(self.installer_pg1.x) + self.installer_pg1.width
+                    and self.installer_pg1.y < y < int(self.installer_pg1.y) + self.installer_pg1.height
+            )
+        except AttributeError:
+            pass
+        try:
+            self.mc_icon_is_hovered = (
+                    int(self.minecraft_logo_installer.x) < x < int(self.minecraft_logo_installer.x) +
+                    self.minecraft_logo_installer.width and self.minecraft_logo_installer.y < y <
+                    int(self.minecraft_logo_installer.y) + self.minecraft_logo_installer.height
+            )
+        except AttributeError:
+            pass
         # Now you have access to the mouse coordinates
         self.MOUSE_X, self.MOUSE_Y = x, y
         # print("x: {0}, y: {1}".format(MOUSE_X, MOUSE_Y))
@@ -304,7 +345,10 @@ class Initialization(pyglet.window.Window):
                 if hasattr(self, 'last_mouse_release'):
                     if (x, y, button) == self.last_mouse_release[:-1]:
                         if time.time() - self.last_mouse_release[-1] < 0.2:
-                            print("Minecraft_icon.doubleclick.sound")
+                            self.installer_pg1 = None
+                            self.minecraft_logo_installer = None
+                            self.installer_pg_1_re_mc_ = True
+                            self.installer_pg_1_re_mc.draw()
 
         try:
             if hasattr(self, 'last_mouse_release'):
@@ -322,9 +366,12 @@ class Initialization(pyglet.window.Window):
         if self.installer_is_hovered:
             self.installer_sprite.x += dx
             self.installer_sprite.y += dy
-        if self.installer_pg1_is_hovered:
-            self.installer_pg1.x += dx
-            self.installer_pg1.y += dy
+        try:
+            if self.installer_pg1_is_hovered:
+                self.installer_pg1.x += dx
+                self.installer_pg1.y += dy
+        except AttributeError:
+            pass
 
     def on_key_press(self, symbol, modifiers):
         if symbol == pyglet.window.key.SPACE:
