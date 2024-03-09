@@ -26,3 +26,6 @@ SMOOTH_FPS = False  # Legacy way to force the flushing of command buffer and for
 DEBUG = False
 DEBUG_GL = False
 SHADOW_WINDOW = False
+"""OPTIONAL MAX FPA"""
+OPMAXFPS = True
+MAXFPS = float("inf")

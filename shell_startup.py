@@ -1,14 +1,13 @@
 import os
 import random
 import time
-
 import pyglet.image
 import win32api
 from pyglet import gl
 from pyglet.graphics import Batch
-from pyglet.gui import *
-
+from pyglet.gui import ToggleButton
 from core.utils import options
+import gc
 
 device = win32api.EnumDisplayDevices()
 settings = win32api.EnumDisplaySettings(device.DeviceName, -1)
@@ -33,54 +32,39 @@ class Initialization(pyglet.window.Window):
         super().__init__(*args, **kwargs)
         # config
         # self.gui = pyglet.gui.GUI()
-        self.start_up_sound_var = None
         self.asine = None
-        self.start_up_sounds = None
+        self.button = None
         self.mc_icon_is_hovered = None
-        self.installer_pg1_opacity_done = False
-        self.installer_pg1_opacity_done2 = False
         self.installer_pg1_is_hovered = None
         self.MOUSE_Y = None
         self.MOUSE_X = None
         self.installer_is_hovered = None
         self.computer_is_hovered = None
-        self.fps_text = None
         self.last_mouse_release = None
+        self.start_up_sounds_list = []
         """batches"""
         self.init_batch = Batch()
         self.logging_gui_batch = Batch()
         self.user_gui_batch = Batch()
-
         """batches end"""
         """vars"""
         self.installer_pg = False
         self.no_blur_logging_gui = False
-        self.crraima = 0
-        self.loop_counter = 0  # Initialize the loop counter
         self.animation_startup_completed = False
         self.in_user_gui = False
-        self.loop_counter = 0  # Initialize the loop counter
-        self.options = options
         self.installer_pg_1_re_mc_ = False
         """vars end"""
         """images and sprites"""
-        self.logging_gui_bg_img = pyglet.image.load("core/assets/PythonOS/images/astounding_background1.jpg")
         self.logging_gui_bg = pyglet.sprite.Sprite(
-            self.logging_gui_bg_img,
+            pyglet.image.load("core/assets/PythonOS/images/astounding_background1.jpg"),
             x=0,
             y=0,
-        )
-        self.logging_gui_bg_img_blurred = pyglet.image.load(
-            "core/assets/PythonOS/images/astounding_background1_blured.jpg"
         )
         self.logging_gui_bg_img_blurred_sprite = pyglet.sprite.Sprite(
-            self.logging_gui_bg_img_blurred,
-            x=0,
-            y=0,
-        )
-        self.user_image = pyglet.image.load("core/assets/PythonOS/images/account.png")
+            pyglet.image.load("core/assets/PythonOS/images/astounding_background1_blured.jpg"),
+            x=0, y=0)
         self.user_image_sprite = pyglet.sprite.Sprite(
-            self.user_image,
+            pyglet.image.load("core/assets/PythonOS/images/account.png"),
             x=self.width / 2 - 150,
             y=self.height / 2,
             batch=self.logging_gui_batch,
@@ -109,8 +93,8 @@ class Initialization(pyglet.window.Window):
             bold=True,
         )
 
-        self.background = pyglet.image.load("core/assets/PythonOS/images/background_black.png")
-        self.background_sprite = pyglet.sprite.Sprite(img=self.background, x=0, y=0, batch=self.init_batch)
+        self.background_sprite = pyglet.sprite.Sprite(
+            img=pyglet.image.load("core/assets/PythonOS/images/background_black.png"), x=0, y=0, batch=self.init_batch)
         self.WindowsLogoLeftUp = pyglet.image.load("core/assets/PythonOS/images/win1.png")
         self.WindowsLogoRightUp = pyglet.image.load("core/assets/PythonOS/images/win2.png")
         self.WindowsLogoLeftDown = pyglet.image.load("core/assets/PythonOS/images/win3.png")
@@ -162,11 +146,12 @@ class Initialization(pyglet.window.Window):
             y=0,
             batch=self.user_gui_batch
         )
-        self.installer_pg1img = pyglet.image.load("./core/assets/PythonOS/images/Installer_page1.png")
-        self.installer_pg1 = pyglet.sprite.Sprite(img=self.installer_pg1img, x=self.width / 5, y=self.width / 6.5)
+        self.installer_pg1 = pyglet.sprite.Sprite(img=pyglet.image.load("./core/assets/PythonOS/images"
+                                                                        "/Installer_page1.png"), x=self.width / 5,
+                                                  y=self.width / 6.5)
         self.installer_pg_1_re_mc = pyglet.sprite.Sprite(img=pyglet.image.load("./core/assets/PythonOS/images"
-                                                                               "/Installer_page2.png"), x=self.width
-                                                                                                          / 5,
+                                                                               "/Installer_page2.png"),
+                                                         x=self.width / 5,
                                                          y=self.width / 6.5)
         self.minecraft_logo_installer = pyglet.sprite.Sprite(
             img=pyglet.image.load("./core/assets/PythonOS/images/minecraft-logo-icon.png"),
@@ -178,28 +163,24 @@ class Initialization(pyglet.window.Window):
         """ ####################"""
 
         # Determine the size of the green rectangle based on some condition
-        self.green_rectangle_width = int(self.installer_pg_1_re_mc.width/4)  # which is 607
-        self.green_rectangle_height = int(self.installer_pg_1_re_mc.height/4)  # which is 370
-        self.green_rectangle_width = int(self.green_rectangle_width * 1.5)
-        self.green_rectangle_height = int(self.green_rectangle_height * 1.5)
+        self.green_rectangle_width = int(self.installer_pg_1_re_mc.width / 4)  # which is 607
+        self.green_rectangle_height = int(self.installer_pg_1_re_mc.height / 4)  # which is 370
         self.green_rectangle = pyglet.image.SolidColorImagePattern((50, 205, 50, 100))
-        self.green_rectangle_image = pyglet.image.create(self.green_rectangle_width, self.green_rectangle_height, self.green_rectangle)
-        self.green_rectangle_sprite = pyglet.sprite.Sprite(self.green_rectangle_image,
-                                                      x=self.installer_pg_1_re_mc.x/2/2,
-                                                      y=self.installer_pg_1_re_mc.y/2/2/2,
-                                                      batch=self.user_gui_batch)
-
-        #####################################
+        self.green_rectangle_sprite = pyglet.sprite.Sprite(pyglet.image.create(self.green_rectangle_width,
+                                                                               self.green_rectangle_height,
+                                                                               self.green_rectangle),
+                                                           x=self.installer_pg_1_re_mc.x / 2 / 2,
+                                                           y=self.installer_pg_1_re_mc.y / 2 / 2 / 2,
+                                                           batch=self.user_gui_batch)
         """images and sprites end"""
 
         # # GPU command syncs self.fences = deque() gl.glFinish() self.fences.append(gl.glFenceSync(
         # gl.GL_SYNC_GPU_COMMANDS_COMPLETE, 0)) # Broken in pyglet 2; glFenceSync is missing
 
     def load_sounds(self):
-        self.load_sound_variables()
+        self.startupsound_var = 0
         print("Loading sounds")
         print("loading StartUp sounds")
-        self.start_up_sounds_list = []
         print("./core/assets/PythonOS/Media/ file names:",
               str([f for f in os.listdir("./core/assets/PythonOS/Media/") if
                    os.path.isfile(os.path.join("./core/assets/PythonOS/Media/", f))]))
@@ -208,10 +189,7 @@ class Initialization(pyglet.window.Window):
                 self.start_up_sounds_list.append(pyglet.media.load("./core/assets/PythonOS/Media/" + str(f)))
         print(self.start_up_sounds_list)
         self.asine = pyglet.media.load("./core/assets/PythonOS/Media/asine_shortend.wav", streaming=True)
-        print("Sound asine.mp3 load complete")
-
-    def load_sound_variables(self):
-        self.startupsound_var = 0
+        print("Sound load complete")
 
     def on_draw(self):
         if options.DEBUG:
@@ -226,6 +204,7 @@ class Initialization(pyglet.window.Window):
                         try:
                             if self.startupsound_var >= 0:
                                 self.start_up_sounds_list[random.randint(1, len(self.start_up_sounds_list) - 1)].play()
+                                gc.collect()
                                 self.startupsound_var += -1
                         except pyglet.media.exceptions.MediaException:
                             pass
@@ -244,7 +223,6 @@ class Initialization(pyglet.window.Window):
                 self.logging_gui_batch = None
                 self.logging_gui_bg_img_blurred_sprite = None
                 self.logging_gui_batch = None
-                self.button = None
                 self.clear()
                 self.user_gui_batch.draw()
                 try:
@@ -275,19 +253,26 @@ class Initialization(pyglet.window.Window):
                     except AttributeError:
                         pass
                 if self.installer_pg_1_re_mc_:
+                    self.green_rectangle_sprite.opacity = 255
                     self.installer_pg_1_re_mc.draw()
-                    self.green_rectangle_width = int(self.green_rectangle_width + 1)
-                    self.green_rectangle = pyglet.image.SolidColorImagePattern((50, 205, 50, 100))
-                    self.green_rectangle_image = pyglet.image.create(self.green_rectangle_width,
-                                                                     self.green_rectangle_height,
-                                                                self.green_rectangle)
-                    self.green_rectangle_sprite = pyglet.sprite.Sprite(self.green_rectangle_image,
-                                                                       x=self.installer_pg_1_re_mc.x / 2 / 2,
-                                                                       y=self.installer_pg_1_re_mc.y / 2 / 2 / 2,
-                                                                       batch=self.user_gui_batch)
-                    self.green_rectangle_sprite.draw()
+                    if self.green_rectangle_width >= 500:
+                        self.green_rectangle_sprite.opacity = 0
+                        # TODO the hell thing
+                        print("done", end="")
+                    else:
+                        self.green_rectangle_width = int(self.green_rectangle_width + 1)
+                        self.green_rectangle = pyglet.image.SolidColorImagePattern((50, 205, 50, 100))
+                        self.green_rectangle_image = pyglet.image.create(self.green_rectangle_width,
+                                                                         self.green_rectangle_height,
+                                                                         self.green_rectangle)
+                        self.green_rectangle_sprite = pyglet.sprite.Sprite(self.green_rectangle_image,
+                                                                           x=self.installer_pg_1_re_mc.x / 2 / 2,
+                                                                           y=self.installer_pg_1_re_mc.y / 2 / 2 / 2,
+                                                                           batch=self.user_gui_batch)
+                        self.green_rectangle_sprite.draw()
+                        gc.collect()
                 else:
-                    pass
+                    self.green_rectangle_sprite.opacity = 0
 
     def delayfunction1(self, delay_time):
         self.animation_startup_completed = True
@@ -416,4 +401,7 @@ class Computer:
 
 if __name__ == "__main__":
     computer = Computer()
-    pyglet.app.run(interval=1 / int(getattr(settings, 'DisplayFrequency')))
+    if options.OPMAXFPS:
+        pyglet.app.run(interval=1 / options.MAXFPS)
+    else:
+        pyglet.app.run(interval=1 / int(getattr(settings, 'DisplayFrequency')))
