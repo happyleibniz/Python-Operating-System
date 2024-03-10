@@ -3,9 +3,12 @@ import terminal,subprocess
 terminal_start_get_1=threading.Thread(target=terminal.start_get())
 import pygame
 import platform
-import random
-#import psutil 这两个库没用，所以注释掉
-#import options
+os_name = platform.system()
+os_version = platform.version()
+cpu_info = platform.processor()
+ram_info = platform.machine()
+from OpenGL.GL import *
+from OpenGL.GLU import *
 from pygame.locals import *
 from button import Button
 from random import randint
@@ -21,12 +24,9 @@ pygame.init()
 pygame.display.set_caption("PythonOS 23H2  2401 build-1.5.3 | © Github-Huangshaoqi,happyleibniz")
 vm_info="Pyvm1.0"
 booter="Py legends"
-os_name = platform.system()
-os_version = platform.version()
-cpu_info = platform.processor()
-ram_info = platform.machine()
 WIDTH=1000
 HEIGHT=562
+display = (WIDTH,HEIGHT)
 is_white=False
 if is_white==False:
     bg=pygame.image.load("./images/background_black.png")
@@ -76,7 +76,7 @@ mimodules_rect=mimodules.get_rect()
 mimodules_rect.topleft=(7,205)
 
 
-screen = pygame.display.set_mode((WIDTH, HEIGHT),RESIZABLE)
+screen = pygame.display.set_mode((WIDTH, HEIGHT),RESIZABLE,pygame.DOUBLEBUF|pygame.OPENGL)
 running = True
 def startproc_mc():
     import subprocess
@@ -683,7 +683,7 @@ def get_desktop_time2():
 
 gg=0
 def start_computer():
-    global b,gg
+    global b,gg,display
     global running,is_white
     while running:
         # Handle events
@@ -693,7 +693,7 @@ def start_computer():
                 # Quit Pygame
                 pygame.quit()
                 sys.exit()
-                
+        gluPerspective(45, (display[0] / display[1]), 0.1, 50.0)
 
         # Update game logic
 
@@ -716,16 +716,9 @@ def start_computer():
         
     return
 
-import PyQt5
 from PyQt5.QtCore import *
 from PyQt5.QtWidgets import *
-from PyQt5.QtGui import *
 from PyQt5.QtWebEngineWidgets import *
-from PyQt5.QtPrintSupport import *
-import numpy as np
-#################################################
-
-###################################
 
 start_computer()
 #except Exception as e:
