@@ -6,7 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="d961509e-d52d-4f10-8d88-654b01d93e5c" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shell_startup.py" beforeDir="false" afterPath="$PROJECT_DIR$/shell_startup.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,15 +30,20 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Python.shell_startup.executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "PythonOS-1-Build-1.6.3.51",
-    "last_opened_file_path": "C:/Users/leibniz/Pictures/windows icons/Python-Operating-System"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Python.shell_startup.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;PythonOS-1-Build-1.6.3.51&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/leibniz/Pictures/windows icons/Python-Operating-System&quot;
   }
-}]]></component>
+}</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\leibniz\Pictures\windows icons\Python-Operating-System" />
+    </key>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
