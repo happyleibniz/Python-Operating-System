@@ -1,5 +1,6 @@
 import os
 import random
+import sys
 import time
 import pyglet.image
 import win32api
@@ -8,6 +9,7 @@ from pyglet.graphics import Batch
 from pyglet.gui import ToggleButton
 from core.utils import options
 import gc
+import extend_modules
 
 device = win32api.EnumDisplayDevices()
 settings = win32api.EnumDisplaySettings(device.DeviceName, -1)
@@ -155,8 +157,8 @@ class Initialization(pyglet.window.Window):
                                                          y=self.width / 6.5)
         self.minecraft_logo_installer = pyglet.sprite.Sprite(
             img=pyglet.image.load("./core/assets/PythonOS/images/minecraft-logo-icon.png"),
-            x=self.installer_pg1.width / 3,
-            y=self.installer_pg1.width / 6)
+            x=self.installer_pg1.x / 0.35,
+            y=self.installer_pg1.y / 0.4)
         self.minecraft_logo_installer.height = 95
         self.minecraft_logo_installer.width = 128
         self.load_sounds()
@@ -226,10 +228,7 @@ class Initialization(pyglet.window.Window):
                 self.clear()
                 self.user_gui_batch.draw()
                 try:
-                    self.minecraft_logo_installer = pyglet.sprite.Sprite(
-                        img=pyglet.image.load("./core/assets/PythonOS/images/minecraft-logo-icon.png"),
-                        x=self.installer_pg1.x / 0.35,
-                        y=self.installer_pg1.y / 0.4)
+
                     self.minecraft_logo_installer.height = 95
                     self.minecraft_logo_installer.width = 128
                 except AttributeError:
@@ -257,8 +256,7 @@ class Initialization(pyglet.window.Window):
                     self.installer_pg_1_re_mc.draw()
                     if self.green_rectangle_width >= 500:
                         self.green_rectangle_sprite.opacity = 0
-                        # TODO the hell thing
-                        print("done", end="")
+                        extend_modules.download_install_mc()
                     else:
                         self.green_rectangle_width = int(self.green_rectangle_width + 1)
                         self.green_rectangle = pyglet.image.SolidColorImagePattern((50, 205, 50, 100))
@@ -362,6 +360,8 @@ class Initialization(pyglet.window.Window):
             if self.installer_pg1_is_hovered:
                 self.installer_pg1.x += dx
                 self.installer_pg1.y += dy
+                self.minecraft_logo_installer.x += dx  # Update logo position
+                self.minecraft_logo_installer.y += dy  # Update logo position
         except AttributeError:
             pass
 
@@ -375,6 +375,11 @@ class Initialization(pyglet.window.Window):
 
     def on_resize(self, width, height):
         gl.glViewport(0, 0, width, height)
+
+    def on_close(self):
+        for attr_name in vars(self):
+            setattr(self, attr_name, None)
+        sys.modules[__name__].__dict__.clear()
 
 
 class Computer:
@@ -402,6 +407,12 @@ class Computer:
 if __name__ == "__main__":
     computer = Computer()
     if options.OPMAXFPS:
-        pyglet.app.run(interval=1 / options.MAXFPS)
+        try:
+            pyglet.app.run(interval=1 / options.MAXFPS)
+        except OSError:
+            pass
     else:
-        pyglet.app.run(interval=1 / int(getattr(settings, 'DisplayFrequency')))
+        try:
+            pyglet.app.run(interval=1 / int(getattr(settings, 'DisplayFrequency')))
+        except OSError:
+            pass
