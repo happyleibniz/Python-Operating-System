@@ -39,9 +39,9 @@
 
 ## 概述（Pygame edition）
 
-- :star:使用 Python 编写，易于理解和修改。
-- :star:提供基本的操作系统组件，如进程管理、内存管理等。
-- :star:提供视频播放服务:trollface::trollface::trollface:
+- ⭐使用 Python 编写，易于理解和修改。
+- ⭐提供基本的操作系统组件，如进程管理、内存管理等。
+- ⭐提供视频播放服务:trollface::trollface::trollface:
 - ~~⭐可拖动pythonOS窗口~~**BUG满天飞**
 - ~~:star:支持在模拟环境中运行，方便调试和测试。~~ **还没实现** :trollface:
 
@@ -79,15 +79,15 @@
 
 ### 安装依赖
 
+
 ```bash
-pip install pyglet
-pip install pywin32
+pip install pyglet==2.0.10
 ```
 
 ### 运行
 
 ```bash
-python main.py
+python shell_startup.py
 ```
 
 
@@ -108,14 +108,15 @@ python main.py
 
 该项目采用 [MIT](https://github.com/Github-Huangshaoqi/PythonOS?tab=MIT-1-ov-file)协议 ![license](https://img.shields.io/badge/license-MIT-blue)
 
-- :copyright:  [Github-Huangshaoqi](https://github.com/Github-Huangshaoqi) 2024
-
 - :copyright:  [happyleibniz](https://github.com/happyleibniz) 2024
 
-## 其他开发（帮助）者：
+- :copyright:  [Github-Huangshaoqi](https://github.com/Github-Huangshaoqi) 2024
+
+
+## 其他开发者：
 - [shenjackyuanjie](https://github.com/shenjackyuanjie)
 
-## Pygame版本(停工)
+## Pygame版本
 
 - :copyright:  [happyleibniz](https://github.com/happyleibniz) 2023
 - :copyright:  [Github-Huangshaoqi](https://github.com/Github-Huangshaoqi) 2024

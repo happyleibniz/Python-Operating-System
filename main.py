@@ -11,12 +11,12 @@ from core.utils import options
 import gc
 import extend_modules
 
-device = win32api.EnumDisplayDevices()
-settings = win32api.EnumDisplaySettings(device.DeviceName, -1)
-if options.DEBUG:
-    print((device.DeviceName, device.DeviceString))
-    for varname in ['Color', 'BitsPerPel', 'DisplayFrequency']:
-        print(varname, ":", getattr(settings, varname))
+# device = win32api.EnumDisplayDevices()
+# settings = win32api.EnumDisplaySettings(device.DeviceName, -1)
+# if options.DEBUG:
+#     print((device.DeviceName, device.DeviceString))
+#     for varname in ['Color', 'BitsPerPel', 'DisplayFrequency']:
+#         print(varname, ":", getattr(settings, varname)) ```WHY DO I NEED THAT LOL```
 
 if not options.SHADOW_WINDOW:
     pyglet.options["shadow_window"] = False
@@ -44,6 +44,7 @@ class Initialization(pyglet.window.Window):
         self.computer_is_hovered = None
         self.last_mouse_release = None
         self.start_up_sounds_list = []
+        self.startupsound_var = 0
         """batches"""
         self.init_batch = Batch()
         self.logging_gui_batch = Batch()
@@ -82,9 +83,9 @@ class Initialization(pyglet.window.Window):
             depressed=self.login_button_list[1],
             hover=self.login_button_list[0],
             batch=self.logging_gui_batch,
-
-            # self.on_button_click,
         )
+        self.login_button.push_handlers(on_toggle=self.login)
+
         self.user = pyglet.text.Label(
             "User",
             font_name="calibri",
@@ -180,7 +181,6 @@ class Initialization(pyglet.window.Window):
         # gl.GL_SYNC_GPU_COMMANDS_COMPLETE, 0)) # Broken in pyglet 2; glFenceSync is missing
 
     def load_sounds(self):
-        self.startupsound_var = 0
         print("Loading sounds")
         print("loading StartUp sounds")
         print("./core/assets/PythonOS/Media/ file names:",
@@ -237,7 +237,7 @@ class Initialization(pyglet.window.Window):
                     try:
                         for i in range(51000):
                             self.installer_pg1.opacity += 0.005
-                        if self.installer_pg1.opacity >= 255:  # this bug fixed <BUG#1 solved>
+                        if self.installer_pg1.opacity >= 255:
                             self.installer_pg1.opacity = 255
                         self.installer_pg1.draw()
                         self.minecraft_logo_installer.draw()
@@ -283,7 +283,7 @@ class Initialization(pyglet.window.Window):
         self.computer_is_hovered = (
                 int(self.computer_sprite.x) < x < int(self.computer_sprite.x) + self.computer_sprite.width
                 and self.computer_sprite.y < y < self.computer_sprite.y + self.computer_sprite.height
-        )  # pycharm
+        )
         self.installer_is_hovered = (
                 int(self.installer_sprite.x) < x < int(self.installer_sprite.x) + self.installer_sprite.width
                 and self.installer_sprite.y < y < self.installer_sprite.y + self.installer_sprite.height
@@ -314,11 +314,11 @@ class Initialization(pyglet.window.Window):
     def on_mouse_release(self, x, y, button, modifiers):
         self.last_mouse_release = (x, y, button, time.time())
 
+    def login(self):
+        self.in_user_gui = not self.in_user_gui
+
     def on_mouse_press(self, x, y, button, modifiers):
-        if not self.in_user_gui:
-            self.login_button.on_mouse_press(x, y, button, modifiers)
-            # I want to add a log in animation here
-            self.in_user_gui = True
+        self.login_button.on_mouse_press(x, y, button, modifiers)
         if self.in_user_gui:
             if self.computer_is_hovered and button == pyglet.window.mouse.LEFT:
                 if hasattr(self, 'last_mouse_release'):
@@ -370,16 +370,8 @@ class Initialization(pyglet.window.Window):
             if self.animation_startup_completed:
                 self.no_blur_logging_gui = True
 
-    def on_button_click(self):
-        self.in_user_gui = True
-
     def on_resize(self, width, height):
         gl.glViewport(0, 0, width, height)
-
-    def on_close(self):
-        for attr_name in vars(self):
-            setattr(self, attr_name, None)
-        sys.modules[__name__].__dict__.clear()
 
 
 class Computer:
@@ -395,7 +387,7 @@ class Computer:
             config=self.config,
             width=options.WIDTH,
             height=options.HEIGHT,
-            caption="PythonOS Alpha v.0.3.567 pre",
+            caption="PythonOS Alpha v.0.3.8 pre",
             resizable=True,
             vsync=options.VSYNC,
         )
@@ -406,13 +398,15 @@ class Computer:
 
 if __name__ == "__main__":
     computer = Computer()
-    if options.OPMAXFPS:
-        try:
-            pyglet.app.run(interval=1 / options.MAXFPS)
-        except OSError:
-            pass
-    else:
-        try:
-            pyglet.app.run(interval=1 / int(getattr(settings, 'DisplayFrequency')))
-        except OSError:
-            pass
+    pyglet.app.run(interval=0)
+
+    # if options.OPMAXFPS:
+    #     try:
+    #         pyglet.app.run(interval=1 / options.MAXFPS)
+    #     except OSError:
+    #         pass
+    # else:
+    #     try:
+    #         pyglet.app.run(interval=1 / int(getattr(settings, 'DisplayFrequency')))
+    #     except OSError:
+    #         pass ```WHY DO I NEED THAT LOL```
