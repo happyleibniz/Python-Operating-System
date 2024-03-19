@@ -314,7 +314,10 @@ class Initialization(pyglet.window.Window):
     def on_mouse_release(self, x, y, button, modifiers):
         self.last_mouse_release = (x, y, button, time.time())
 
-    def login(self):
+    def login(self, toggled):
+        pyglet.clock.schedule_once(self.login_mf, 2)
+
+    def login_mf(self, delay):
         self.in_user_gui = not self.in_user_gui
 
     def on_mouse_press(self, x, y, button, modifiers):
