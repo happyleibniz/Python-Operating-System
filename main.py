@@ -1,22 +1,22 @@
 import os
 import random
-import sys
 import time
 import pyglet.image
-import win32api
 from pyglet import gl
 from pyglet.graphics import Batch
 from pyglet.gui import ToggleButton
 from core.utils import options
+import win32api
 import gc
 import extend_modules
+from collections import deque
 
-# device = win32api.EnumDisplayDevices()
-# settings = win32api.EnumDisplaySettings(device.DeviceName, -1)
-# if options.DEBUG:
-#     print((device.DeviceName, device.DeviceString))
-#     for varname in ['Color', 'BitsPerPel', 'DisplayFrequency']:
-#         print(varname, ":", getattr(settings, varname)) ```WHY DO I NEED THAT LOL```
+device = win32api.EnumDisplayDevices()
+settings = win32api.EnumDisplaySettings(device.DeviceName, -1)
+if options.DEBUG:
+    print((device.DeviceName, device.DeviceString))
+    for varname in ['Color', 'BitsPerPel', 'DisplayFrequency']:
+        print(varname, ":", getattr(settings, varname))
 
 if not options.SHADOW_WINDOW:
     pyglet.options["shadow_window"] = False
@@ -45,6 +45,7 @@ class Initialization(pyglet.window.Window):
         self.last_mouse_release = None
         self.start_up_sounds_list = []
         self.startupsound_var = 0
+        self.fences = deque()
         """batches"""
         self.init_batch = Batch()
         self.logging_gui_batch = Batch()
@@ -177,8 +178,16 @@ class Initialization(pyglet.window.Window):
                                                            batch=self.user_gui_batch)
         """images and sprites end"""
 
-        # # GPU command syncs self.fences = deque() gl.glFinish() self.fences.append(gl.glFenceSync(
-        # gl.GL_SYNC_GPU_COMMANDS_COMPLETE, 0)) # Broken in pyglet 2; glFenceSync is missing
+        # GPU command syncs
+
+        if not options.SMOOTH_FPS:
+            self.fences.append(gl.glFenceSync(gl.GL_SYNC_GPU_COMMANDS_COMPLETE, 0))
+        else:
+            gl.glFinish()
+        if options.ANTIALIASING:
+            gl.glEnable(gl.GL_MULTISAMPLE)
+            gl.glEnable(gl.GL_SAMPLE_ALPHA_TO_COVERAGE)
+            gl.glSampleCoverage(0.5, gl.GL_TRUE)
 
     def load_sounds(self):
         print("Loading sounds")
@@ -194,6 +203,10 @@ class Initialization(pyglet.window.Window):
         print("Sound load complete")
 
     def on_draw(self):
+        while len(self.fences) > options.MAX_CPU_AHEAD_FRAMES:
+            fence = self.fences.popleft()
+            gl.glClientWaitSync(fence, gl.GL_SYNC_FLUSH_COMMANDS_BIT, 2147483647)
+            gl.glDeleteSync(fence)
         if options.DEBUG:
             pyglet.clock.schedule_interval(self.print_fps, 1 / 480)
         if not self.animation_startup_completed:
@@ -236,7 +249,7 @@ class Initialization(pyglet.window.Window):
                 if self.installer_pg:
                     try:
                         for i in range(51000):
-                            self.installer_pg1.opacity += 0.005
+                            self.installer_pg1.opacity += 234
                         if self.installer_pg1.opacity >= 255:
                             self.installer_pg1.opacity = 255
                         self.installer_pg1.draw()
@@ -268,7 +281,6 @@ class Initialization(pyglet.window.Window):
                                                                            y=self.installer_pg_1_re_mc.y / 2 / 2 / 2,
                                                                            batch=self.user_gui_batch)
                         self.green_rectangle_sprite.draw()
-                        gc.collect()
                 else:
                     self.green_rectangle_sprite.opacity = 0
 
@@ -401,15 +413,4 @@ class Computer:
 
 if __name__ == "__main__":
     computer = Computer()
-    pyglet.app.run(interval=0)
-
-    # if options.OPMAXFPS:
-    #     try:
-    #         pyglet.app.run(interval=1 / options.MAXFPS)
-    #     except OSError:
-    #         pass
-    # else:
-    #     try:
-    #         pyglet.app.run(interval=1 / int(getattr(settings, 'DisplayFrequency')))
-    #     except OSError:
-    #         pass ```WHY DO I NEED THAT LOL```
+    pyglet.app.run(interval=1 / int(getattr(settings, 'DisplayFrequency')))
