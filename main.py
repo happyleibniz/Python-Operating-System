@@ -399,7 +399,7 @@ class Computer:
             sample_buffers=bool(options.ANTIALIASING),
         )
         self.window = Initialization(
-            config=self.config,
+            # config=self.config,
             width=options.WIDTH,
             height=options.HEIGHT,
             caption="PythonOS Alpha v.0.3.8 pre",
