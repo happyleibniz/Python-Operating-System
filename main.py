@@ -6,23 +6,19 @@ from pyglet import gl
 from pyglet.graphics import Batch
 from pyglet.gui import ToggleButton
 from core.utils import options
-import win32api
 import gc
+import Custom_Program as CPs
 import extend_modules
 from collections import deque
-
-device = win32api.EnumDisplayDevices()
-settings = win32api.EnumDisplaySettings(device.DeviceName, -1)
-if options.DEBUG:
-    print((device.DeviceName, device.DeviceString))
-    for varname in ['Color', 'BitsPerPel', 'DisplayFrequency']:
-        print(varname, ":", getattr(settings, varname))
 
 if not options.SHADOW_WINDOW:
     pyglet.options["shadow_window"] = False
 else:
     pyglet.options["shadow_window"] = True
-
+if not options.MEDIA_DEBUG:
+    pyglet.options["debug_media"] = False
+else:
+    pyglet.options["debug_media"] = True
 if not options.DEBUG_GL:
     pyglet.options["debug_gl"] = False
 else:
@@ -34,6 +30,10 @@ class Initialization(pyglet.window.Window):
         super().__init__(*args, **kwargs)
         # config
         # self.gui = pyglet.gui.GUI()
+        self.initw_vs_noww = None
+        self.resize_plusw = None
+        self.resize_plush = None
+        self.inith_vs_nowh = None
         self.asine = None
         self.button = None
         self.mc_icon_is_hovered = None
@@ -46,6 +46,10 @@ class Initialization(pyglet.window.Window):
         self.start_up_sounds_list = []
         self.startupsound_var = 0
         self.fences = deque()
+        self._initial_w = self.width
+        self._initial_h = self.height
+        self.x_scale = self.width / self._initial_w
+        self.y_scale = self.height / self._initial_h
         """batches"""
         self.init_batch = Batch()
         self.logging_gui_batch = Batch()
@@ -57,6 +61,7 @@ class Initialization(pyglet.window.Window):
         self.animation_startup_completed = False
         self.in_user_gui = False
         self.installer_pg_1_re_mc_ = False
+        self.show_program_window = False
         """vars end"""
         """images and sprites"""
         self.logging_gui_bg = pyglet.sprite.Sprite(
@@ -164,6 +169,8 @@ class Initialization(pyglet.window.Window):
         self.minecraft_logo_installer.height = 95
         self.minecraft_logo_installer.width = 128
         self.load_sounds()
+        self.program = CPs.Custom_Program(name="kmplayer", path="./Disk/Programs/KMPlayer", icon_type="png",
+                                          x=100, y=100)
         """ ####################"""
 
         # Determine the size of the green rectangle based on some condition
@@ -177,7 +184,6 @@ class Initialization(pyglet.window.Window):
                                                            y=self.installer_pg_1_re_mc.y / 2 / 2 / 2,
                                                            batch=self.user_gui_batch)
         """images and sprites end"""
-
         # GPU command syncs
 
         if not options.SMOOTH_FPS:
@@ -240,6 +246,9 @@ class Initialization(pyglet.window.Window):
                 self.logging_gui_batch = None
                 self.clear()
                 self.user_gui_batch.draw()
+                self.program.show()
+                if self.show_program_window:
+                    self.program.blit_to_screen()
                 try:
 
                     self.minecraft_logo_installer.height = 95
@@ -292,6 +301,10 @@ class Initialization(pyglet.window.Window):
         print(f"fps:{round(1 / delta_time)}")
 
     def on_mouse_motion(self, x, y, dx, dy):
+        x /= self.x_scale
+        y /= self.y_scale
+        dx /= self.x_scale
+        dy /= self.y_scale
         self.computer_is_hovered = (
                 int(self.computer_sprite.x) < x < int(self.computer_sprite.x) + self.computer_sprite.width
                 and self.computer_sprite.y < y < self.computer_sprite.y + self.computer_sprite.height
@@ -324,10 +337,12 @@ class Initialization(pyglet.window.Window):
             pass
 
     def on_mouse_release(self, x, y, button, modifiers):
+        x /= self.x_scale
+        y /= self.y_scale
         self.last_mouse_release = (x, y, button, time.time())
 
     def login(self, toggled):
-        pyglet.clock.schedule_once(self.login_mf, 2)
+        pyglet.clock.schedule_once(self.login_mf, 1)
 
     def login_mf(self, delay):
         self.in_user_gui = not self.in_user_gui
@@ -335,6 +350,8 @@ class Initialization(pyglet.window.Window):
     def on_mouse_press(self, x, y, button, modifiers):
         self.login_button.on_mouse_press(x, y, button, modifiers)
         if self.in_user_gui:
+            if self.program.double_click(x, y, button, self.last_mouse_release, the_self=self):
+                self.show_program_window = not self.show_program_window
             if self.computer_is_hovered and button == pyglet.window.mouse.LEFT:
                 if hasattr(self, 'last_mouse_release'):
                     if (x, y, button) == self.last_mouse_release[:-1]:
@@ -365,6 +382,7 @@ class Initialization(pyglet.window.Window):
             pass
 
     def on_mouse_drag(self, x, y, dx, dy, buttons, modifiers):
+        self.program.drag(x, y, dx, dy)
         if self.computer_is_hovered:
             self.computer_sprite.x += dx
             self.computer_sprite.y += dy
@@ -386,7 +404,35 @@ class Initialization(pyglet.window.Window):
                 self.no_blur_logging_gui = True
 
     def on_resize(self, width, height):
+        if self._initial_h < self.height:
+            self.resize_plush = True
+            self.inith_vs_nowh = self.height / self._initial_h
+        elif self._initial_h > self.height:
+            self.resize_plush = False
+            self.inith_vs_nowh = self._initial_h / self.height
+        if self._initial_w < self.width:
+            self.resize_plusw = True
+            self.initw_vs_noww = self.width / self._initial_w
+        elif self._initial_w > self.width:
+            self.resize_plusw = False
+            self.initw_vs_noww = self._initial_w / self.width
+        """Find the difference"""
         gl.glViewport(0, 0, width, height)
+        """See Issue No.18 https://github.com/happyleibniz/Python-Operating-System/issues/18"""
+        print("siga")
+        self.x_scale = self.width / self._initial_w
+        self.y_scale = self.height / self._initial_h
+        # if not self.animation_startup_completed:
+        #     pass
+        # else:
+        #     if not self.in_user_gui:
+        #         self.login_button.x = self.width / 2 - 170
+        #         self.login_button.y = self.height / 2 - 200
+        #     else:
+        #         if self.resize_plush:  # if True
+        #             # self.minecraft_logo_installer.scale_y = self.minecraft_logo_installer.scale_y * self.inith_vs_nowh
+        #             self.installer_sprite.scale_y = self.installer_sprite.scale_y * self.inith_vs_nowh
+        #             self.installer_sprite.scale_x = self.installer_sprite.scale_x * self.initw_vs_noww
 
 
 class Computer:
@@ -398,19 +444,21 @@ class Computer:
             depth_size=options.DEPTH_SIZE,
             sample_buffers=bool(options.ANTIALIASING),
         )
+        """
+        WARNING:THE USER CAN ENCOUNTER CONFIGURATION ERROR IN A VIRTUAL MACHINE
+        """
         self.window = Initialization(
-            # config=self.config,
+            # config=self.config, # this thing disables it
             width=options.WIDTH,
             height=options.HEIGHT,
             caption="PythonOS Alpha v.0.3.8 pre",
             resizable=True,
             vsync=options.VSYNC,
         )
-
         self.window.set_location(50, 60)
         self.window.set_icon(pyglet.image.load("core/assets/PythonOS/images/logo.png"))
 
 
 if __name__ == "__main__":
     computer = Computer()
-    pyglet.app.run(interval=1 / int(getattr(settings, 'DisplayFrequency')))
+    pyglet.app.run(interval=0)  # run at ??? fps
