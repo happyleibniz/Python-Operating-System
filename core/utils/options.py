@@ -21,7 +21,8 @@ SMOOTH_FPS = True  # Legacy way to force the flushing of command buffer and forc
 # finish rendering.
 # Incompatible Max CPU Ahead Frames (it won't be effective)
 # Enable this to test whether its impact is better. Similar to Max CPU Ahead frames to 0
-
+"""STARTUP"""
+command_line = True
 """DEBUGGING"""
 DEBUG = False
 MEDIA_DEBUG = False  # lags the program

@@ -9,6 +9,7 @@ from core.utils import options
 import gc
 import Custom_Program as CPs
 import extend_modules
+import Worker
 from collections import deque
 
 if not options.SHADOW_WINDOW:
@@ -38,8 +39,6 @@ class Initialization(pyglet.window.Window):
         self.button = None
         self.mc_icon_is_hovered = None
         self.installer_pg1_is_hovered = None
-        self.MOUSE_Y = None
-        self.MOUSE_X = None
         self.installer_is_hovered = None
         self.computer_is_hovered = None
         self.last_mouse_release = None
@@ -214,7 +213,7 @@ class Initialization(pyglet.window.Window):
             gl.glClientWaitSync(fence, gl.GL_SYNC_FLUSH_COMMANDS_BIT, 2147483647)
             gl.glDeleteSync(fence)
         if options.DEBUG:
-            pyglet.clock.schedule_interval(self.print_fps, 1 / 480)
+            pyglet.clock.schedule_interval(self.print_fps, 1)
         if not self.animation_startup_completed:
             self.init_batch.draw()
             pyglet.clock.schedule_once(self.delayfunction1, 2)
@@ -328,9 +327,6 @@ class Initialization(pyglet.window.Window):
             )
         except AttributeError:
             pass
-        # Now you have access to the mouse coordinates
-        self.MOUSE_X, self.MOUSE_Y = x, y
-        # print("x: {0}, y: {1}".format(MOUSE_X, MOUSE_Y))
         try:
             self.button.on_mouse_motion(x, y, dx, dy)
         except AttributeError:
@@ -430,33 +426,44 @@ class Initialization(pyglet.window.Window):
         #         self.login_button.y = self.height / 2 - 200
         #     else:
         #         if self.resize_plush:  # if True
-        #             # self.minecraft_logo_installer.scale_y = self.minecraft_logo_installer.scale_y * self.inith_vs_nowh
+        # self.minecraft_logo_installer.scale_y = self.minecraft_logo_installer.scale_y * self.inith_vs_nowh
         #             self.installer_sprite.scale_y = self.installer_sprite.scale_y * self.inith_vs_nowh
         #             self.installer_sprite.scale_x = self.installer_sprite.scale_x * self.initw_vs_noww
 
 
 class Computer:
     def __init__(self):
-        self.config = gl.Config(
-            double_buffer=options.DOUBLE_BUFFER,
-            major_version=3,
-            minor_version=3,
-            depth_size=options.DEPTH_SIZE,
-            sample_buffers=bool(options.ANTIALIASING),
-        )
-        """
-        WARNING:THE USER CAN ENCOUNTER CONFIGURATION ERROR IN A VIRTUAL MACHINE
-        """
-        self.window = Initialization(
-            # config=self.config, # this thing disables it
-            width=options.WIDTH,
-            height=options.HEIGHT,
-            caption="PythonOS Alpha v.0.3.8 pre",
-            resizable=True,
-            vsync=options.VSYNC,
-        )
-        self.window.set_location(50, 60)
-        self.window.set_icon(pyglet.image.load("core/assets/PythonOS/images/logo.png"))
+        if not options.command_line:
+            self.config = gl.Config(
+                double_buffer=options.DOUBLE_BUFFER,
+                major_version=3,
+                minor_version=3,
+                depth_size=options.DEPTH_SIZE,
+                sample_buffers=bool(options.ANTIALIASING),
+            )
+            """
+            WARNING:THE USER CAN ENCOUNTER CONFIGURATION ERROR IN A VIRTUAL MACHINE
+            """
+            self.window = Initialization(
+                # config=self.config, # this thing disables it
+                width=options.WIDTH,
+                height=options.HEIGHT,
+                caption="PythonOS Alpha v.0.3.8 pre",
+                resizable=True,
+                vsync=options.VSYNC,
+            )
+            self.window.set_location(50, 60)
+            self.window.set_icon(pyglet.image.load("core/assets/PythonOS/images/logo.png"))
+        else:
+            self.commandline = Worker.CommandLine(
+                width=options.WIDTH,
+                height=options.HEIGHT,
+                caption="PythonOS Alpha v0.0.0.0.1 pre release command line",
+                resizable=True,
+                # Since it is a command line, we don't need vsync to turn on
+            )
+            self.commandline.set_location(50, 60)
+            self.commandline.set_icon(pyglet.image.load("core/assets/PythonOS/images/console.png"))
 
 
 if __name__ == "__main__":
