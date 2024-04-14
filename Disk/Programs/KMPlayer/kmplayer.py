@@ -22,7 +22,7 @@ class Program:  # Must be the class name Program
                 "https://pyglet.readthedocs.io/en/latest/programming_guide/media.html#ffmpeg-installation"
             )
 
-    def queue_and_play_and_blit_media(self):
+    def blit_media(self):
         self.player.queue(self.Media)
         self.player.play()
         if self.player.source and self.player.source.video_format:
@@ -30,6 +30,9 @@ class Program:  # Must be the class name Program
 
     def pause(self):
         self.player.pause()
+
+    def queue_media(self):
+        self.player.queue(self.Media)
 
     def resume(self):
         self.player.play()

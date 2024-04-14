@@ -56,7 +56,7 @@ class Custom_Program:
 
     def blit_to_screen(self):
         try:
-            self.var.queue_and_play_and_blit_media()
+            self.var.blit_media()
         except Exception:
             pass
 

@@ -9,7 +9,12 @@ WIDTH = 1000
 HEIGHT = 562
 is_white = False
 SMOOTH_FPS = True
-VSYNC = False
+if str(open("core/assets/data/resizable.dat", "r+").read()) == "True":
+    RESIZABLE = True
+else:
+    RESIZABLE = False
+print(RESIZABLE)
+VSYNC = str(open("core/assets/data/vsync.dat", "r+").read())
 # Max CPU ahead frames
 MAX_CPU_AHEAD_FRAMES = 3  # Number of frames the CPU can be ahead of the GPU until waiting for it to finish rendering.
 # Higher values gives higher frame-rate but causes frame-rate instability and higher frame spikes,
@@ -22,7 +27,10 @@ SMOOTH_FPS = True  # Legacy way to force the flushing of command buffer and forc
 # Incompatible Max CPU Ahead Frames (it won't be effective)
 # Enable this to test whether its impact is better. Similar to Max CPU Ahead frames to 0
 """STARTUP"""
-command_line = True
+if str(open("core/assets/data/commandline.dat", "r+").read()) == "True":
+    command_line = True
+else:
+    command_line = False
 """DEBUGGING"""
 DEBUG = False
 MEDIA_DEBUG = False  # lags the program
