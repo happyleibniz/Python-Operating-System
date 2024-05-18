@@ -10,6 +10,7 @@ import options
 import Custom_Program as CPs
 import extend_modules
 import Worker
+import math
 from collections import deque
 
 pyglet.options["shadow_window"] = options.SHADOW_WINDOW
@@ -22,6 +23,8 @@ class Initialization(pyglet.window.Window):
         super().__init__(*args, **kwargs)
         # config
         # self.gui = pyglet.gui.GUI()
+        self.appleft = pyglet.resource.add_font("Disk/System/Font/AppleFont-SimplifiedChinese-1.ttf")
+        self.___dt = 0
         self.initw_vs_noww = None
         self.resize_plusw = None
         self.resize_plush = None
@@ -58,13 +61,32 @@ class Initialization(pyglet.window.Window):
         self.animation = pyglet.image.load_animation("core/assets/PythonOS/images/startup/startup.gif")
         self.animation.add_to_texture_bin(texture_bin)
 
-        self.os_user_gui = pyglet.sprite.Sprite(
+        """self.os_user_gui = pyglet.sprite.Sprite(
             img=pyglet.image.load(
-                "./core/assets/PythonOS/images/background_pythonOS1.jpg"
+                "./core/assets/PythonOS/images/background_forest.jpg"
             ),
             x=0, y=0,
             batch=self.user_gui_batch
+        )"""
+
+        # 调整桌面壁纸的宽高 Adjusting the width and height of desktop wallpaper
+        original_image = pyglet.image.load("./core/assets/PythonOS/images/background_forest.jpg")
+        original_width, original_height = original_image.width, original_image.height
+
+        target_width = 1000
+        target_height = 562
+
+        scale_factor_width = target_width / original_width
+        scale_factor_height = target_height / original_height
+        scale_factor = min(scale_factor_width, scale_factor_height)
+
+        self.os_user_gui = pyglet.sprite.Sprite(
+            img=pyglet.image.load("./core/assets/PythonOS/images/background_forest.jpg"),
+            x=0, y=0,
+            batch=self.user_gui_batch
         )
+        self.os_user_gui.scale = scale_factor
+
         self.computer_sprite = pyglet.sprite.Sprite(
             img=pyglet.image.load(
                 "./core/assets/PythonOS/images/computer.png"
@@ -88,19 +110,23 @@ class Initialization(pyglet.window.Window):
         )
         self.logging_gui_bg = pyglet.sprite.Sprite(
             pyglet.image.load(
-                "core/assets/PythonOS/images/astounding_background1.jpg"
+                "core/assets/PythonOS/images/background_forest.jpg"
             ),
             x=0, y=0,
         )
-        self.logging_gui_bg_img_blurred_sprite = pyglet.sprite.Sprite(
+        self.logging_gui_bg.scale = scale_factor
+
+        """self.logging_gui_bg_img_blurred_sprite = pyglet.sprite.Sprite(
             pyglet.image.load(
                 "core/assets/PythonOS/images/astounding_background1_blured.jpg"
             ),
             x=0, y=0)
+        self.logging_gui_bg_img_blurred_sprite.scale = scale_factor"""
+
         self.user_image_sprite = pyglet.sprite.Sprite(
             pyglet.image.load("core/assets/PythonOS/images/account.png"),
-            x=self.width / 2 - 150,
-            y=self.height / 2,
+            x=self.width / 2 - 90,
+            y=self.height / 2 + 70,
             batch=self.logging_gui_batch,
         )
         self.login_button_list = [
@@ -112,8 +138,8 @@ class Initialization(pyglet.window.Window):
             )
         ]
         self.login_button = ToggleButton(
-            x=self.width / 2 - 170,
-            y=self.height / 2 - 200,
+            x=380,
+            y=50,
             pressed=self.login_button_list[0],
             depressed=self.login_button_list[1],
             hover=self.login_button_list[0],
@@ -122,10 +148,10 @@ class Initialization(pyglet.window.Window):
         self.login_button.push_handlers(on_toggle=self.login)
         self.user = pyglet.text.Label(
             "User",
-            font_name="calibri",
+            font_name=".萍方-简",
             font_size=30,
             x=self.width / 2 - 50,
-            y=self.height / 2 - 100,
+            y=self.height / 2 - 0,
             batch=self.logging_gui_batch,
             bold=True,
         )
@@ -155,12 +181,12 @@ class Initialization(pyglet.window.Window):
         )
         self.init_gif_sprite = pyglet.sprite.Sprite(
             img=self.animation,
-            x=self.width / 2.3,
+            x=self.width / 2.25,
             y=self.height / 30,
             batch=self.init_batch,
         )
         self.taskbar = pyglet.sprite.Sprite(
-            img=pyglet.image.load("./core/assets/PythonOS/images/taskbar.png"),
+            img=pyglet.image.load("./core/assets/PythonOS/images/taskbar2.png"),
             x=0,
             y=0,
             batch=self.user_gui_batch
@@ -179,8 +205,11 @@ class Initialization(pyglet.window.Window):
             img=pyglet.image.load("./core/assets/PythonOS/images/minecraft-logo-icon.png"),
             x=self.installer_pg1.x / 0.35,
             y=self.installer_pg1.y / 0.4)
-        self.minecraft_logo_installer.height = 95
-        self.minecraft_logo_installer.width = 128
+        try:
+            self.minecraft_logo_installer.height = 95
+            self.minecraft_logo_installer.width = 128
+        except Exception:
+            pass
         self.program = CPs.Custom_Program(
             name="kmplayer",
             path="./Disk/Programs/KMPlayer",
@@ -261,6 +290,7 @@ class Initialization(pyglet.window.Window):
                     self.clear()
                     self.logging_gui_bg.draw()
                     self.logging_gui_batch.draw()
+                    self.swift_move(x=340, y=50, sprite=self.login_button)
                 else:
                     self.clear()
                     self.logging_gui_bg_img_blurred_sprite.draw()
@@ -268,11 +298,11 @@ class Initialization(pyglet.window.Window):
             else:  # if in the user GUI
                 self.logging_gui_bg = None
                 self.logging_gui_batch = None
-                self.logging_gui_bg_img_blurred_sprite = None
                 self.logging_gui_batch = None
                 self.clear()
                 self.user_gui_batch.draw()
                 self.program.show()
+
                 if self.show_program_window:
                     self.program.blit_to_screen()
                 if self.minecraft_logo_installer is not None:
@@ -318,9 +348,31 @@ class Initialization(pyglet.window.Window):
     def delayfunction1(self, delay_time):
         self.animation_startup_completed = True
 
-    @staticmethod
-    def print_fps(delta_time):
+    def print_fps(self,delta_time):
+        self.___dt = delta_time
         print(f"fps:{round(1 / delta_time)}")
+
+    def velocity(self, start, end, L, k):
+        d = math.dist(start, end)
+
+        def f(x):
+            return 2 * L * (1 / (1 + math.exp(-k * (x / d) * 100)) - 1 / 2)
+
+        return f
+
+    def swift_move(self, x, y, sprite, dt=0):
+        target = (x, y)
+        # f = self.velocity(sprite.position[:2], target, 150, 0.1)
+        # d = math.dist((sprite.x, sprite.y), target)
+        # now = pyglet.math.Vec2(sprite.x, sprite.y)
+        # x = pyglet.math.Vec2(*target) - now
+        # x = x.normalize() * f(d) * dt
+        # now += x
+        # sprite.position = *now, 0
+        # if d > 1:
+        #     pyglet.clock.schedule_once(self.swift_move, 1 / 60)
+        # else:
+        #     sprite.position = *target, 0
 
     def on_mouse_motion(self, x, y, dx, dy):
         x /= self.x_scale
@@ -422,7 +474,6 @@ class Initialization(pyglet.window.Window):
             self.minecraft_logo_installer.x += dx
             self.minecraft_logo_installer.y += dy
 
-
     def on_resize(self, width, height):
         if self._initial_h < self.height:
             self.resize_plush = True
@@ -471,12 +522,12 @@ class Computer:
                 # config=self.config, # this thing disables it
                 width=options.WIDTH,
                 height=options.HEIGHT,
-                caption="PythonOS Alpha v.0.3.8 pre",
+                caption="PythonOS Alpha v.0.3.8 pre | Development code - Forest",
                 resizable=options.RESIZABLE,
                 vsync=options.VSYNC,
             )
             self.window.set_location(50, 60)
-            self.window.set_icon(pyglet.image.load("core/assets/PythonOS/images/logo.png"))
+            self.window.set_icon(pyglet.image.load("core/assets/PythonOS/images/Logo.jpg"))
         else:
             self.commandline = Worker.CommandLine(
                 width=options.WIDTH,
