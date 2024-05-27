@@ -1,0 +1,4 @@
+WIDTH = 1000
+HEIGHT = 562
+RESIZABLE = True
+VSYNC = True
