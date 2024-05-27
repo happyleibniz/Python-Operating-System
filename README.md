@@ -61,11 +61,10 @@
   - [许可证](#许可证)
   - [alpha v1.0版本](#alpha-v10版本)
 
-## 效果(Pygame edition)
+## 效果
 
-![img2](docs/img/suopin.png)
-
-![img3](docs/img/desktop.png)
+![Screenshot 2024-05-26 220327](https://github.com/happyleibniz/Python-Operating-System/assets/121920485/b65a99c2-4dd0-4f8f-b283-d7a6b1f13ecc)
+![Screenshot 2024-05-26 220321](https://github.com/happyleibniz/Python-Operating-System/assets/121920485/9d326503-7eb9-4e87-9a81-aea6aebe03b4)
 
 ## 快速开始
 
