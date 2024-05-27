@@ -5,13 +5,11 @@
 <div align="center">
 <p align="center">
     
-  ![img1](docs/img/desktop.png)
-  (↑Pygame edition)
+  ![Screenshot 2024-05-26 220313](https://github.com/happyleibniz/Python-Operating-System/assets/121920485/f7844d03-cf86-44db-b526-043a88f13a19)
   <h3 align="center">PythonOS</h3>   
   <a href="https://github.com/happyleibniz/Python-Operating-System/releases">下载其他版本</a>
     ·
   <a href="https://github.com/Github-Huangshaoqi/PythonOS/issues">报告Bug</a>
-  <a href="https://github.com/happyleibniz/Python-Operating-System/issues">报告Bug2</a>
     ·
   <a href="https://github.com/Github-Huangshaoqi/PythonOS/issues">提出新功能</a>
 </p>
@@ -41,8 +39,8 @@
 
 - ⭐使用 Python 编写，易于理解和修改。
 - ⭐提供基本的操作系统组件，如进程管理、内存管理等。
-- ⭐提供视频播放服务:trollface::trollface::trollface:
-- ~~⭐可拖动pythonOS窗口~~**BUG满天飞**
+- ~~⭐提供视频播放服务~~
+- ⭐可拖动pythonOS窗口
 - ~~:star:支持在模拟环境中运行，方便调试和测试。~~ **还没实现** :trollface:
 
 更多详情请见[docs/wiki.md](docs/wiki.md)
@@ -81,28 +79,27 @@
 
 
 ```bash
-pip install pyglet==2.0.10
+pip install --upgrade pyglet
 ```
 
 ### 运行
 
 ```bash
-python shell_startup.py
+python main.py
 ```
 
 
 ## 项目结构
 
-> - `core/`:System Core folder 📇
-> - `core/assets/PythonOS/images/`:图片文件夹 :flower_playing_cards:
-> - `core/assets/PythonOS/software/`:系统应用文件夹 :computer:
->   - `code/`:用于存储exe应用的源代码文件夹 :computer:
-> - `core/system/`:用于存放系统设置变量或其他配置文件的文件夹 :computer:
+> - `system/`:System folder 📇
+> - `System32/images/`:图片文件夹 :flower_playing_cards:
+~~> - `core/assets/PythonOS/software/`:系统应用文件夹 :computer:~~
+~~> - `core/system/`:用于存放系统设置变量或其他配置文件的文件夹 :computer:~~
 > - `Disk/`:虚拟磁盘文件夹 :floppy_disk:
 
 ## 贡献
 
-你可以[fork](https://github.com/Github-Huangshaoqi/PythonOS/fork)项目到你的仓库更改，然后pull过来 :blush: :tada:
+你可以[fork](https://github.com/Github-Huangshaoqi/PythonOS/项目到你的仓库更改，然后pull过来 :blush: :tada:
 
 ## 许可证
 
