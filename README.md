@@ -35,7 +35,7 @@
 )
 ![license](https://img.shields.io/badge/license-MIT-blue
 )
-
+[![read the docs Documentation Status](https://readthedocs.org/projects/python-os-pyglet-edition/badge/?version=latest)](https://python-os-pyglet-edition.readthedocs.io/en/latest/?badge=latest)
 
 ## 概述（Pygame edition）
 
