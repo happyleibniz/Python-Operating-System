@@ -9,50 +9,14 @@ import time
 import typing
 from typing import TypeVar
 
-import sphinx_autodoc_typehints
-
 # -- Extensions to the  Napoleon GoogleDocstring class ---------------------
 from sphinx.ext.napoleon.docstring import GoogleDocstring
 from sphinx.parsers import RSTParser
 
 
-def parse_attributes_section(self, section):
-    # Combination of _format_fields and _parse_attributes_section to get type hints loaded properly using
-    # the theme and getting the custom name instead of Specifying just 'Variables'
-    field_type = "Class Variables"
-    fields = self._consume_fields()
-
-    field_type = ":%s:" % field_type.strip()
-    padding = " " * len(field_type)
-    multi = len(fields) > 1
-    lines: list[str] = []
-    for _name, _type, _desc in fields:
-        if not _type:
-            _type = self._lookup_annotation(_name)
-            if _name in self._annotations:
-                _type = sphinx_autodoc_typehints.add_type_css_class(
-                   sphinx_autodoc_typehints.format_annotation(self._annotations[_name], self._app.config))
-
-        field = self._format_field(_name, _type, _desc)
-        if multi:
-            if lines:
-                lines.extend(self._format_block(padding + " * ", field))
-            else:
-                lines.extend(self._format_block(field_type + " * ", field))
-        else:
-            lines.extend(self._format_block(field_type + " ", field))
-    if lines and lines[-1]:
-        lines.append("")
-    return lines
-
-
-GoogleDocstring._parse_attributes_section = parse_attributes_section
-
 # Unpatch... the patch.
 def _revert_patch():
     pass
-
-sphinx_autodoc_typehints.patches._patch_google_docstring_lookup_annotation = _revert_patch
 
 # Patch to fix our RST insertion issues.
 class _RstSnippetParser(RSTParser):
@@ -60,8 +24,6 @@ class _RstSnippetParser(RSTParser):
     def decorate(_content) -> None:
         """Override to skip processing rst_epilog/rst_prolog for typing."""
 
-
-sphinx_autodoc_typehints.parser.RSTParser = _RstSnippetParser
 
 def write_build(data, filename):
     with open(os.path.join("internal", filename), "w") as f:
@@ -131,7 +93,6 @@ extensions = ["sphinx.ext.autodoc",
               "sphinx.ext.intersphinx",
               "sphinx.ext.inheritance_diagram",
               "sphinx.ext.todo",
-              "sphinx_autodoc_typehints",
               ]
 
 # Autodoc settings.
@@ -143,11 +104,6 @@ autodoc_class_signature = "separated"
 # Add type hints to description and parameters in docs.
 autodoc_typehints = "signature"
 autodoc_typehints_format = "short"
-
-# Configuration for sphinx_autodoc_typehints
-typehints_use_signature = True
-typehints_use_signature_return = True
-always_use_bars_union = True
 
 # Enable links to Python's main doc
 intersphinx_mapping = {
@@ -375,31 +331,3 @@ python_maximum_signature_line_length = 85
 
 nitpicky = True
 
-def custom_formatter(annotation, config):
-    # Fixes TypeVar bounds, where the bound reference is forward referenced and class cannot be determined.
-    # Defaults to a class style. Seems good enough for now since most bound things are classes.
-    if isinstance(annotation, TypeVar):
-        try:
-            module = sphinx_autodoc_typehints.get_annotation_module(annotation)
-            class_name = sphinx_autodoc_typehints.get_annotation_class_name(annotation, module)
-            args = sphinx_autodoc_typehints.get_annotation_args(annotation, module, class_name)
-        except ValueError:
-            return str(annotation).strip("'")
-        params = {k: getattr(annotation, f"__{k}__") for k in ("bound", "covariant", "contravariant")}
-        params = {k: v for k, v in params.items() if v}
-        if "bound" in params:
-            bound_param = params["bound"]
-            if isinstance(bound_param, typing.ForwardRef):
-                # May be wrong but
-                params["bound"] = f":py:class:`{bound_param.__forward_arg__}`"
-            else:
-                params["bound"] = f"{sphinx_autodoc_typehints.format_annotation(bound_param, config)}"
-        args_format = f"\\(``{annotation.__name__}``{', {}' if args else ''}"
-        if params:
-            args_format += "".join(f", *{k} =* {v}" for k, v in params.items())
-        args_format += ")"
-        formatted_args = None if args else args_format
-        return f":py:class:`TypeVar` {formatted_args}"
-    return None
-
-typehints_formatter = custom_formatter
