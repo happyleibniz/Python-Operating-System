@@ -42,12 +42,13 @@ class Screen(pyglet.window.Window):
             "button": Button(x=380, y=50, image_path="System32/images/button.png", label="Login",
                              on_click_callback=self.func_d),
             "this pc": DesktopButton(x=20, y=500, image_path="System32/images/computer.png", label="Computer",
-                                     on_click_callback=self.func_f, m_arg=("this pc", SysWindow())),
+                                     on_click_callback=self.func_f, m_arg=("this pc", FileExplorerWindow())),
         }
         self.taskbar_apps = {
             'this pc': TaskbarButton(x=50, y=self.sysimg.get("taskbar").y + 1,
                                      image_path="System32/images/computer.png", label="Computer",
-                                     on_click_callback=self.func_f, m_arg=("this pc", SysWindow())),
+                                     on_click_callback=self.func_f, m_arg=("this pc", FileExplorerWindow())),
+
         }
         self.func_c()
         self.progress_bar = ProgressBar(self.width // 2 - 130, self.height // 2 - 40, 200, 10, 100)
@@ -102,6 +103,7 @@ class Screen(pyglet.window.Window):
                 self.sys_menus.get("right click(desktop)").x = self.right_click_menu[0]
                 self.sys_menus.get("right click(desktop)").y = self.right_click_menu[1]
                 self.sys_menus.get("right click(desktop)").draw()
+
             self.sysimg.get("taskbar").draw()
             for i in list(self.taskbar_apps.keys()):
                 self.taskbar_apps.get(i).draw()

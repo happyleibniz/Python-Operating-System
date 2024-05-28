@@ -91,7 +91,7 @@ class Button:
 
 
 class DesktopButton:
-    def __init__(self, x, y, image_path, label, on_click_callback=None,m_arg=("unknown",SysWindow)):
+    def __init__(self, x, y, image_path, label, on_click_callback=None, m_arg=("unknown", SysWindow)):
         self.drawlbl = None
         self.recta = None
         self.lbl = None
@@ -155,11 +155,11 @@ class DesktopButton:
                 and button == pyglet.window.mouse.LEFT
                 and self.on_click_callback
         ):
-            self.on_click_callback(self.more_args[0],self.more_args[1])
+            self.on_click_callback(self.more_args[0], self.more_args[1])
 
 
 class TaskbarButton:
-    def __init__(self, x, y, image_path, label, on_click_callback=None, m_arg=("unknown",SysWindow)):
+    def __init__(self, x, y, image_path, label, on_click_callback=None, m_arg=("unknown", SysWindow)):
         self.recta = None
         self.lbl = None
         self.f = None
@@ -224,4 +224,72 @@ class TaskbarButton:
                 and button == pyglet.window.mouse.LEFT
                 and self.on_click_callback
         ):
-            self.on_click_callback(self.more_args[0],self.more_args[1])
+            self.on_click_callback(self.more_args[0], self.more_args[1])
+
+
+class MenuButton:
+    def __init__(self, x, y, image_path, label, on_click_callback=None, m_arg=("unknown", SysWindow)):
+        self.drawlbl = None
+        self.recta = None
+        self.lbl = None
+        self.f = None
+        self.more_args = m_arg
+        self.target = None
+        self.x = x
+        self.y = y
+        self.img = load_image(image_path)
+        self.label = label
+        self.on_click_callback = on_click_callback
+        self.logo = Sprite(self.img, self.x, self.y)
+        self.logo.width = 64
+        self.logo.height = 64
+        self.width = self.logo.width
+        self.height = self.logo.height
+        self.is_hovered = False
+
+    def draw(self):
+        self.logo.draw()
+        self.draw_lbl()
+
+    def draw_lbl(self):
+        label_x = self.logo.x + self.logo.width // 2
+        label_y = self.logo.y + self.logo.height - 70
+        self.slbl = pyglet.text.Label(
+            self.label,
+            bold=True,
+            font_size=12,
+            x=label_x,
+            y=label_y,
+            anchor_x="center",
+            anchor_y="center",
+        )
+        self.slbl.color = (0, 0, 0, 255)
+        self.slbl.draw()
+        self.lbl = pyglet.text.Label(
+            self.label,
+            font_size=12,
+            bold=True,
+            x=label_x,
+            y=label_y,
+            anchor_x="center",
+            anchor_y="center",
+        )
+        self.lbl.color = (255, 255, 255, 255)
+        self.lbl.draw()
+
+    def on_mouse_motion(self, something, x, y):
+        image_width = self.logo.width
+        image_height = self.logo.height
+        self.is_hovered = self.logo.x + image_width > x > self.logo.x and self.logo.y + image_height > y > self.logo.y
+        if self.is_hovered:
+            self.drawlbl = True
+        else:
+            self.drawlbl = False
+
+    def on_mouse_press(self, something, button):
+        if (
+                self.is_hovered
+                and button == pyglet.window.mouse.LEFT
+                and self.on_click_callback
+        ):
+            self.on_click_callback(self.more_args[0], self.more_args[1])
