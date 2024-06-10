@@ -3,7 +3,7 @@
 <div align="center">
 <p align="center">
     
-  ![img1](docs/img/desktop(2).png)
+  ![img1](docs/img/desktop.png)
   
   <h3 align="center">PythonOS</h3>   
   <a href="https://githubfast.com/happyleibniz/Python-Operating-System/releases">Download other versions</a>
