@@ -10,13 +10,13 @@
     ·
   <a href="https://githubfast.com/happyleibniz/Python-Operating-System/issues">Report Bug</a>
     ·
-  <a href="https://githubfast.com/Github-Huangshaoqi/PythonOS/issues">提出新功能</a>
+  <a href="https://githubfast.com/Github-Huangshaoqi/PythonOS/issues">Propose new features</a>
 </p>
 </div>
 
 <div align="center">
 <p align="center">
-  <a href="https://x.com/@Pythonos2">PythonOS X</a>
+  <a href="https://x.com/@Python_OS"></a>
     ·
   <a href="https://t.me/PythonOS">Telegram</a>
    ·
