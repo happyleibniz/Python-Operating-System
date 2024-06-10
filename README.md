@@ -34,7 +34,7 @@ and free :free:
 
 ## Overview
 
-- :star:使用 Python 编写，易于理解和修改。
+- :star:Written in Python, it is easy to understand and modify.
 - :star:提供基本的操作系统组件，如进程管理、内存管理等。
 - :star:提供视频播放服务:trollface::trollface::trollface:
 
