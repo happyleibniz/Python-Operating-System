@@ -6,11 +6,9 @@
   ![img1](docs/img/desktop(2).png)
   
   <h3 align="center">PythonOS</h3>   
-  <a href="https://githubfast.com/happyleibniz/Python-Operating-System/releases">下载其他版本</a>
+  <a href="https://githubfast.com/happyleibniz/Python-Operating-System/releases">Download other versions</a>
     ·
-  <a href="https://githubfast.com/Github-Huangshaoqi/PythonOS/issues">报告Bug</a>
-  ·
-  <a href="https://githubfast.com/happyleibniz/Python-Operating-System/issues">报告Bug2</a>
+  <a href="https://githubfast.com/happyleibniz/Python-Operating-System/issues">Report Bug</a>
     ·
   <a href="https://githubfast.com/Github-Huangshaoqi/PythonOS/issues">提出新功能</a>
 </p>
