@@ -16,6 +16,8 @@
 
 <div align="center">
 <p align="center">
+  <a href="https://www.xyehr.cn">Website</a>
+    ·
   <a href="https://x.com/@Python_OS">Twitter</a>
     ·
   <a href="https://discord.com/invite/TeWWcmzAnf">Discord</a>
