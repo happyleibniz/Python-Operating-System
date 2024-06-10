@@ -24,7 +24,7 @@
 
 :tada:PythonOS is a simple operating system designed and developed using the Python programming language. All the code is open source, concise and clear, and takes up very little memory.:tada:
 
-而且免费 :free:
+and free :free:
 
 ![python](https://img.shields.io/badge/python-%3E%3D3-brightgreen
 )
