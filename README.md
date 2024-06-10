@@ -6,11 +6,11 @@
   ![img1](docs/img/desktop.png)
   
   <h3 align="center">PythonOS</h3>   
-  <a href="https://githubfast.com/happyleibniz/Python-Operating-System/releases">Download other Edition</a>
+  <a href="https://github.com/happyleibniz/Python-Operating-System/releases">Download other Edition</a>
     ·
-  <a href="https://githubfast.com/happyleibniz/Python-Operating-System/issues">Report Bug</a>
+  <a href="https://github.com/happyleibniz/Python-Operating-System/issues">Report Bug</a>
     ·
-  <a href="https://githubfast.com/Github-Huangshaoqi/PythonOS/issues">Propose new features</a>
+  <a href="https://github.com/Github-Huangshaoqi/PythonOS/issues">Propose new features</a>
 </p>
 </div>
 
