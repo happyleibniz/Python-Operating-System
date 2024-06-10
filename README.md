@@ -36,7 +36,7 @@ and free :free:
 
 - :star:Written in Python, it is easy to understand and modify.
 - :star:Provides basic operating system components, such as process management, memory management, etc.
-- :star:提供视频播放服务:trollface::trollface::trollface:
+- :star:Provide video playback service
 
 更多详情请见[docs/wiki.md](docs/wiki.md)
 
