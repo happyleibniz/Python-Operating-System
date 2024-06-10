@@ -18,7 +18,7 @@
 <p align="center">
   <a href="https://x.com/@Python_OS">Twitter</a>
     ·
-  <a href="https://discord.gg/sbKMNhuvYt">Discord 交流群</a>
+  <a href="https://discord.com/invite/TeWWcmzAnf">Discord </a>
 </p>
 </div>
 
