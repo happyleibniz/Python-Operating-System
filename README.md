@@ -18,7 +18,7 @@
 <p align="center">
   <a href="https://x.com/@Python_OS">Twitter</a>
     ·
-  <a href="https://discord.com/invite/TeWWcmzAnf">Discord </a>
+  <a href="https://discord.com/invite/TeWWcmzAnf">Discord</a>
 </p>
 </div>
 
