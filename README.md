@@ -35,7 +35,7 @@ and free :free:
 ## Overview
 
 - :star:Written in Python, it is easy to understand and modify.
-- :star:提供基本的操作系统组件，如进程管理、内存管理等。
+- :star:Provides basic operating system components, such as process management, memory management, etc.
 - :star:提供视频播放服务:trollface::trollface::trollface:
 
 更多详情请见[docs/wiki.md](docs/wiki.md)
