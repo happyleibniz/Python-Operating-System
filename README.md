@@ -16,10 +16,8 @@
 
 <div align="center">
 <p align="center">
-  <a href="https://x.com/@Python_OS"></a>
+  <a href="https://x.com/@Python_OS">Twitter</a>
     ·
-  <a href="https://t.me/PythonOS">Telegram</a>
-   ·
   <a href="https://discord.gg/sbKMNhuvYt">Discord 交流群</a>
 </p>
 </div>
