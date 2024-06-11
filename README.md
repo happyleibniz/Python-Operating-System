@@ -78,7 +78,7 @@ __You can [fork](https://github.com/happyleibniz/Python-Operating-System/fork) t
 
 __This project uses the MIT protocol__
 
-- :copyright:  Dev-Huang1 2024
+- :copyright:  [Dev-Huang1](https://github.com/Dev-Huang1) 2024
 
 - :copyright:  [happyleibniz](https://githubfast.com/happyleibniz) 2024
 
