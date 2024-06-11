@@ -47,7 +47,7 @@ and free :free:
 - [Quick Start](#Quick-Start)
 - [Project Structure](#Project-Structure)
 - [Contribute](#Contribute)
-- [许可证](#许可证)
+- [License](#License)
 
 ## Effect
 
@@ -76,7 +76,7 @@ __You can [fork](https://github.com/happyleibniz/Python-Operating-System/fork) t
 
 ## License
 
-This project uses the MIT protocol
+__This project uses the MIT protocol__
 
 - :copyright:  Dev-Huang1 2024
 
