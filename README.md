@@ -40,13 +40,14 @@ and free :free:
 - :star:Provides basic operating system components, such as process management, memory management, etc.
 - :star:Provide video playback service
 
-## Overview
+## Table of Contents
 
 - [Overview](#Overview)
 - [Effect](#Effect)
 - [Quick Start](#Quick-Start)
 - [Project Structure](#Project-Structure)
 - [Contribute](#Contribute)
+- [Contact us]()
 - [License](#License)
 
 ## Effect
@@ -73,6 +74,17 @@ __Please see the [Wiki](https://github.com/happyleibniz/Python-Operating-System/
 ## Contribute
 
 __You can [fork](https://github.com/happyleibniz/Python-Operating-System/fork) the project to your repository, make changes, and then pull it over__ 😊 🎉
+
+## Contact us
+
+😚 __If you have any questions or suggestions, please raise an issue or submit a pull request on our [GitHub](https://github.com/happyleibniz/Python-Opreating-System/issue) page.__ 😚
+
+__You can also contact email:__
+
+www@xyehr.cn
+support@xyehr.cn
+
+[Website](www.xyehr.cn) · [Discord Server](https://discord.gg/2fvuvT5nRm) · [Twitter](https://x.com/Python_OS)
 
 ## License
 
