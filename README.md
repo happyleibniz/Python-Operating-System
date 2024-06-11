@@ -78,9 +78,9 @@ __You can [fork](https://github.com/happyleibniz/Python-Operating-System/fork) t
 
 __This project uses the MIT protocol__
 
-- :copyright:  [Dev-Huang1](https://github.com/Dev-Huang1) 2024
+- __:copyright:  [Dev-Huang1](https://github.com/Dev-Huang1) 2024__
 
-- :copyright:  [happyleibniz](https://githubfast.com/happyleibniz) 2024
+- __:copyright:  [happyleibniz](https://github.com/happyleibniz) 2024__
 
-## alpha v1.0版本
-- :copyright:  [happyleibniz](https://githubfast.com/happyleibniz) 2023
+## Pygame Alpha 1 Edition
+- __:copyright:  [happyleibniz](https://github.com/happyleibniz) 2023__
