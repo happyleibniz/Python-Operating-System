@@ -47,7 +47,7 @@ and free :free:
 - [Quick Start](#Quick-Start)
 - [Project Structure](#Project-Structure)
 - [Contribute](#Contribute)
-- [Contact us]()
+- [Contact us](#Contact-us)
 - [License](#License)
 
 ## Effect
@@ -75,7 +75,7 @@ __Please see the [Wiki](https://github.com/happyleibniz/Python-Operating-System/
 
 __You can [fork](https://github.com/happyleibniz/Python-Operating-System/fork) the project to your repository, make changes, and then pull it over__ 😊 🎉
 
-## Contact us
+## Contact-us
 
 😚 __If you have any questions or suggestions, please raise an issue or submit a pull request on our [GitHub](https://github.com/happyleibniz/Python-Opreating-System/issue) page.__ 😚
 
