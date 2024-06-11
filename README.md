@@ -52,9 +52,9 @@ and free :free:
 
 ## Effect
 
-![img2](docs/img/desktop(2).png)
+![img2](docs/img/desktop (2).png)
 
-![img3](docs/img/movie_pro1.png)
+![img3](docs/img/movie pro1.png)
 
 ## Quick-Start
 
