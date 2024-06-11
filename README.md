@@ -45,8 +45,8 @@ and free :free:
 - [Overview](#Overview)
 - [Effect](#Effect)
 - [Quick Start](#Quick-Start)
-- [项目结构](#项目结构)
-- [贡献](#贡献)
+- [Project Structure](#Project-Structure)
+- [Contribute](#Contribute)
 - [许可证](#许可证)
 
 ## Effect
@@ -61,15 +61,17 @@ __Please see the [Wiki](https://github.com/happyleibniz/Python-Operating-System/
 
 
 
-## 项目结构
-> - `font/`:字体文件夹 :capital_abcd:
-> - `images/`:图片文件夹 :flower_playing_cards:
-> - `software/`:系统应用文件夹 :computer:
->   - `code/`:用于存储exe应用的源代码文件夹 :computer:
-> - `system/`:用于存放系统设置变量或其他配置文件的文件夹 :computer:
-> - `Disk/`:虚拟磁盘文件夹 :floppy_disk:
+## Project-Structure
 
-## 贡献
+> - 
+> - 
+> - 
+> - 
+> - 
+> -
+
+## Contribute
+
 你可以[fork](https://githubfast.com/Github-Huangshaoqi/PythonOS/fork)项目到你的仓库更改，然后pull过来 :blush: :tada:
 
 ## 许可证
