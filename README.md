@@ -82,5 +82,7 @@ __This project uses the MIT protocol__
 
 - __:copyright:  [happyleibniz](https://github.com/happyleibniz) 2024__
 
+Read our __[Agreement & Legal Information](https://github.com/happyleibniz/Python-Operating-System/wiki/Agreement-&-Legal-Information)__
+
 ## Pygame Alpha 1 Edition
 - __:copyright:  [happyleibniz](https://github.com/happyleibniz) 2023__
