@@ -72,9 +72,10 @@ __Please see the [Wiki](https://github.com/happyleibniz/Python-Operating-System/
 
 ## Contribute
 
-你可以[fork](https://githubfast.com/Github-Huangshaoqi/PythonOS/fork)项目到你的仓库更改，然后pull过来 :blush: :tada:
+You can [fork](https://github.com/happyleibniz/Python-Operating-System/fork) the project to your repository, make changes, and then pull it over 😊 🎉
 
 ## 许可证
+
 该项目采用 [MIT](https://githubfast.com/Github-Huangshaoqi/PythonOS?tab=MIT-1-ov-file)协议 ![license](https://img.shields.io/badge/license-MIT-blue)
 
 - :copyright:  Github-Huangshaoqi 2024
