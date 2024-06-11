@@ -40,50 +40,25 @@ and free :free:
 - :star:Provides basic operating system components, such as process management, memory management, etc.
 - :star:Provide video playback service
 
-更多详情请见[docs/wiki.md](docs/wiki.md)
+## Overview
 
-## 目录
-
-- [概述](#概述)
-- [效果](#效果)
-- [快速开始](#快速开始)
-  - [环境要求](#环境要求)
-  - [安装依赖](#安装依赖)
-  - [运行](#运行)
+- [Overview](#Overview)
+- [Effect](#Effect)
+- [Quick Start](#Quick-Start)
 - [项目结构](#项目结构)
 - [贡献](#贡献)
 - [许可证](#许可证)
 
-## 效果
+## Effect
 
 ![img2](docs/img/desktop(2).png)
 
 ![img3](docs/img/movie_pro1.png)
 
-## 快速开始
+## Quick-Start
 
-### 环境要求
+__Please see the [Wiki]()__
 
-- Python 3.6+ ![python](https://img.shields.io/badge/python-%3E%3D3-brightgreen
-)
-- 依赖库 [安装依赖](#安装依赖)
-
-### 安装依赖
-
-```bash
-pip install pygame
-pip install psutil
-pip install easygui
-pip install pil
-pip install opencv-python
-pip install ffpyplayer
-```
-
-### 运行
-
-```bash
-python main.py
-```
 
 
 ## 项目结构
