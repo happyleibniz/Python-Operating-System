@@ -13,3 +13,7 @@ __This project is an open source project. This project uses the MIT open source 
 __According to the license, you can disseminate, distribute, modify and republish the project, including personal and commercial use. But you must provide the source code source, including the author, project link, etc., and must use the same open source agreement.__
 
 __If the source code of this project is released as part of the project with your private source code, you can use other agreements, but you must declare the content of the MIT part and declare that this part continues to follow the MIT agreement.__
+
+# Legal Information
+
+__Developers participating in the PythonOS development project work on an independent voluntary unpaid basis. Participation in the project is subject to approval at the discretion of PythonOS. PythonOS may remove developers from the project at any time at its discretion, especially in cases of lack of ethical behavior.__
