@@ -14,6 +14,6 @@ __According to the license, you can disseminate, distribute, modify and republis
 
 __If the source code of this project is released as part of the project with your private source code, you can use other agreements, but you must declare the content of the MIT part and declare that this part continues to follow the MIT agreement.__
 
-# Legal Information
+## Legal Information
 
 __Developers participating in the PythonOS development project work on an independent voluntary unpaid basis. Participation in the project is subject to approval at the discretion of PythonOS. PythonOS may remove developers from the project at any time at its discretion, especially in cases of lack of ethical behavior.__
