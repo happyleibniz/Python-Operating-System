@@ -36,7 +36,9 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;PythonOS-1-Build-1.6.3.51&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/leibniz/Pictures/windows icons/Python-Operating-System&quot;
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/leibniz/Pictures/windows icons/Python-Operating-System&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
   <component name="RecentsManager">
@@ -59,6 +61,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1708840922391</updated>
+      <workItem from="1720606999327" duration="9000" />
     </task>
     <servers />
   </component>
